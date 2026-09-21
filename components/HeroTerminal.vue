@@ -35,7 +35,8 @@
           </div>
         </div>
         
-        <div class="p-5 font-mono text-sm leading-relaxed overflow-y-auto flex-1 h-[300px] md:h-auto">
+        <div class="p-5 font-mono text-sm leading-relaxed overflow-y-auto flex-1 h-[300px] md:h-auto" tabindex="0" role="region" aria-label="Terminal output">
+          <div class="sr-only">Interactive terminal. Press Escape to exit.</div>
           <div class="text-phosphor-emerald mb-2">$ ./init-systems-check.sh</div>
           <div class="text-content-secondary mb-1">>[OK] Edge caching initialized (4.2ms)</div>
           <div class="text-content-secondary mb-1">>[OK] Obsidian Precision tokens mapped</div>

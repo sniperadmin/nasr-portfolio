@@ -12,15 +12,17 @@
     </header>
 
     <!-- Central 3D Viewport (Canvas Container) -->
-    <div id="spatial-canvas-container" class="absolute inset-0 bg-obsidian-base overflow-hidden" ref="canvasContainer">
-      <!-- Three.js or WebGL context injected here -->
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-emerald-phosphor opacity-20">
-        [ 3D Architecture Canvas Rendering ]
+    <ClientOnly>
+      <div id="spatial-canvas-container" class="absolute inset-0 bg-obsidian-base overflow-hidden" ref="canvasContainer" role="img" aria-label="3D Architecture Canvas Rendering">
+        <!-- Three.js or WebGL context injected here -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-emerald-phosphor opacity-20">
+          [ 3D Architecture Canvas Rendering ]
+        </div>
       </div>
-    </div>
+    </ClientOnly>
 
     <!-- Telemetry Panel (Left) -->
-    <aside class="telemetry-panel absolute left-8 top-24 w-80 h-3/4 bg-obsidian-surface/60 backdrop-blur-2xl border border-obsidian-border rounded-lg p-6 z-40">
+    <aside class="telemetry-panel absolute left-8 top-24 w-80 h-3/4 bg-obsidian-surface/60 backdrop-blur-md md:backdrop-blur-2xl border border-obsidian-border rounded-lg p-6 z-40 shadow-lg md:shadow-volumetric">
       <h2 class="text-xl font-semibold text-white mb-6">Telemetry</h2>
       <div class="metric mb-4">
         <div class="text-xs text-gray-400 font-mono mb-1">THROUGHPUT</div>
@@ -33,7 +35,7 @@
     </aside>
 
     <!-- Command Terminal (Right) -->
-    <aside class="command-terminal absolute right-8 top-24 w-96 h-3/4 bg-obsidian-surface/80 backdrop-blur-xl border border-obsidian-border rounded-lg flex flex-col z-40">
+    <aside class="command-terminal absolute right-8 top-24 w-96 h-3/4 bg-obsidian-surface/80 backdrop-blur-md md:backdrop-blur-xl border border-obsidian-border rounded-lg flex flex-col z-40 shadow-lg md:shadow-volumetric">
       <div class="terminal-header p-3 border-b border-obsidian-border text-xs text-gray-500 font-mono flex gap-2">
         <div class="w-2 h-2 rounded-full bg-red-500"></div>
         <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
@@ -46,8 +48,8 @@
         <div class="line mb-2 text-emerald-phosphor">Matrix online.</div>
       </div>
       <div class="terminal-actions p-4 border-t border-obsidian-border flex gap-2">
-        <button class="px-3 py-1 bg-obsidian-base border border-obsidian-border hover:border-emerald-phosphor text-xs font-mono text-gray-400 hover:text-emerald-phosphor transition-colors rounded">--inspect-node</button>
-        <button class="px-3 py-1 bg-obsidian-base border border-obsidian-border hover:border-emerald-phosphor text-xs font-mono text-gray-400 hover:text-emerald-phosphor transition-colors rounded">--deploy-canary</button>
+        <button class="px-3 py-1 bg-obsidian-base border border-obsidian-border hover:border-emerald-phosphor focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-phosphor focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-surface text-xs font-mono text-gray-400 hover:text-emerald-phosphor transition-colors rounded">--inspect-node</button>
+        <button class="px-3 py-1 bg-obsidian-base border border-obsidian-border hover:border-emerald-phosphor focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-phosphor focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian-surface text-xs font-mono text-gray-400 hover:text-emerald-phosphor transition-colors rounded">--deploy-canary</button>
       </div>
     </aside>
   </div>
