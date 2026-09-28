@@ -157,146 +157,21 @@
   <!-- Inline Vector Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338BDF8'/%3E%3Cstop offset='100%25' stop-color='%231D4ED8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23080B14'/%3E%3Cpath d='M8 24V8l16 16V8' stroke='url(%23g)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"/>
 
-  <!-- Calendly Integration -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <!-- Performance Preconnects for Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
 
-  <!-- Material Symbols Outlined -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-  <!-- Fonts: Inter, Public Sans, JetBrains Mono -->
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Public+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Pre-compiled & Purged Production Stylesheet (Zero Runtime Blocking, 40KB raw / 7KB gz) -->
+  <link rel="preload" href="./style.min.css" as="style"/>
+  <link rel="stylesheet" href="./style.min.css"/>
 
-  <!-- Tailwind CSS with configuration -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#007BFF",
-            "primary-container": "#1d4ed8",
-            "secondary": "#10B981",
-            "secondary-container": "#00a572",
-            "tertiary": "#38BDF8",
-            "background": "#080B14",
-            "surface": "#0C1222",
-            "surface-dim": "#080B14",
-            "surface-bright": "#1E293B",
-            "on-surface": "#F1F5F9",
-            "outline": "#334155",
-            "outline-variant": "#1E293B"
-          },
-          fontFamily: {
-            headline: ["Inter", "sans-serif"],
-            display: ["Inter", "sans-serif"],
-            body: ["Inter", "sans-serif"],
-            label: ["Public Sans", "sans-serif"],
-            mono: ["JetBrains Mono", "monospace"]
-          }
-        }
-      }
-    };
-  </script>
-
-  <style>
-    /* Layout Stability & Zero CLS Standards */
-    body {
-      min-height: 100vh;
-      background-color: #080B14;
-      color: #f1f5f9;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    }
-    .tabular-nums {
-      font-variant-numeric: tabular-nums;
-      display: inline-block;
-    }
-
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 1;
-    }
-    
-    /* Cosmic Grid Background */
-    .custom-grid-bg {
-      background-size: 40px 40px;
-      background-image: 
-        linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
-    }
-    
-    /* Glassmorphic Panel Standards */
-    .glass-panel {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(15, 23, 42, 0.55) 100%);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.16);
-    }
-    
-    .glass-panel-elevated {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(13, 20, 38, 0.75) 100%);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.65), 0 0 25px rgba(59, 130, 246, 0.12), inset 0 1px 2px 0 rgba(255, 255, 255, 0.25);
-    }
-
-    .glass-card-interactive {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(15, 23, 42, 0.6) 100%);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.12);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .glass-card-interactive:hover {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(20, 30, 55, 0.7) 100%);
-      border-color: rgba(96, 165, 250, 0.35);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(59, 130, 246, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-    }
-
-    .glass-badge {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
-    }
-
-    .glass-button {
-      background: linear-gradient(135deg, rgba(0, 123, 255, 0.9) 0%, rgba(29, 78, 216, 0.95) 100%);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(147, 197, 253, 0.4);
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35);
-      transition: all 0.2s ease;
-    }
-    .glass-button:hover {
-      box-shadow: 0 0 28px rgba(59, 130, 246, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.5);
-      filter: brightness(1.1);
-      transform: translateY(-1px);
-    }
-
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: rgba(12, 18, 34, 0.6);
-      border-radius: 8px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: rgba(56, 189, 248, 0.3);
-      border-radius: 8px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: rgba(56, 189, 248, 0.6);
-    }
-  </style>
+  <!-- Asynchronous Non-blocking Typography & Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" media="print" onload="this.media='all'"/>
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"/>
+  </noscript>
 </head>
 <body class="bg-[#080B14] text-slate-100 font-body antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden relative">
 
@@ -1389,7 +1264,7 @@
 
         <!-- Embedded Live Calendly Container -->
         <div class="relative w-full rounded-xl overflow-hidden border border-white/10 bg-[#0C1222] min-h-[580px] shadow-inner">
-          <iframe id="calendlyFrame" src="https://calendly.com/nasr_galal?hide_gdpr_banner=1&background_color=0c1222&text_color=ffffff&primary_color=007bff" class="w-full h-[580px] border-0" title="Calendly Scheduling Page" loading="lazy"></iframe>
+          <iframe id="calendlyFrame" data-src="https://calendly.com/nasr_galal?hide_gdpr_banner=1&amp;background_color=0c1222&amp;text_color=ffffff&amp;primary_color=007bff" src="about:blank" class="w-full h-[580px] border-0" title="Calendly Scheduling Page" loading="lazy"></iframe>
         </div>
       </div>
 
@@ -1582,6 +1457,34 @@
       }
     }, 2400);
 
+    // Calendly Lazy Loader
+    function loadCalendlyAssets(cb) {
+      if (!document.getElementById('calendlyCss')) {
+        const link = document.createElement('link');
+        link.id = 'calendlyCss';
+        link.rel = 'stylesheet';
+        link.href = 'https://assets.calendly.com/assets/external/widget.css';
+        document.head.appendChild(link);
+      }
+      if (!window.Calendly && !document.getElementById('calendlyJs')) {
+        const script = document.createElement('script');
+        script.id = 'calendlyJs';
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        if (cb) script.onload = cb;
+        document.body.appendChild(script);
+      } else if (cb) {
+        cb();
+      }
+    }
+
+    function ensureCalendlyIframeLoaded() {
+      const frame = document.getElementById('calendlyFrame');
+      if (frame && frame.dataset.src && (!frame.src || frame.src === 'about:blank' || frame.src === window.location.href)) {
+        frame.src = frame.dataset.src;
+      }
+    }
+
     // Tab Switching Logic
     function switchBookingTab(tab) {
       const tabCalendar = document.getElementById('tabContentCalendar');
@@ -1596,6 +1499,8 @@
       const inactiveClass = "flex-1 py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all font-medium text-slate-400 hover:text-slate-200";
 
       if (tab === 'calendar') {
+        ensureCalendlyIframeLoaded();
+        loadCalendlyAssets();
         if (tabCalendar) tabCalendar.classList.remove('hidden');
         if (tabRfp) tabRfp.classList.add('hidden');
         if (tabDirect) tabDirect.classList.add('hidden');
@@ -1656,13 +1561,22 @@
     }
 
     function openCalendlyFullscreen() {
-      if (window.Calendly) {
-        Calendly.initPopupWidget({
-          url: 'https://calendly.com/nasr_galal?hide_gdpr_banner=1&background_color=080B14&text_color=ffffff&primary_color=007BFF'
-        });
-      } else {
-        window.open('https://calendly.com/nasr_galal', '_blank', 'noopener,noreferrer');
-      }
+      loadCalendlyAssets(() => {
+        if (window.Calendly) {
+          Calendly.initPopupWidget({
+            url: 'https://calendly.com/nasr_galal?hide_gdpr_banner=1&background_color=080B14&text_color=ffffff&primary_color=007BFF'
+          });
+        } else {
+          window.open('https://calendly.com/nasr_galal', '_blank', 'noopener,noreferrer');
+        }
+      });
+    }
+
+    // Idle-prefetch Calendly assets after 4 seconds for instant user response
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => setTimeout(loadCalendlyAssets, 4000));
+    } else {
+      setTimeout(loadCalendlyAssets, 4000);
     }
 
     function toggleMobileNav() {
