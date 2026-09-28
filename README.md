@@ -64,5 +64,6 @@ python3 -m http.server 8080
 
 ## 📬 Contact & Consultations
 - **CTO & Architect**: Nasr Galal (Nash)
-- **Email**: [nasrbue@gmail.com](mailto:nasrbue@gmail.com)
+- **Live Scheduling**: [calendly.com/nasr_galal](https://calendly.com/nasr_galal)
+- **Email**: `nasrbue@gmail.com`
 - **GitHub**: [@sniperadmin](https://github.com/sniperadmin)

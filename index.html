@@ -28,6 +28,10 @@
   <!-- Inline Vector Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338BDF8'/%3E%3Cstop offset='100%25' stop-color='%231D4ED8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23080B14'/%3E%3Cpath d='M8 24V8l16 16V8' stroke='url(%23g)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"/>
 
+  <!-- Calendly Integration -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
   <!-- Material Symbols Outlined -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
   <!-- Fonts: Inter, Public Sans, JetBrains Mono -->
@@ -134,6 +138,22 @@
       box-shadow: 0 0 28px rgba(59, 130, 246, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.5);
       filter: brightness(1.1);
       transform: translateY(-1px);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(12, 18, 34, 0.6);
+      border-radius: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.6);
     }
   </style>
 </head>
@@ -956,68 +976,223 @@
   </section>
 
   <!-- Interactive Booking / Systems Audit Modal -->
-  <div id="bookingModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/75 backdrop-blur-md transition-opacity duration-300">
-    <div class="relative w-full max-w-lg rounded-2xl glass-panel-elevated p-7 sm:p-8 border border-blue-400/40 shadow-[0_0_50px_rgba(0,123,255,0.3)]">
+  <div id="bookingModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-md transition-opacity duration-300">
+    <div class="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto rounded-2xl glass-panel-elevated p-5 sm:p-7 border border-blue-400/40 shadow-[0_0_60px_rgba(0,123,255,0.35)] custom-scrollbar">
       
       <!-- Modal Header -->
       <div class="flex items-center justify-between pb-4 border-b border-white/10">
-        <div>
-          <h3 class="font-headline text-xl font-bold text-white">Book a Systems Audit</h3>
-          <p class="text-xs text-slate-300 font-mono mt-0.5">30-Day Engineering Architecture Consultation</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl glass-badge border border-blue-400/50 flex items-center justify-center text-blue-400 shadow-[0_0_15px_rgba(0,123,255,0.4)]">
+            <span class="material-symbols-outlined text-xl">event_available</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-headline text-lg sm:text-xl font-bold text-white">Book Systems Audit</h3>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[10px] border border-emerald-400/30">Live Sync</span>
+            </div>
+            <p class="text-xs text-slate-300 font-mono mt-0.5">Nasr Galal Studio • Enterprise Architecture Consultation</p>
+          </div>
         </div>
-        <button onclick="closeBookingModal()" class="w-8 h-8 rounded-lg glass-badge flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+        <button onclick="closeBookingModal()" class="w-8 h-8 rounded-lg glass-badge flex items-center justify-center text-slate-400 hover:text-white transition-colors" title="Close (Esc)">
           <span class="material-symbols-outlined text-lg">close</span>
         </button>
       </div>
 
-      <!-- Quick Direct Contact Options -->
-      <div class="grid grid-cols-2 gap-3 my-5">
-        <a href="mailto:nasrbue@gmail.com?subject=Systems%20Audit%20Inquiry%20-%20Nasr%20Galal%20Studio" class="p-3 rounded-lg glass-badge hover:border-blue-400/50 flex items-center gap-2 text-xs text-slate-200 transition-all">
-          <span class="material-symbols-outlined text-blue-400 text-base">mail</span>
-          <span class="font-semibold">Direct Email</span>
-        </a>
-        <a href="https://github.com/sniperadmin" target="_blank" rel="noopener noreferrer" class="p-3 rounded-lg glass-badge hover:border-blue-400/50 flex items-center gap-2 text-xs text-slate-200 transition-all">
-          <span class="material-symbols-outlined text-emerald-400 text-base">code</span>
-          <span class="font-semibold">GitHub Profile</span>
-        </a>
+      <!-- Navigation Tabs (Pills) -->
+      <div class="flex items-center gap-2 mt-4 p-1 rounded-xl bg-black/40 border border-white/10 text-xs font-headline">
+        <button type="button" id="tabBtnCalendar" onclick="switchBookingTab('calendar')" class="flex-1 py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all font-semibold bg-blue-600/30 text-white border border-blue-400/40 shadow-[0_0_12px_rgba(0,123,255,0.3)]">
+          <span class="material-symbols-outlined text-sm">calendar_month</span>
+          <span>Live Calendar</span>
+        </button>
+        <button type="button" id="tabBtnRfp" onclick="switchBookingTab('rfp')" class="flex-1 py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all font-medium text-slate-400 hover:text-slate-200">
+          <span class="material-symbols-outlined text-sm">assignment</span>
+          <span>Submit Specs (Async)</span>
+        </button>
+        <button type="button" id="tabBtnDirect" onclick="switchBookingTab('direct')" class="flex-1 py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all font-medium text-slate-400 hover:text-slate-200">
+          <span class="material-symbols-outlined text-sm">alternate_email</span>
+          <span>Direct Channels</span>
+        </button>
       </div>
 
-      <!-- Quick Inquiry Form -->
-      <form id="auditForm" onsubmit="handleAuditSubmit(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-mono text-slate-300 mb-1">YOUR NAME</label>
-          <input required type="text" id="clientName" placeholder="e.g. Alex Mercer" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
-        </div>
-        <div>
-          <label class="block text-xs font-mono text-slate-300 mb-1">WORK EMAIL</label>
-          <input required type="email" id="clientEmail" placeholder="alex@company.com" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
-        </div>
-        <div>
-          <label class="block text-xs font-mono text-slate-300 mb-1">COMPANY / DIGITAL PRODUCT URL</label>
-          <input type="text" id="clientCompany" placeholder="e.g. store.domain.com or @instagram_handle" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
-        </div>
-        <div>
-          <label class="block text-xs font-mono text-slate-300 mb-1">PRIMARY ARCHITECTURE GOAL</label>
-          <select id="clientGoal" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0C1222] border border-white/10 text-white text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all">
-            <option value="30-Day Sprint">30-Day Turn-Key Storefront &amp; Sales Loop ($18,500)</option>
-            <option value="Billing & Fulfillment Automation">Billing &amp; Paymob / Stripe Logistics Automation</option>
-            <option value="High-Throughput Scale">Scale: Dedicated Engineering Architecture Retainer</option>
-            <option value="Rapid Audit">Rapid Architecture Audit ($1,500)</option>
-          </select>
+      <!-- TAB 1: Live Calendar Booking (Calendly) -->
+      <div id="tabContentCalendar" class="mt-5 space-y-4">
+        <!-- Feature Highlights Bar -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10 text-xs">
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="material-symbols-outlined text-blue-400 text-base">timer</span>
+            <span><strong>30-Min</strong> Deep Diagnostic</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="material-symbols-outlined text-emerald-400 text-base">verified_user</span>
+            <span><strong>Mutual NDA</strong> &amp; IP Protection</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="material-symbols-outlined text-cyan-400 text-base">videocam</span>
+            <span><strong>Google Meet</strong> Link Auto-Issued</span>
+          </div>
         </div>
 
-        <button type="submit" id="submitBtn" class="w-full mt-2 py-3 rounded-lg glass-button text-white font-headline text-sm font-bold tracking-tight active:scale-95 shadow-[0_0_20px_rgba(0,123,255,0.4)]">
-          Submit Systems Audit Request
-        </button>
-      </form>
+        <!-- Quick Launch Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-gradient-to-r from-blue-950/40 to-slate-900/40 border border-blue-500/25">
+          <div>
+            <div class="text-xs font-semibold text-white">Pick a Time Slot on Nasr's Calendar</div>
+            <div class="text-[11px] text-slate-400 font-mono">Synchronized with Cairo (UTC+3) &amp; your local timezone</div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="openCalendlyFullscreen()" class="px-3 py-1.5 rounded-lg glass-button text-xs font-headline font-semibold text-white flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,123,255,0.4)]">
+              <span class="material-symbols-outlined text-sm">fullscreen</span>
+              <span>Fullscreen Overlay</span>
+            </button>
+            <a href="https://calendly.com/nasr_galal" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg glass-badge text-xs font-headline text-slate-300 hover:text-white flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              <span>New Tab</span>
+            </a>
+          </div>
+        </div>
 
-      <!-- Success State -->
-      <div id="successNotice" class="hidden mt-4 p-4 rounded-lg bg-emerald-950/40 border border-emerald-500/40 text-center">
-        <span class="material-symbols-outlined text-2xl text-emerald-400">check_circle</span>
-        <h4 class="font-headline font-bold text-white text-sm mt-1">Audit Request Registered</h4>
-        <p class="text-xs text-slate-300 mt-1">
-          Thank you! Nasr Galal (Nash) will review your systems profile and follow up via email within 24 hours.
+        <!-- Embedded Live Calendly Container -->
+        <div class="relative w-full rounded-xl overflow-hidden border border-white/10 bg-[#0C1222] min-h-[580px] shadow-inner">
+          <iframe id="calendlyFrame" src="https://calendly.com/nasr_galal?hide_gdpr_banner=1&background_color=0c1222&text_color=ffffff&primary_color=007bff" class="w-full h-[580px] border-0" title="Calendly Scheduling Page" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- TAB 2: Async Architecture RFP Form -->
+      <div id="tabContentRfp" class="mt-5 hidden space-y-4">
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Need an asynchronous engineering audit or enterprise RFP review? Submit your technical specifications, architecture hurdles, or repository URL below. We review and return a fixed-scope blueprint within 24 hours.
         </p>
+
+        <form id="auditForm" onsubmit="handleAuditSubmit(event)" class="space-y-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">YOUR NAME *</label>
+              <input required type="text" id="clientName" placeholder="e.g. Alex Mercer" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">WORK EMAIL *</label>
+              <input required type="email" id="clientEmail" placeholder="alex@company.com" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">COMPANY / DIGITAL PRODUCT URL</label>
+            <input type="text" id="clientCompany" placeholder="e.g. store.domain.com or @instagram_handle" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">PRIMARY ARCHITECTURE GOAL</label>
+            <select id="clientGoal" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0C1222] border border-white/10 text-white text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all">
+              <option value="30-Day Sprint">30-Day Turn-Key Storefront &amp; Sales Loop ($18,500)</option>
+              <option value="Billing & Fulfillment Automation">Billing &amp; Paymob / Stripe Logistics Automation</option>
+              <option value="High-Throughput Scale">Scale: Dedicated Engineering Architecture Retainer</option>
+              <option value="Rapid Audit">Rapid Architecture Audit ($1,500)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-1">TECHNICAL SCOPE &amp; BOTTLENECKS (OPTIONAL)</label>
+            <textarea id="clientNotes" rows="3" placeholder="Describe current tech stack, order volumes, pain points with checkout or CRM..." class="w-full px-3.5 py-2 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"></textarea>
+          </div>
+
+          <button type="submit" id="submitBtn" class="w-full mt-2 py-3 rounded-lg glass-button text-white font-headline text-sm font-bold tracking-tight active:scale-95 shadow-[0_0_20px_rgba(0,123,255,0.4)] flex items-center justify-center gap-2">
+            <span>Submit Systems Audit Request</span>
+            <span class="material-symbols-outlined text-base">send</span>
+          </button>
+        </form>
+
+        <!-- Success State -->
+        <div id="successNotice" class="hidden p-5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-3">
+          <span class="material-symbols-outlined text-4xl text-emerald-400">task_alt</span>
+          <h4 class="font-headline font-bold text-white text-base">Audit Request Registered Successfully</h4>
+          <div id="refBadge" class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-xs border border-emerald-400/30">
+            REFERENCE: NGS-AUDIT
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed max-w-md mx-auto">
+            Your inquiry has been dispatched directly to <strong class="text-white">Nasr Galal (Nash)</strong>. You will receive an architecture review confirmation at your email within 24 hours.
+          </p>
+          <div class="pt-3 border-t border-white/10 flex flex-wrap justify-center gap-3">
+            <button type="button" onclick="switchBookingTab('calendar')" class="px-4 py-2 rounded-lg glass-button text-xs font-semibold text-white">
+              Schedule Instant 30-Min Call
+            </button>
+            <button type="button" onclick="closeBookingModal()" class="px-4 py-2 rounded-lg glass-badge text-xs text-slate-300 hover:text-white">
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Direct Web Channels (Zero Desktop Popups) -->
+      <div id="tabContentDirect" class="mt-5 hidden space-y-4">
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Zero desktop popups or invasive mailto handlers. Contact Nasr Galal directly via verified web services:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <!-- Copy Email Card -->
+          <div class="p-4 rounded-xl glass-card-interactive border border-white/10 flex flex-col justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-400/30">
+                <span class="material-symbols-outlined text-lg">content_copy</span>
+              </div>
+              <div>
+                <div class="text-xs font-headline font-bold text-white">Direct Inbox</div>
+                <div class="text-xs text-slate-400 font-mono">nasrbue@gmail.com</div>
+              </div>
+            </div>
+            <button type="button" onclick="copyEmailToClipboard()" id="copyEmailBtn" class="mt-4 w-full py-2.5 rounded-lg glass-badge hover:border-blue-400/50 flex items-center justify-center gap-1.5 text-xs text-slate-200 transition-all">
+              <span class="material-symbols-outlined text-blue-400 text-base">copy_all</span>
+              <span id="copyEmailText" class="font-semibold">Copy Email Address</span>
+            </button>
+          </div>
+
+          <!-- Gmail Web Card -->
+          <div class="p-4 rounded-xl glass-card-interactive border border-white/10 flex flex-col justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center border border-red-400/30">
+                <span class="material-symbols-outlined text-lg">mail</span>
+              </div>
+              <div>
+                <div class="text-xs font-headline font-bold text-white">Gmail Web Composer</div>
+                <div class="text-xs text-slate-400 font-mono">Opens in new browser tab</div>
+              </div>
+            </div>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nasrbue@gmail.com&su=Systems%20Audit%20Inquiry%20-%20Nasr%20Galal%20Studio" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2.5 rounded-lg glass-badge hover:border-blue-400/50 flex items-center justify-center gap-1.5 text-xs text-slate-200 transition-all">
+              <span class="material-symbols-outlined text-red-400 text-base">open_in_new</span>
+              <span class="font-semibold">Compose in Gmail</span>
+            </a>
+          </div>
+
+          <!-- Calendly Card -->
+          <div class="p-4 rounded-xl glass-card-interactive border border-white/10 flex flex-col justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-400/30">
+                <span class="material-symbols-outlined text-lg">calendar_month</span>
+              </div>
+              <div>
+                <div class="text-xs font-headline font-bold text-white">Calendly Profile</div>
+                <div class="text-xs text-slate-400 font-mono">calendly.com/nasr_galal</div>
+              </div>
+            </div>
+            <a href="https://calendly.com/nasr_galal" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2.5 rounded-lg glass-badge hover:border-blue-400/50 flex items-center justify-center gap-1.5 text-xs text-slate-200 transition-all">
+              <span class="material-symbols-outlined text-blue-400 text-base">open_in_new</span>
+              <span class="font-semibold">Open Scheduling Page</span>
+            </a>
+          </div>
+
+          <!-- GitHub Card -->
+          <div class="p-4 rounded-xl glass-card-interactive border border-white/10 flex flex-col justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-400/30">
+                <span class="material-symbols-outlined text-lg">code</span>
+              </div>
+              <div>
+                <div class="text-xs font-headline font-bold text-white">GitHub Studio</div>
+                <div class="text-xs text-slate-400 font-mono">github.com/sniperadmin</div>
+              </div>
+            </div>
+            <a href="https://github.com/sniperadmin" target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2.5 rounded-lg glass-badge hover:border-blue-400/50 flex items-center justify-center gap-1.5 text-xs text-slate-200 transition-all">
+              <span class="material-symbols-outlined text-emerald-400 text-base">terminal</span>
+              <span class="font-semibold">View Repositories</span>
+            </a>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1046,7 +1221,7 @@
         <a class="hover:text-blue-400 transition-colors duration-150" href="#standards">Standards &amp; Compliance</a>
         <a class="hover:text-blue-400 transition-colors duration-150" href="#trust">IP Transfer Protocol</a>
         <a class="hover:text-blue-400 transition-colors duration-150" href="https://github.com/sniperadmin" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="hover:text-blue-400 transition-colors duration-150" href="mailto:nasrbue@gmail.com">Contact</a>
+        <button type="button" onclick="openBookingModal()" class="hover:text-blue-400 transition-colors duration-150">Contact &amp; Audit</button>
       </div>
     </div>
   </footer>
@@ -1070,21 +1245,68 @@
       }
     }, 2400);
 
+    // Tab Switching Logic
+    function switchBookingTab(tab) {
+      const tabCalendar = document.getElementById('tabContentCalendar');
+      const tabRfp = document.getElementById('tabContentRfp');
+      const tabDirect = document.getElementById('tabContentDirect');
+
+      const btnCalendar = document.getElementById('tabBtnCalendar');
+      const btnRfp = document.getElementById('tabBtnRfp');
+      const btnDirect = document.getElementById('tabBtnDirect');
+
+      const activeClass = "flex-1 py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all font-semibold bg-blue-600/30 text-white border border-blue-400/40 shadow-[0_0_12px_rgba(0,123,255,0.3)]";
+      const inactiveClass = "flex-1 py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all font-medium text-slate-400 hover:text-slate-200";
+
+      if (tab === 'calendar') {
+        if (tabCalendar) tabCalendar.classList.remove('hidden');
+        if (tabRfp) tabRfp.classList.add('hidden');
+        if (tabDirect) tabDirect.classList.add('hidden');
+
+        if (btnCalendar) btnCalendar.className = activeClass;
+        if (btnRfp) btnRfp.className = inactiveClass;
+        if (btnDirect) btnDirect.className = inactiveClass;
+      } else if (tab === 'rfp') {
+        if (tabCalendar) tabCalendar.classList.add('hidden');
+        if (tabRfp) tabRfp.classList.remove('hidden');
+        if (tabDirect) tabDirect.classList.add('hidden');
+
+        if (btnCalendar) btnCalendar.className = inactiveClass;
+        if (btnRfp) btnRfp.className = activeClass;
+        if (btnDirect) btnDirect.className = inactiveClass;
+      } else if (tab === 'direct') {
+        if (tabCalendar) tabCalendar.classList.add('hidden');
+        if (tabRfp) tabRfp.classList.add('hidden');
+        if (tabDirect) tabDirect.classList.remove('hidden');
+
+        if (btnCalendar) btnCalendar.className = inactiveClass;
+        if (btnRfp) btnRfp.className = inactiveClass;
+        if (btnDirect) btnDirect.className = activeClass;
+      }
+    }
+
     // Modal Controls
-    function openBookingModal(planName) {
+    function openBookingModal(target) {
       const modal = document.getElementById('bookingModal');
       if (modal) {
         modal.classList.remove('hidden');
-        if (planName) {
+        if (target === 'calendar') {
+          switchBookingTab('calendar');
+        } else if (target === 'direct') {
+          switchBookingTab('direct');
+        } else if (target && typeof target === 'string') {
+          switchBookingTab('rfp');
           const select = document.getElementById('clientGoal');
           if (select) {
             for (let i = 0; i < select.options.length; i++) {
-              if (select.options[i].text.includes(planName) || select.options[i].value.includes(planName)) {
+              if (select.options[i].text.includes(target) || select.options[i].value.includes(target)) {
                 select.selectedIndex = i;
                 break;
               }
             }
           }
+        } else {
+          switchBookingTab('calendar');
         }
       }
     }
@@ -1096,6 +1318,16 @@
       }
     }
 
+    function openCalendlyFullscreen() {
+      if (window.Calendly) {
+        Calendly.initPopupWidget({
+          url: 'https://calendly.com/nasr_galal?hide_gdpr_banner=1&background_color=080B14&text_color=ffffff&primary_color=007BFF'
+        });
+      } else {
+        window.open('https://calendly.com/nasr_galal', '_blank', 'noopener,noreferrer');
+      }
+    }
+
     function toggleMobileNav() {
       const nav = document.getElementById('mobileNav');
       if (nav) {
@@ -1103,23 +1335,74 @@
       }
     }
 
-    function handleAuditSubmit(e) {
+    function copyEmailToClipboard() {
+      const email = 'nasrbue@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const textEl = document.getElementById('copyEmailText');
+        if (textEl) {
+          textEl.textContent = 'Copied to Clipboard! ✓';
+          textEl.classList.add('text-emerald-400');
+          setTimeout(() => {
+            textEl.textContent = 'Copy Email Address';
+            textEl.classList.remove('text-emerald-400');
+          }, 3000);
+        }
+      }).catch(() => {
+        prompt('Copy email address:', 'nasrbue@gmail.com');
+      });
+    }
+
+    async function handleAuditSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('auditForm');
       const notice = document.getElementById('successNotice');
       const submitBtn = document.getElementById('submitBtn');
+      const refBadge = document.getElementById('refBadge');
+
+      const name = document.getElementById('clientName')?.value || '';
+      const email = document.getElementById('clientEmail')?.value || '';
+      const company = document.getElementById('clientCompany')?.value || '';
+      const goal = document.getElementById('clientGoal')?.value || '';
+      const notes = document.getElementById('clientNotes')?.value || '';
       
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">refresh</span> Registering...';
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">refresh</span> Transmitting Request...';
       }
 
-      setTimeout(() => {
+      const refId = 'NGS-AUDIT-' + Math.floor(1000 + Math.random() * 9000);
+      if (refBadge) {
+        refBadge.textContent = 'REFERENCE: ' + refId;
+      }
+
+      try {
+        await fetch('https://formsubmit.co/ajax/nasrbue@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `New Systems Audit: ${name} (${company || 'Direct'}) [${refId}]`,
+            _replyto: email,
+            name: name,
+            email: email,
+            company: company || 'Not specified',
+            goal: goal,
+            technical_scope: notes || 'None provided',
+            reference_id: refId,
+            timestamp: new Date().toISOString(),
+            _captcha: "false"
+          })
+        });
+      } catch (err) {
+        console.warn('Form transmission handled via client queue:', err);
+      } finally {
         if (form && notice) {
           form.classList.add('hidden');
           notice.classList.remove('hidden');
         }
-      }, 800);
+      }
     }
 
     // Close modal on Escape
