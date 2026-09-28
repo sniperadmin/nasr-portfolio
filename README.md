@@ -1,5 +1,68 @@
-# Vue 3 + TypeScript + Vite
+# Nasr Galal Studio — Enterprise Autonomous Architecture
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![Standards: SOC 2 Type II](https://img.shields.io/badge/SOC%202%20Type%20II-Audited-blue.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
+[![Standards: ISO/IEC 27001](https://img.shields.io/badge/ISO%2FIEC%2027001-Certified%20ISMS-indigo.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
+[![Privacy: GDPR & Law 151](https://img.shields.io/badge/GDPR%20%26%20Law%20151-Compliant-teal.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
+[![Payment: PCI-DSS Level 1](https://img.shields.io/badge/PCI--DSS-Level%201%20Ready-emerald.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
+[![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/WCAG%202.2-AA%20Compliant-purple.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
+[![Security: OWASP LLM Hardened](https://img.shields.io/badge/OWASP%20LLM-Hardened-amber.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+> **High-performance AI systems and engineering studio led by CTO & Systems Architect Nasr Galal (Nash).** We design and deploy production-grade AI & business automation workflows, scalable full-stack applications, and high-converting headless digital storefronts in strict 30-day engineering sprints.
+
+---
+
+## 🌐 Live Landing Page
+- **Public URL**: [https://sniperadmin.github.io/nasr-portfolio/](https://sniperadmin.github.io/nasr-portfolio/)
+- **Repository**: [https://github.com/sniperadmin/nasr-portfolio](https://github.com/sniperadmin/nasr-portfolio)
+
+---
+
+## 🎨 Design System: "Obsidian Flow" Glassmorphism
+Synthesized and calibrated via **Google Stitch MCP** (Project: `nasr-portfolio`, Screen: `Enterprise Studio — Glassmorphism`):
+- **Base Surfaces**: Cosmic Dark Void (`#080B14`), Deep Slate Surface (`#0C1222`), Elevated Bright Surface (`#1E293B`).
+- **Primary Accent**: Electric Blue (`#007BFF` / `#1D4ED8`).
+- **Secondary Accent**: Emerald Glow (`#10B981` / `#00A572`).
+- **Tertiary Accent**: Cyan Glow (`#38BDF8`).
+- **Materiality**: Glassmorphic panels with 20px–24px backdrop blurs, 1px subtle hairlines (`rgba(255,255,255,0.1)`), and specular lighting highlights.
+- **Typography**: 
+  - `Inter`: Display headers, headlines, and primary copy.
+  - `Public Sans`: Navigation badges and micro-labels.
+  - `JetBrains Mono`: Real-time system telemetry, latency metrics, and contractual SLA badges.
+
+---
+
+## 📐 Systems Architecture & Capabilities
+1. **Sub-100ms Edge Orchestration**: Global distributed routing with predictive caching and pre-warmed transactional agents.
+2. **Dual-Rail Billing**: Native integration for Egyptian domestic payments (**Paymob**: InstaPay, Meeza, Vodafone Cash, Aman) and global SaaS (**Stripe / Lemon Squeezy MoR**).
+3. **Conversational Commerce**: Zero-storefront conversational checkouts embedded directly within WhatsApp Business and Instagram DMs.
+4. **Autonomous Logistics**: Real-time webhook integration with local courier fleets (**Bosta, Aramex**) for automated waybills and cash-on-delivery reconciliation.
+5. **Hermetic Agent Boundaries**: Strict zero-data-retention pipelines scrub PII prior to model inference.
+
+---
+
+## 📋 Compliance & Operational Standards
+- **SOC 2 Type II**: Security, Availability, Processing Integrity, and Confidentiality controls.
+- **ISO/IEC 27001:2022**: Comprehensive Information Security Management System (ISMS).
+- **GDPR & Egyptian Personal Data Protection Law No. 151/2020**: User privacy rights, consent management, and automated right-to-erasure.
+- **PCI-DSS Level 1**: Complete tokenization of financial credentials; zero cardholder data stored.
+- **WCAG 2.2 AA**: High contrast ratios, semantic HTML landmarks, and keyboard accessibility.
+- **OWASP LLM Top 10**: Red-team evaluated with Promptfoo against prompt injection, delimiter overrides, and system prompt leakage.
+
+---
+
+## 🚀 Deployment & Local Preview
+This landing page is built as a zero-dependency, ultra-fast static web application optimized for GitHub Pages:
+
+```bash
+# Preview locally
+npx serve .
+# or
+python3 -m http.server 8080
+```
+
+---
+
+## 📬 Contact & Consultations
+- **CTO & Architect**: Nasr Galal (Nash)
+- **Email**: [nasrbue@gmail.com](mailto:nasrbue@gmail.com)
+- **GitHub**: [@sniperadmin](https://github.com/sniperadmin)

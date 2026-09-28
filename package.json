@@ -1,22 +1,12 @@
 {
-  "name": "nasr-portfolio-temp",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "nasr-portfolio",
+  "version": "2.0.0",
+  "description": "Nasr Galal Studio — Enterprise Autonomous Architecture & AI Systems Landing Page",
+  "homepage": "https://sniperadmin.github.io/nasr-portfolio/",
+  "author": "Nasr Galal (Nash)",
+  "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.5.42"
-  },
-  "devDependencies": {
-    "@types/node": "^24.13.3",
-    "@vitejs/plugin-vue": "^6.0.8",
-    "@vue/tsconfig": "^0.9.1",
-    "typescript": "~6.0.2",
-    "vite": "^8.3.0",
-    "vue-tsc": "^3.3.11"
+    "dev": "npx serve .",
+    "preview": "npx serve ."
   }
 }
