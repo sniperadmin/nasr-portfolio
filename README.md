@@ -41,6 +41,8 @@ Synthesized and calibrated via **Google Stitch MCP** (Project: `nasr-portfolio`,
 ---
 
 ## 📋 Compliance & Operational Standards
+- **GEO (Generative Engine Optimization)**: Engineered for AI answer engines (ChatGPT, Perplexity, Claude, Gemini, Copilot) with 3-layer content architecture, `robots.txt` AI crawler directives, and `Claim → Proof → Date → Source` citation blocks.
+- **JSON-LD Schema Markup**: Full `@graph` specification including `Organization`, `ProfessionalService`, `Person`, `OfferCatalog`, and `FAQPage` rich results.
 - **SOC 2 Type II**: Security, Availability, Processing Integrity, and Confidentiality controls.
 - **ISO/IEC 27001:2022**: Comprehensive Information Security Management System (ISMS).
 - **GDPR & Egyptian Personal Data Protection Law No. 151/2020**: User privacy rights, consent management, and automated right-to-erasure.

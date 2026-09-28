@@ -1,0 +1,48 @@
+# robots.txt for Nasr Galal Studio (GEO & AI Crawler Optimized)
+# Standards: Generative Engine Optimization (GEO) Protocol
+
+User-agent: *
+Allow: /
+
+# OpenAI Crawlers & Search
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude Crawlers
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity AI Search Engine
+User-agent: PerplexityBot
+Allow: /
+
+# Google Search & Gemini / Vertex AI
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+Allow: /
+
+# General Common Crawl (Used by open source LLMs)
+User-agent: CCBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap Reference
+Sitemap: https://sniperadmin.github.io/nasr-portfolio/sitemap.xml
