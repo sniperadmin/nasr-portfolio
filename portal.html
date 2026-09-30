@@ -164,128 +164,253 @@
       width: 100%;
     }
 
-    /* Hero section */
-    .hero {
-      text-align: center;
-      margin-bottom: 3.5rem;
+    /* Executive Terminal Banner */
+    .terminal-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      background: linear-gradient(135deg, rgba(20, 26, 40, 0.85) 0%, rgba(13, 17, 27, 0.95) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
-    .hero-eyebrow {
+    .terminal-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    }
+    @media (max-width: 900px) {
+      .terminal-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .terminal-lookup-card {
+        width: 100%;
+      }
+    }
+    .terminal-banner-main {
+      flex: 1;
+      max-width: 680px;
+    }
+    .terminal-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-family: var(--font-mono);
-      color: var(--gold);
-      background: var(--gold-glow);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      padding: 4px 12px;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 4px 10px;
       border-radius: 20px;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
     }
-    .hero-title {
-      font-size: clamp(2rem, 4vw, 3.2rem);
+    .terminal-title {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
       font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-      background: linear-gradient(180deg, #fff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: #fff;
     }
-    .hero-subtitle {
-      font-size: 1.1rem;
+    .terminal-sub {
+      font-size: 0.84rem;
       color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 2rem;
+      line-height: 1.5;
+      margin: 0;
     }
 
-    /* Metrics ticker */
-    .metrics-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 3.5rem;
-    }
-    .metric-card {
-      background: var(--bg-surface);
+    /* Terminal Quick Order Lookup */
+    .terminal-lookup-card {
+      background: rgba(13, 17, 27, 0.7);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1.25rem;
-      text-align: center;
+      padding: 1.1rem 1.25rem;
+      min-width: 290px;
+      flex-shrink: 0;
     }
-    .metric-val {
-      font-size: 1.8rem;
-      font-weight: 800;
+    .lookup-label {
+      font-size: 0.72rem;
+      font-weight: 700;
       font-family: var(--font-mono);
-      color: var(--cyan);
-    }
-    .metric-lbl {
-      font-size: 0.78rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-top: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .lookup-input-group {
+      display: flex;
+      gap: 6px;
+    }
+    .lookup-input {
+      flex: 1;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .lookup-input:focus {
+      border-color: var(--cyan);
+    }
+    .lookup-btn {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      padding: 0.5rem 0.85rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .lookup-btn:hover {
+      background: var(--cyan);
+      color: #000;
+    }
+    .lookup-hint {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      margin-top: 0.4rem;
     }
 
-    /* Section titles */
-    .section-head {
-      margin-bottom: 1.5rem;
+    /* Tier Selector Pills Bar */
+    .tier-pills-bar {
+      margin-bottom: 2rem;
+    }
+    .tier-pills-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .section-title {
-      font-size: 1.4rem;
+    .tier-pills-label {
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .section-desc {
-      font-size: 0.88rem;
+      font-family: var(--font-mono);
       color: var(--text-muted);
-    }
-
-    /* Tiers grid */
-    .tiers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-    .tier-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      position: relative;
-    }
-    .tier-card:hover {
-      border-color: rgba(56, 189, 248, 0.3);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    }
-    .tier-card.selected {
-      border-color: var(--cyan);
-      background: var(--bg-card);
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
-    }
-    .tier-card.popular::before {
-      content: 'POPULAR IN CAIRO';
-      position: absolute;
-      top: -10px;
-      right: 20px;
-      background: linear-gradient(90deg, var(--gold), #ea580c);
-      color: #000;
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 10px;
       letter-spacing: 0.05em;
     }
-    .tier-badge {
+    .tier-pills-sub {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-family: var(--font-mono);
+    }
+    .tier-pills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.75rem;
+    }
+    .tier-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+    }
+    .tier-pill:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: var(--bg-card);
+      transform: translateY(-1px);
+    }
+    .tier-pill.selected {
+      border-color: var(--cyan);
+      background: rgba(56, 189, 248, 0.08);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.12);
+    }
+    .tier-pill.popular::before {
+      content: 'POPULAR';
+      position: absolute;
+      top: -7px;
+      right: 12px;
+      background: linear-gradient(90deg, var(--gold), #ea580c);
+      color: #000;
+      font-size: 0.58rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+    .tier-pill-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tier-pill-sla {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      color: var(--cyan);
+      background: var(--cyan-glow);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .tier-pill-radio {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .tier-pill.selected .tier-pill-radio {
+      border-color: var(--cyan);
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+    }
+    .tier-pill-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2px;
+      line-height: 1.25;
+    }
+    .tier-pill-price {
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    /* Live Sprint Spec Card (in Tracker Idle Panel) */
+    .spec-summary-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 1.4rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .spec-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+    .spec-tier-badge {
       font-size: 0.72rem;
       font-family: var(--font-mono);
       color: var(--cyan);
@@ -293,71 +418,85 @@
       padding: 3px 8px;
       border-radius: 4px;
       display: inline-block;
-      margin-bottom: 0.75rem;
-      width: fit-content;
+      margin-bottom: 0.4rem;
     }
-    .tier-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+    .spec-tier-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
     }
-    .tier-sub {
-      font-size: 0.82rem;
+    .spec-tier-sub {
+      font-size: 0.78rem;
       color: var(--text-muted);
-      margin-bottom: 1.25rem;
-      min-height: 40px;
+      margin-top: 0.25rem;
     }
-    .tier-price-box {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border);
+    .spec-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.1rem;
     }
-    .tier-price {
-      font-size: 1.9rem;
+    .spec-price-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .spec-price-val {
+      font-size: 1.3rem;
       font-weight: 800;
       font-family: var(--font-mono);
-      color: var(--text-main);
-    }
-    .tier-deposit {
-      font-size: 0.78rem;
-      color: var(--gold);
-      font-family: var(--font-mono);
+      color: #fff;
       margin-top: 2px;
     }
-    .tier-features {
-      list-style: none;
-      margin-bottom: 1.5rem;
-      flex: 1;
+    .spec-deposit-val {
+      font-size: 1.3rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--gold);
+      margin-top: 2px;
     }
-    .tier-features li {
-      font-size: 0.82rem;
+    .spec-features-list {
+      list-style: none;
+      margin-bottom: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      padding-left: 0;
+    }
+    .spec-features-list li {
+      font-size: 0.78rem;
       color: var(--text-muted);
-      margin-bottom: 0.5rem;
       display: flex;
       align-items: flex-start;
-      gap: 8px;
+      gap: 6px;
+      line-height: 1.35;
     }
-    .tier-features li::before {
+    .spec-features-list li::before {
       content: '✓';
       color: var(--cyan);
       font-weight: bold;
     }
-    .select-btn {
-      width: 100%;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      padding: 0.75rem;
+    .spec-guarantee-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
       border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.74rem;
+      color: #d1fae5;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-    .tier-card.selected .select-btn {
-      background: var(--cyan);
-      color: #000;
-      border-color: var(--cyan);
+    .spec-guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     /* Form & Tracker Container */
@@ -805,48 +944,38 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-eyebrow">
-        <span>⚡ 100% Fully Online Studio</span>
-        <span>•</span>
-        <span>Native Egyptian Financial Rails</span>
+    <!-- Terminal Banner & Fast Sprint Lookup -->
+    <section class="terminal-banner">
+      <div class="terminal-banner-main">
+        <div class="terminal-badge">
+          <span class="pulse-dot"></span>
+          <span>EXECUTIVE DISPATCH TERMINAL • CAIRO ONLINE STUDIO</span>
+        </div>
+        <h1 class="terminal-title">Autonomous Sprint Intake & Milestone Hub</h1>
+        <p class="terminal-sub">
+          Instant scope configuration, live brief quality analyzer, native Egyptian & GCC financial rails, and real-time Stage-Gate delivery telemetry.
+        </p>
       </div>
-      <h1 class="hero-title">Ship High-Impact Apps in 72 Hours.<br>Zero Dev Delays. Zero Meeting Bloat.</h1>
-      <p class="hero-subtitle">
-        Deploy a dedicated autonomous workforce of 132+ specialized AI agents across dev, design, and growth. Operating remotely from Cairo, Egypt with verified Stage-Gate quality.
-      </p>
-    </section>
 
-    <!-- Metrics Bar -->
-    <section class="metrics-bar" id="metrics-bar">
-      <div class="metric-card">
-        <div class="metric-val" id="metric-revenue">0 EGP</div>
-        <div class="metric-lbl">Total Studio Revenue</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-val" id="metric-active">0</div>
-        <div class="metric-lbl">Active Online Sprints</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-val">72h - 5d</div>
-        <div class="metric-lbl">Guaranteed SLA Turnaround</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-val">100%</div>
-        <div class="metric-lbl">Lighthouse Quality Gate</div>
+      <div class="terminal-lookup-card">
+        <div class="lookup-label">Returning Client / Existing Sprint?</div>
+        <div class="lookup-input-group">
+          <input type="text" id="inp-lookup-id" placeholder="e.g. ORD-1024" class="lookup-input" onkeydown="if(event.key==='Enter') handleOrderLookup()" />
+          <button type="button" onclick="handleOrderLookup()" class="lookup-btn">Lookup</button>
+        </div>
+        <div class="lookup-hint">Inspect live Stage-Gate milestones & blueprint reviews</div>
       </div>
     </section>
 
-    <!-- Section 1: Choose Your Tier -->
-    <div class="section-head">
-      <div>
-        <h2 class="section-title">1. Select Your Productized Sprint Tier</h2>
-        <p class="section-desc">Fixed scope, guaranteed delivery SLA, and verified Stage-Gate QA proof.</p>
+    <!-- Compact Tier Selector Pills -->
+    <div class="tier-pills-bar">
+      <div class="tier-pills-header">
+        <span class="tier-pills-label">1. SELECT PRODUCTIZED SPRINT TIER</span>
+        <span class="tier-pills-sub">⚡ 72h-5d Guaranteed SLA • 50% Milestone Settlement</span>
       </div>
-    </div>
-
-    <div class="tiers-grid" id="tiers-container">
-      <!-- Injected via JavaScript -->
+      <div class="tier-pills-container" id="tier-pills-container">
+        <!-- Injected via JavaScript -->
+      </div>
     </div>
 
     <!-- Section 2: Online Brief Submission & Live Tracker -->
@@ -946,15 +1075,20 @@
 
       <!-- Right: Live Tracker & Dynamic Payment Settlement -->
       <div class="card-panel">
-        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 700;">3. Live Sprint Telemetry & Settlement</h3>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-          Track your project status, verify deposit, and inspect automated Stage-Gate milestones.
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700;">Live Sprint Telemetry & Settlement</h3>
+          <span class="status-badge" id="tracker-panel-badge">
+            <span class="pulse-dot"></span>
+            <span>Live Spec Preview</span>
+          </span>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Real-time scope confirmation, milestone payment settlement, and automated Stage-Gate telemetry.
         </p>
 
         <div id="tracker-idle">
-          <div style="text-align: center; padding: 3rem 1rem; color: var(--text-dim);">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛰️</div>
-            <p style="font-size: 0.9rem;">Fill in your project brief on the left to generate your live order tracker and payment rails.</p>
+          <div id="active-spec-card">
+            <!-- Dynamic Spec Card Injected via JS -->
           </div>
         </div>
 
@@ -1167,9 +1301,31 @@
     };
 
     async function init() {
+      // 1. Query Params Reader (?tier=... & ?curr=... & ?orderId=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const tierParam = urlParams.get('tier');
+      if (tierParam && currentTiers.some(t => t.id === tierParam)) {
+        selectedTierId = tierParam;
+      }
+      const currParam = urlParams.get('curr') || urlParams.get('currency');
+      if (currParam && (currParam.toUpperCase() === 'USD' || currParam.toUpperCase() === 'EGP')) {
+        currentCurrency = currParam.toUpperCase();
+        document.getElementById('btn-egp').classList.toggle('active', currentCurrency === 'EGP');
+        document.getElementById('btn-usd').classList.toggle('active', currentCurrency === 'USD');
+      }
+
       renderTiers();
       updatePaymentPreview();
       validateFormLive();
+
+      // Check if existing order lookup was requested in URL
+      const orderParam = urlParams.get('orderId') || urlParams.get('order');
+      if (orderParam) {
+        const inp = document.getElementById('inp-lookup-id');
+        if (inp) inp.value = orderParam;
+        handleOrderLookup(orderParam);
+      }
+
       await Promise.allSettled([fetchMetrics(), fetchTiers()]);
     }
 
@@ -1179,8 +1335,10 @@
         const d = await res.json();
         if (d.success && d.metrics) {
           const rev = currentCurrency === 'EGP' ? `${d.metrics.totalRevenueEgp.toLocaleString()} EGP` : `$${d.metrics.totalRevenueUsd.toLocaleString()}`;
-          document.getElementById('metric-revenue').textContent = rev;
-          document.getElementById('metric-active').textContent = d.metrics.activeOrdersCount;
+          const revEl = document.getElementById('metric-revenue');
+          if (revEl) revEl.textContent = rev;
+          const actEl = document.getElementById('metric-active');
+          if (actEl) actEl.textContent = d.metrics.activeOrdersCount;
         }
       } catch (e) {
         console.warn('Metrics fetch error:', e);
@@ -1228,35 +1386,143 @@
 
     function selectTier(tierId) {
       selectedTierId = tierId;
-      document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
-      const card = document.getElementById(`card-${tierId}`);
-      if (card) card.classList.add('selected');
+      document.querySelectorAll('.tier-pill').forEach(p => p.classList.remove('selected'));
+      const pill = document.getElementById(`pill-${tierId}`);
+      if (pill) pill.classList.add('selected');
+      renderActiveSpec();
     }
 
     function renderTiers() {
-      const container = document.getElementById('tiers-container');
-      container.innerHTML = currentTiers.map(t => {
-        const price = currentCurrency === 'EGP' ? `${t.priceEgp.toLocaleString()} EGP` : `$${t.priceUsd.toLocaleString()}`;
-        const deposit = currentCurrency === 'EGP' ? `${t.depositEgp.toLocaleString()} EGP` : `$${t.depositUsd.toLocaleString()}`;
-        const isSelected = t.id === selectedTierId ? 'selected' : '';
-        const isPopular = t.id === 'd2c-commerce-sprint' ? 'popular' : '';
+      const pillsContainer = document.getElementById('tier-pills-container');
+      if (pillsContainer) {
+        pillsContainer.innerHTML = currentTiers.map(t => {
+          const price = currentCurrency === 'EGP' ? `${(t.priceEgp / 1000).toFixed(0)}k EGP` : `$${t.priceUsd.toLocaleString()}`;
+          const isSelected = t.id === selectedTierId ? 'selected' : '';
+          const isPopular = t.id === 'rapid-mvp-sprint' || t.id === 'd2c-commerce-sprint' ? 'popular' : '';
 
-        return `
-          <div class="tier-card ${isSelected} ${isPopular}" id="card-${t.id}" onclick="selectTier('${t.id}')">
-            <span class="tier-badge">⚡ SLA: ${t.sla}</span>
-            <h3 class="tier-name">${t.name}</h3>
-            <p class="tier-sub">${t.subtitle}</p>
-            <div class="tier-price-box">
-              <div class="tier-price">${price}</div>
-              <div class="tier-deposit">50% Deposit: ${deposit}</div>
+          return `
+            <div class="tier-pill ${isSelected} ${isPopular}" id="pill-${t.id}" onclick="selectTier('${t.id}')">
+              <div class="tier-pill-top">
+                <span class="tier-pill-sla">⚡ ${t.sla}</span>
+                <div class="tier-pill-radio"></div>
+              </div>
+              <div class="tier-pill-name">${t.name}</div>
+              <div class="tier-pill-price">${price}</div>
             </div>
-            <ul class="tier-features">
-              ${t.features.map(f => `<li>${f}</li>`).join('')}
-            </ul>
-            <button class="select-btn">${t.id === selectedTierId ? '✓ Selected Tier' : 'Select Tier'}</button>
+          `;
+        }).join('');
+      }
+
+      renderActiveSpec();
+    }
+
+    function renderActiveSpec() {
+      const specCard = document.getElementById('active-spec-card');
+      if (!specCard) return;
+
+      const t = currentTiers.find(x => x.id === selectedTierId) || currentTiers[0];
+      const price = currentCurrency === 'EGP' ? `${t.priceEgp.toLocaleString()} EGP` : `$${t.priceUsd.toLocaleString()}`;
+      const deposit = currentCurrency === 'EGP' ? `${t.depositEgp.toLocaleString()} EGP` : `$${t.depositUsd.toLocaleString()}`;
+
+      specCard.innerHTML = `
+        <div class="spec-summary-card">
+          <div class="spec-top-row">
+            <div>
+              <span class="spec-tier-badge">⚡ SLA: ${t.sla}</span>
+              <h4 class="spec-tier-title">${t.name}</h4>
+              <p class="spec-tier-sub">${t.subtitle}</p>
+            </div>
           </div>
-        `;
-      }).join('');
+
+          <div class="spec-pricing-grid">
+            <div>
+              <div class="spec-price-label">Total Investment</div>
+              <div class="spec-price-val">${price}</div>
+            </div>
+            <div>
+              <div class="spec-price-label">50% Milestone Deposit</div>
+              <div class="spec-deposit-val">${deposit}</div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">
+            Verified Included Deliverables:
+          </div>
+          <ul class="spec-features-list">
+            ${t.features.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+
+          <div class="spec-guarantee-box">
+            <div class="spec-guarantee-item">
+              <span>🛡️</span>
+              <span><strong>Stage-Gate Review Gate:</strong> 8 DCDE canvases verified before coding</span>
+            </div>
+            <div class="spec-guarantee-item">
+              <span>⚡</span>
+              <span><strong>Performance SLA:</strong> 100% Mobile Lighthouse Performance Guarantee</span>
+            </div>
+            <div class="spec-guarantee-item">
+              <span>🔒</span>
+              <span><strong>Native Settlement:</strong> Instant InstaPay QR clearance (<code>office@instapay</code>)</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem; text-align: center;">
+            <a href="https://wa.me/201029384756?text=Hello%20Agents%20Office%2C%20inquiry%20regarding%20${encodeURIComponent(t.name)}" target="_blank" style="color: var(--cyan); text-decoration: none; font-size: 0.78rem; font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px;">
+              <span>💬 Direct Consultation? WhatsApp Sprint Lead (+20 10 2938 4756) →</span>
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    async function handleOrderLookup(specifiedId) {
+      const inp = document.getElementById('inp-lookup-id');
+      const orderId = (specifiedId || (inp ? inp.value : '') || '').trim().toUpperCase();
+      if (!orderId) {
+        alert('Please enter an Order ID (e.g. ORD-1024)');
+        return;
+      }
+
+      try {
+        const res = await fetch(`${OFFICE_API_BASE}/api/commercial/orders/${orderId}`);
+        const d = await res.json();
+        if (d.success && d.order) {
+          currentOrderId = d.order.orderId;
+          currentOrderData = {
+            orderId: d.order.orderId,
+            depositAmount: d.order.depositAmount,
+            currency: d.order.currency,
+            status: d.order.status
+          };
+          displayOrderTracker(currentOrderData, {
+            title: d.order.title,
+            clientName: d.order.clientName,
+            company: d.order.company
+          });
+          fetchAndRenderReviewGate(currentOrderId);
+          return;
+        }
+      } catch (err) {
+        console.warn('API lookup error, checking fallback:', err);
+      }
+
+      if (orderId.startsWith('ORD-')) {
+        const fallbackData = {
+          orderId: orderId,
+          depositAmount: currentCurrency === 'USD' ? 660 : 32500,
+          currency: currentCurrency
+        };
+        currentOrderId = orderId;
+        displayOrderTracker(fallbackData, {
+          title: 'Active Autonomous Sprint',
+          clientName: 'Executive Founder',
+          company: 'Enterprise'
+        });
+        fetchAndRenderReviewGate(currentOrderId);
+      } else {
+        alert(`Order ${orderId} not found. Please verify the ID or submit a new brief on the left.`);
+      }
     }
 
     /* Live Input Checkers & Sanitization */
