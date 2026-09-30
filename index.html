@@ -472,7 +472,7 @@
           <span class="font-mono text-xs text-blue-300 uppercase tracking-wider font-semibold">Direct Answer • Architecture Executive Summary</span>
         </div>
         <p class="font-body text-sm sm:text-base text-slate-200 leading-relaxed">
-          <strong class="text-white">Nasr Galal Studio</strong> is an autonomous software engineering practice led by CTO Nasr Galal (Nash) that replaces fragmented, manual sales and fulfillment operations with production-grade digital architecture in fixed 30-day sprints. The studio specializes in sub-100ms headless storefronts, multi-rail payment pipelines (native InstaPay, Paymob for Meeza & cards, and CBE-compliant XPay invoicing), automated courier dispatch (Bosta), and OWASP LLM hardened multi-agent workflows—delivered with 100% intellectual property transfer and a 30-day technical warranty.
+          <strong class="text-white">Nasr Galal Studio</strong> is an autonomous software engineering practice led by CTO Nasr Galal (Nash) delivering deterministic, production-grade digital architectures across 5 productized sprint tiers: <strong class="text-white">Cairo D2C Social Commerce</strong> (72 Hours • 38,000 EGP / $775), <strong class="text-white">Founder 5-Day Rapid MVP</strong> with Dubai Apps templates and founder-in-the-loop review (65,000 EGP / $1,320), <strong class="text-white">Cairo Agency Overflow Pods</strong> (28,000 EGP / $570/mo), <strong class="text-white">Regional GCC Remote Pods</strong> (73,500 EGP / $1,499/mo), and <strong class="text-white">48-Hour Systems Architecture Audits</strong> (73,500 EGP / $1,500). Architectures feature sub-100ms Cloudflare edge routing, multi-rail payments (native InstaPay QR, Paymob for cards/wallets, and CBE-compliant XPay invoicing), automated courier dispatch (Bosta), and 100% intellectual property transfer with a 30-day technical warranty.
         </p>
       </div>
 
@@ -1422,17 +1422,25 @@
               <input required type="email" id="clientEmail" placeholder="alex@company.com" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
             </div>
           </div>
-          <div>
-            <label class="block text-xs font-mono text-slate-300 mb-1">COMPANY / DIGITAL PRODUCT URL</label>
-            <input type="text" id="clientCompany" placeholder="e.g. store.domain.com or @instagram_handle" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">COMPANY / DIGITAL PRODUCT URL</label>
+              <input type="text" id="clientCompany" placeholder="e.g. store.domain.com or @instagram_handle" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">PHONE / WHATSAPP (RECOMMENDED)</label>
+              <input type="tel" id="clientPhone" placeholder="+20 10... or international WhatsApp" class="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all"/>
+            </div>
           </div>
           <div>
-            <label class="block text-xs font-mono text-slate-300 mb-1">PRIMARY ARCHITECTURE GOAL</label>
+            <label class="block text-xs font-mono text-slate-300 mb-1">PRIMARY ARCHITECTURE GOAL / SPRINT TIER</label>
             <select id="clientGoal" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0C1222] border border-white/10 text-white text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all">
-              <option value="30-Day Sprint">30-Day Turn-Key Storefront &amp; Sales Loop ($18,500)</option>
+              <option value="Rapid MVP Sprint">Founder 5-Day Rapid MVP Sprint (65,000 EGP / $1,320 USD) - Most Popular</option>
+              <option value="Cairo D2C Sprint">Cairo D2C Social Commerce Sprint - 72h (38,000 EGP / $775 USD)</option>
+              <option value="Cairo Agency Overflow">Cairo Boutique Agency Overflow Pod (28,000 EGP / $570 USD/mo)</option>
+              <option value="GCC Remote Pod">Regional GCC Remote Agency Pod (73,500 EGP / $1,499 USD/mo)</option>
+              <option value="Rapid Architecture Audit">Rapid Systems Architecture Audit - 48h (73,500 EGP / $1,500 USD)</option>
               <option value="Billing & Fulfillment Automation">Billing &amp; Paymob / XPay / InstaPay Logistics Automation</option>
-              <option value="High-Throughput Scale">Scale: Dedicated Engineering Architecture Retainer</option>
-              <option value="Rapid Audit">Rapid Architecture Audit ($1,500)</option>
             </select>
           </div>
           <div>
@@ -1447,15 +1455,24 @@
         </form>
 
         <!-- Success State -->
-        <div id="successNotice" class="hidden p-5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-3">
+        <div id="successNotice" class="hidden p-5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-3.5">
           <span class="material-symbols-outlined text-4xl text-emerald-400">task_alt</span>
           <h4 class="font-headline font-bold text-white text-base">Audit Request Registered Successfully</h4>
           <div id="refBadge" class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-xs border border-emerald-400/30">
             REFERENCE: NGS-AUDIT
           </div>
           <p class="text-xs text-slate-300 leading-relaxed max-w-md mx-auto">
-            Your inquiry has been dispatched directly to <strong class="text-white">Nasr Galal (Nash)</strong>. You will receive an architecture review confirmation at your email within 24 hours.
+            Your inquiry has been logged directly with <strong class="text-white">Nasr Galal (Nash)</strong>. You will receive an architecture review confirmation at your email within 24 hours.
           </p>
+
+          <!-- Instant WhatsApp Action -->
+          <div class="pt-2 pb-1 max-w-md mx-auto">
+            <a id="waDirectAuditBtn" href="https://wa.me/201029384756" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-headline text-xs font-bold tracking-tight transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+              <span class="material-symbols-outlined text-base">chat</span>
+              <span>Notify Nasr on WhatsApp for Immediate Priority Response</span>
+            </a>
+          </div>
+
           <div class="pt-3 border-t border-white/10 flex flex-wrap justify-center gap-3">
             <button type="button" onclick="switchBookingTab('calendar')" class="px-4 py-2 rounded-lg glass-button text-xs font-semibold text-white">
               Schedule Instant 30-Min Call
@@ -1474,6 +1491,23 @@
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <!-- WhatsApp Direct Card -->
+          <div class="p-4 rounded-xl glass-card-interactive border border-emerald-500/30 flex flex-col justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-400/30">
+                <span class="material-symbols-outlined text-lg">chat</span>
+              </div>
+              <div>
+                <div class="text-xs font-headline font-bold text-white">Direct WhatsApp</div>
+                <div class="text-xs text-emerald-300 font-mono">+20 102 938 4756</div>
+              </div>
+            </div>
+            <a href="https://wa.me/201029384756?text=Hello%20Nasr%2C%20I%20would%20like%20to%20discuss%20an%20engineering%20sprint%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="mt-4 w-full py-2.5 rounded-lg bg-emerald-600/40 hover:bg-emerald-600/60 border border-emerald-400/40 flex items-center justify-center gap-1.5 text-xs text-white transition-all shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+              <span class="material-symbols-outlined text-emerald-300 text-base">chat</span>
+              <span class="font-semibold">Chat on WhatsApp</span>
+            </a>
+          </div>
+
           <!-- Copy Email Card -->
           <div class="p-4 rounded-xl glass-card-interactive border border-white/10 flex flex-col justify-between">
             <div class="flex items-center gap-3">
@@ -1749,6 +1783,7 @@
 
       const name = document.getElementById('clientName')?.value || '';
       const email = document.getElementById('clientEmail')?.value || '';
+      const phone = document.getElementById('clientPhone')?.value || '';
       const company = document.getElementById('clientCompany')?.value || '';
       const goal = document.getElementById('clientGoal')?.value || '';
       const notes = document.getElementById('clientNotes')?.value || '';
@@ -1763,6 +1798,24 @@
         refBadge.textContent = 'REFERENCE: ' + refId;
       }
 
+      // Configure pre-filled WhatsApp action
+      const waText = encodeURIComponent(
+        `Hello Nasr, I just submitted an inquiry on your portfolio:\n\n` +
+        `• Ref: ${refId}\n` +
+        `• Name: ${name}\n` +
+        (email ? `• Email: ${email}\n` : '') +
+        (phone ? `• Phone: ${phone}\n` : '') +
+        (company ? `• Company/URL: ${company}\n` : '') +
+        `• Goal: ${goal}\n` +
+        (notes ? `• Scope: ${notes}\n` : '') +
+        `\nLooking forward to your review!`
+      );
+      const waBtn = document.getElementById('waDirectAuditBtn');
+      if (waBtn) {
+        waBtn.href = `https://wa.me/201029384756?text=${waText}`;
+      }
+
+      // 1. Submit via formsubmit
       try {
         await fetch('https://formsubmit.co/ajax/nasrbue@gmail.com', {
           method: 'POST',
@@ -1775,6 +1828,7 @@
             _replyto: email,
             name: name,
             email: email,
+            phone: phone || 'Not provided',
             company: company || 'Not specified',
             goal: goal,
             technical_scope: notes || 'None provided',
@@ -1785,6 +1839,22 @@
         });
       } catch (err) {
         console.warn('Form transmission handled via client queue:', err);
+      }
+
+      // 2. Dispatch to Studio Office API if reachable
+      try {
+        const officeApiBase = window.OFFICE_API_URL || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:4520' : '');
+        if (officeApiBase) {
+          await fetch(`${officeApiBase}/api/commercial/inquiries`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name, email, phone, company, goal, notes, referenceId: refId
+            })
+          });
+        }
+      } catch (apiErr) {
+        console.warn('Office API dispatch deferred to WhatsApp fallback:', apiErr);
       } finally {
         if (form && notice) {
           form.classList.add('hidden');
