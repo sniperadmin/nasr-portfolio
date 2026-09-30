@@ -45,4 +45,4 @@ User-agent: Applebot-Extended
 Allow: /
 
 # Sitemap Reference
-Sitemap: https://sniperadmin.github.io/nasr-portfolio/sitemap.xml
+Sitemap: https://sniperadmin.github.io/sitemap.xml

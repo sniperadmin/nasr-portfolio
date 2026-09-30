@@ -1,19 +1,20 @@
 # Nasr Galal Studio — Enterprise Autonomous Architecture
 
-[![Standards: SOC 2 Type II](https://img.shields.io/badge/SOC%202%20Type%20II-Audited-blue.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
-[![Standards: ISO/IEC 27001](https://img.shields.io/badge/ISO%2FIEC%2027001-Certified%20ISMS-indigo.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
-[![Privacy: GDPR & Law 151](https://img.shields.io/badge/GDPR%20%26%20Law%20151-Compliant-teal.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
-[![Payment: PCI-DSS Level 1](https://img.shields.io/badge/PCI--DSS-Level%201%20Ready-emerald.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
-[![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/WCAG%202.2-AA%20Compliant-purple.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
-[![Security: OWASP LLM Hardened](https://img.shields.io/badge/OWASP%20LLM-Hardened-amber.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
+[![Standards: SOC 2 Type II](https://img.shields.io/badge/SOC%202%20Type%20II-Audited-blue.svg?style=flat-square)](https://sniperadmin.github.io/)
+[![Standards: ISO/IEC 27001](https://img.shields.io/badge/ISO%2FIEC%2027001-Certified%20ISMS-indigo.svg?style=flat-square)](https://sniperadmin.github.io/)
+[![Privacy: GDPR & Law 151](https://img.shields.io/badge/GDPR%20%26%20Law%20151-Compliant-teal.svg?style=flat-square)](https://sniperadmin.github.io/)
+[![Payment: PCI-DSS Level 1](https://img.shields.io/badge/PCI--DSS-Level%201%20Ready-emerald.svg?style=flat-square)](https://sniperadmin.github.io/)
+[![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/WCAG%202.2-AA%20Compliant-purple.svg?style=flat-square)](https://sniperadmin.github.io/)
+[![Security: OWASP LLM Hardened](https://img.shields.io/badge/OWASP%20LLM-Hardened-amber.svg?style=flat-square)](https://sniperadmin.github.io/)
 
 > **High-performance AI systems and engineering studio led by CTO & Systems Architect Nasr Galal (Nash).** We design and deploy production-grade AI & business automation workflows, scalable full-stack applications, and high-converting headless digital storefronts in deterministic engineering sprints (72-hour social commerce, 5-day rapid MVP, and dedicated monthly agency overflow pods).
 
 ---
 
-## 🌐 Live Landing Page
-- **Public URL**: [https://sniperadmin.github.io/nasr-portfolio/](https://sniperadmin.github.io/nasr-portfolio/)
-- **Repository**: [https://github.com/sniperadmin/nasr-portfolio](https://github.com/sniperadmin/nasr-portfolio)
+## 🌐 Live Landing Page & Client Portal
+- **Public URL**: [https://sniperadmin.github.io/](https://sniperadmin.github.io/)
+- **Client Portal**: [https://sniperadmin.github.io/portal.html](https://sniperadmin.github.io/portal.html)
+- **Repository**: [https://github.com/sniperadmin/sniperadmin.github.io](https://github.com/sniperadmin/sniperadmin.github.io)
 
 ---
 
