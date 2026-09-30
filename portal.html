@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agents Office — Executive Client Portal | Cairo Online Studio</title>
+  <meta name="description" content="Ship enterprise-grade apps and D2C social commerce engines in 72 hours with an autonomous 132-agent workforce. Operating 100% online from Cairo, Egypt.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #08090c;
+      --bg-surface: #0f1117;
+      --bg-card: #151821;
+      --bg-card-hover: #1b1f2b;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(56, 189, 248, 0.5);
+      --cyan: #38bdf8;
+      --cyan-glow: rgba(56, 189, 248, 0.15);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.15);
+      --emerald: #10b981;
+      --rose: #f43f5e;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-ar: 'Cairo', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background gradient glow */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, rgba(245, 158, 11, 0.03) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 9, 12, 0.85);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--cyan), var(--gold));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #000;
+      font-size: 1.1rem;
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+    .brand-tag {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .currency-switch {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px;
+      display: flex;
+    }
+    .curr-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .curr-btn.active {
+      background: var(--cyan);
+      color: #000;
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--emerald);
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    /* Hero section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--gold);
+      background: var(--gold-glow);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(180deg, #fff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Metrics ticker */
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .metric-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .metric-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--cyan);
+    }
+    .metric-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    /* Section titles */
+    .section-head {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Tiers grid */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .tier-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .tier-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .tier-card.selected {
+      border-color: var(--cyan);
+      background: var(--bg-card);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+    }
+    .tier-card.popular::before {
+      content: 'POPULAR IN CAIRO';
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: linear-gradient(90deg, var(--gold), #ea580c);
+      color: #000;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.05em;
+    }
+    .tier-badge {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--cyan);
+      background: var(--cyan-glow);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      width: fit-content;
+    }
+    .tier-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .tier-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      min-height: 40px;
+    }
+    .tier-price-box {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tier-price {
+      font-size: 1.9rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+    }
+    .tier-deposit {
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-family: var(--font-mono);
+      margin-top: 2px;
+    }
+    .tier-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+    .tier-features li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .tier-features li::before {
+      content: '✓';
+      color: var(--cyan);
+      font-weight: bold;
+    }
+    .select-btn {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tier-card.selected .select-btn {
+      background: var(--cyan);
+      color: #000;
+      border-color: var(--cyan);
+    }
+
+    /* Form & Tracker Container */
+    .portal-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 900px) {
+      .portal-split { grid-template-columns: 1fr; }
+    }
+
+    .card-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    .form-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+    .field-hint {
+      font-size: 0.72rem;
+      font-weight: normal;
+      color: var(--text-dim);
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
+    }
+    .form-input.is-invalid, .form-textarea.is-invalid {
+      border-color: var(--rose) !important;
+    }
+    .form-input.is-valid, .form-textarea.is-valid {
+      border-color: var(--emerald) !important;
+    }
+    .form-textarea { min-height: 110px; resize: vertical; }
+
+    /* Live Field Validation Message */
+    .field-feedback {
+      font-size: 0.74rem;
+      margin-top: 4px;
+      display: none;
+    }
+    .field-feedback.active { display: block; }
+    .field-feedback.error { color: var(--rose); }
+    .field-feedback.success { color: var(--emerald); }
+
+    /* Brief Quality Meter */
+    .meter-container {
+      margin-top: 6px;
+    }
+    .meter-bar {
+      display: flex;
+      gap: 4px;
+      height: 4px;
+      border-radius: 2px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+      margin-bottom: 4px;
+    }
+    .meter-segment {
+      flex: 1;
+      height: 100%;
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+    .meter-status {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    /* Payment selector */
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .pay-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .pay-btn:hover { border-color: rgba(56, 189, 248, 0.4); }
+    .pay-btn.selected {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    /* Live Payment Rail Preview Box */
+    .payment-preview-card {
+      background: rgba(21, 24, 33, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+    .payment-preview-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .payment-preview-title { font-weight: 600; color: var(--text-main); }
+    .payment-preview-desc { font-size: 0.74rem; color: var(--text-muted); }
+
+    .cta-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--cyan), #0284c7);
+      color: #000;
+      border: none;
+      padding: 0.95rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+    .cta-submit:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      filter: grayscale(0.8);
+    }
+    .cta-submit:not(:disabled):hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* Progress Tracker Panel */
+    .order-status-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    .order-status-box.active { display: block; }
+
+    .stage-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stage-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .stage-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 2px solid var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: var(--text-dim);
+      flex-shrink: 0;
+    }
+    .stage-item.done .stage-circle {
+      background: var(--emerald);
+      border-color: var(--emerald);
+      color: #000;
+    }
+    .stage-item.current .stage-circle {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+    }
+    .stage-text h4 { font-size: 0.88rem; font-weight: 600; }
+    .stage-text p { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* Dynamic Settlement Box */
+    .settlement-card {
+      border-radius: 10px;
+      padding: 1.1rem;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+    }
+    .settlement-instapay {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px dashed rgba(245, 158, 11, 0.4);
+    }
+    .settlement-paymob {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+    }
+    .settlement-xpay {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .settlement-voda {
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px dashed rgba(244, 63, 94, 0.4);
+    }
+
+    .settlement-code {
+      font-family: var(--font-mono);
+      font-weight: bold;
+      font-size: 1.05rem;
+      user-select: all;
+    }
+
+    /* Customer Handover Box (NO internal canvas link!) */
+    .customer-hub-box {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hub-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .hub-link:hover {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./index.html" class="brand">
+      <div class="brand-logo">AO</div>
+      <div>
+        <div class="brand-title">Agents Office</div>
+        <div class="brand-tag">Cairo Online Studio • Executive Client Portal</div>
+      </div>
+    </a>
+    <div class="header-actions">
+      <a href="./index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); transition: all 0.2s;" onmouseover="this.style.color='#fff'; this.style.borderColor='var(--cyan)';" onmouseout="this.style.color='var(--text-muted)'; this.style.borderColor='var(--border)';">
+        <span>←</span>
+        <span>Back to Main Studio</span>
+      </a>
+      <div class="currency-switch">
+        <button class="curr-btn active" id="btn-egp" onclick="setCurrency('EGP')">EGP</button>
+        <button class="curr-btn" id="btn-usd" onclick="setCurrency('USD')">USD</button>
+      </div>
+      <div class="status-badge">
+        <span class="pulse-dot"></span>
+        <span>14 Pods Online & Ready</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-eyebrow">
+        <span>⚡ 100% Fully Online Studio</span>
+        <span>•</span>
+        <span>Native Egyptian Financial Rails</span>
+      </div>
+      <h1 class="hero-title">Ship High-Impact Apps in 72 Hours.<br>Zero Dev Delays. Zero Meeting Bloat.</h1>
+      <p class="hero-subtitle">
+        Deploy a dedicated autonomous workforce of 132+ specialized AI agents across dev, design, and growth. Operating remotely from Cairo, Egypt with verified Stage-Gate quality.
+      </p>
+    </section>
+
+    <!-- Metrics Bar -->
+    <section class="metrics-bar" id="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-val" id="metric-revenue">0 EGP</div>
+        <div class="metric-lbl">Total Studio Revenue</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val" id="metric-active">0</div>
+        <div class="metric-lbl">Active Online Sprints</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">72h - 5d</div>
+        <div class="metric-lbl">Guaranteed SLA Turnaround</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">100%</div>
+        <div class="metric-lbl">Lighthouse Quality Gate</div>
+      </div>
+    </section>
+
+    <!-- Section 1: Choose Your Tier -->
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">1. Select Your Productized Sprint Tier</h2>
+        <p class="section-desc">Fixed scope, guaranteed delivery SLA, and verified Stage-Gate QA proof.</p>
+      </div>
+    </div>
+
+    <div class="tiers-grid" id="tiers-container">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Section 2: Online Brief Submission & Live Tracker -->
+    <div class="portal-split">
+      <!-- Left: Intake Form with Live Input Checkers -->
+      <div class="card-panel">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 700;">2. Online Brief Intake & Instant Dispatch</h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Provide your project requirements. Our live analyzer verifies quality before dispatching autonomous pods.
+        </p>
+
+        <form id="order-form" onsubmit="submitOrder(event)">
+          <div class="form-group">
+            <label class="form-label">
+              <span>Full Name / Founder</span>
+              <span class="field-hint" id="hint-name">Min 3 characters</span>
+            </label>
+            <input type="text" class="form-input" id="inp-name" placeholder="e.g. Farida Nour" oninput="validateFormLive()" required>
+            <div class="field-feedback" id="feedback-name"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <span>WhatsApp Mobile Number</span>
+              <span class="field-hint">e.g. 01012345678 or +20 10...</span>
+            </label>
+            <input type="tel" class="form-input" id="inp-phone" placeholder="e.g. 01012345678" oninput="validateFormLive()" required>
+            <div class="field-feedback" id="feedback-phone"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <span>Brand / Company Name</span>
+              <span class="field-hint">Business or product brand</span>
+            </label>
+            <input type="text" class="form-input" id="inp-company" placeholder="e.g. Raw Silk Cairo" oninput="validateFormLive()" required>
+            <div class="field-feedback" id="feedback-company"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <span>Project Title</span>
+              <span class="field-hint" id="hint-title">Be specific (min 5 chars)</span>
+            </label>
+            <input type="text" class="form-input" id="inp-title" placeholder="e.g. Automated WhatsApp & InstaPay Catalog" oninput="validateFormLive()" required>
+            <div class="field-feedback" id="feedback-title"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <span>Product Vision & Core Requirements</span>
+              <span class="field-hint" id="char-counter">0 / 30 chars min</span>
+            </label>
+            <textarea class="form-textarea" id="inp-brief" placeholder="Describe your product goal, target demographic, and key integrations (e.g. InstaPay, WhatsApp, Bosta)..." oninput="validateFormLive()" required></textarea>
+            
+            <!-- Dynamic Brief Quality Meter -->
+            <div class="meter-container">
+              <div class="meter-bar">
+                <div class="meter-segment" id="seg-1"></div>
+                <div class="meter-segment" id="seg-2"></div>
+                <div class="meter-segment" id="seg-3"></div>
+              </div>
+              <div class="meter-status">
+                <span id="meter-label">Brief Quality: Incomplete</span>
+                <span id="meter-hint">Explain target audience & core features</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <span>Preferred Payment Rail</span>
+              <span class="field-hint">Egyptian instant settlement</span>
+            </label>
+            <div class="payment-options">
+              <div class="pay-btn selected" id="pay-instapay" onclick="setPayment('instapay')">⚡ InstaPay</div>
+              <div class="pay-btn" id="pay-paymob" onclick="setPayment('paymob')">💳 Paymob Gateway</div>
+              <div class="pay-btn" id="pay-xpay" onclick="setPayment('xpay')">💳 XPay Invoicing</div>
+              <div class="pay-btn" id="pay-voda" onclick="setPayment('vodafone_cash')">📱 Vodafone Cash</div>
+            </div>
+
+            <!-- Live Payment Rail Preview -->
+            <div class="payment-preview-card" id="rail-preview">
+              <div class="payment-preview-icon" id="rail-icon">⚡</div>
+              <div>
+                <div class="payment-preview-title" id="rail-title">InstaPay Instant Payment Rail</div>
+                <div class="payment-preview-desc" id="rail-desc">Transfer 50% deposit with zero fees to handle <code>office@instapay</code>. Verified in seconds.</div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="cta-submit" id="btn-submit" disabled>
+            Enter Project Details to Enable Sprint Launch 🚀
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Live Tracker & Dynamic Payment Settlement -->
+      <div class="card-panel">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 700;">3. Live Sprint Telemetry & Settlement</h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Track your project status, verify deposit, and inspect automated Stage-Gate milestones.
+        </p>
+
+        <div id="tracker-idle">
+          <div style="text-align: center; padding: 3rem 1rem; color: var(--text-dim);">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛰️</div>
+            <p style="font-size: 0.9rem;">Fill in your project brief on the left to generate your live order tracker and payment rails.</p>
+          </div>
+        </div>
+
+        <div class="order-status-box" id="tracker-active">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan);" id="track-order-id">ORD-XXXX</span>
+            <span class="status-badge" id="track-status-badge">Pending Deposit</span>
+          </div>
+          <h4 id="track-order-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Project Title</h4>
+          <p id="track-order-client" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Client Name • Company</p>
+
+          <!-- Dynamic Settlement Instructions Box (Reflects Chosen Payment Option) -->
+          <div id="dynamic-settlement-box">
+            <!-- Injected via JavaScript based on selectedPayment -->
+          </div>
+
+          <!-- Stage-Gate Milestones -->
+          <div class="stage-steps" id="track-stages">
+            <div class="stage-item done" id="stage-0">
+              <div class="stage-circle">1</div>
+              <div class="stage-text">
+                <h4>Brief Ingestion & Jina Recon</h4>
+                <p>Auditing competitors and generating Gap-to-Growth specification.</p>
+              </div>
+            </div>
+            <div class="stage-item current" id="stage-1">
+              <div class="stage-circle">2</div>
+              <div class="stage-text">
+                <h4>Concept Council & Architecture</h4>
+                <p>Cross-review gate: Dev Lead, Brand Guardian & Marketing Head.</p>
+              </div>
+            </div>
+            <div class="stage-item" id="stage-2">
+              <div class="stage-circle">3</div>
+              <div class="stage-text">
+                <h4>Autonomous Pod Implementation</h4>
+                <p>Cloudflare isolated sandbox build with zero host pollution.</p>
+              </div>
+            </div>
+            <div class="stage-item" id="stage-3">
+              <div class="stage-circle">4</div>
+              <div class="stage-text">
+                <h4>Lighthouse 100% Quality & Handover</h4>
+                <p>EvidenceQA visual certification and live URL deployment.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Customer Deliverables & Direct WhatsApp Handover Hub (NO INTERNAL CANVAS LINK!) -->
+          <div class="customer-hub-box">
+            <a href="https://wa.me/201029384756" target="_blank" class="hub-link" id="hub-wa-link">
+              <span>💬</span>
+              <span>WhatsApp Sprint Lead (Cairo Studio): +20 10 2938 4756</span>
+            </a>
+            <div class="hub-link" style="cursor: default;">
+              <span>🛡️</span>
+              <span>ISO 25010 SQuaRE Quality SLA Verified (Zero AI Slop)</span>
+            </div>
+            <div class="hub-link" style="cursor: default;" id="hub-staging-status">
+              <span>📦</span>
+              <span>Staging Preview URL: Dispatched on Stage 3 Sandbox Build</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Agents Office v3.6 — Executive Cyber-Luxury AI Workstation • Operating 100% Online from Cairo, Egypt</p>
+    <p style="margin-top: 4px;">InstaPay Verified: <code>office@instapay</code> • Paymob Merchant ID: <code>EGP-AO-8842</code> • XPay Gateway CBE Compliant</p>
+  </footer>
+
+  <script>
+    const OFFICE_API_BASE = window.OFFICE_API_URL || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:4520' : 'https://api.agentsoffice.com');
+
+    const DEFAULT_TIERS = [
+      {
+        id: 'd2c-commerce-sprint',
+        name: 'Cairo D2C Social Commerce Sprint',
+        nameAr: 'دورة إطلاق التجارة الاجتماعية المباشرة (القاهرة)',
+        subtitle: 'Turn Instagram/FB DMs into an Automated WhatsApp Store with InstaPay & Bosta COD',
+        priceEgp: 38000,
+        priceUsd: 775,
+        depositEgp: 19000,
+        depositUsd: 387,
+        sla: '72 Hours',
+        targetSegment: 'd2c',
+        features: [
+          'Automated WhatsApp Conversational Storefront',
+          'Native InstaPay Instant Verification & QR Flow',
+          'Bosta / Shipblu Airway Bill Courier Automation',
+          '20 High-Converting Localized Ad Hooks',
+          '100% Mobile Lighthouse Performance Certified',
+          'Stage-Gate Verified Zero AI Slop Copy'
+        ]
+      },
+      {
+        id: 'rapid-mvp-sprint',
+        name: 'Founder 5-Day Rapid MVP Sprint',
+        nameAr: 'دورة تطوير النموذج الأولي السريع للمؤسسين',
+        subtitle: 'Production Web/Mobile App + Pitch Deck Ready for DCDE & Regional Accelerators',
+        priceEgp: 65000,
+        priceUsd: 1320,
+        depositEgp: 32500,
+        depositUsd: 660,
+        sla: '5 Days',
+        targetSegment: 'startup',
+        features: [
+          'Full-Stack Production Web Application (Vite / React / Node)',
+          'W3C Design Token System & Google Stitch System',
+          'Cloudflare Computer Container Sandbox Execution',
+          '12-Slide Gamma-Ready Pitch Deck for DCDE & Angels',
+          '100% Automated Lighthouse Quality Certification',
+          'Stage-Gate Signed Handover from 4 Departments'
+        ]
+      },
+      {
+        id: 'cairo-agency-overflow',
+        name: 'Cairo Boutique Agency Overflow Pod',
+        nameAr: 'خلية تطوير مستقلة لوكالات القاهرة',
+        subtitle: 'Dedicated Autonomous Dev, Design & QA Pod for Digital & Creative Agencies',
+        priceEgp: 28000,
+        priceUsd: 570,
+        depositEgp: 14000,
+        depositUsd: 285,
+        sla: 'Ongoing Monthly Retainer',
+        targetSegment: 'agency',
+        features: [
+          '132+ Autonomous Agents across 14 Specialized Pods',
+          'Up to 4 Complete Client Project Modules / Sprints per Month',
+          'Mandatory Cross-Review Gate (Dev, Design, Marketing, QA)',
+          'Zero Developer Turnover & Predictable High Margins',
+          'Private SQLite WAL Node & Zero Data Leakage',
+          'White-Labeled Client Proof Bundles'
+        ]
+      },
+      {
+        id: 'gcc-remote-pod',
+        name: 'Regional GCC Remote Agency Pod',
+        nameAr: 'خلية هندسية عن بعد لأسواق الخليج',
+        subtitle: 'Elite Autonomous Engineering & Growth for Dubai & Riyadh Clients',
+        priceEgp: 73500,
+        priceUsd: 1499,
+        depositEgp: 36750,
+        depositUsd: 750,
+        sla: 'Ongoing Monthly Retainer',
+        targetSegment: 'enterprise',
+        features: [
+          'Full Executive Multi-Model Studio Access',
+          'Dedicated Regional GCC SLA Handover',
+          'Paymob, XPay & Mada Regional Payments',
+          'LiveKit Full-Duplex WebRTC Voice Streams',
+          'Direct GitHub Repository Sync & Cloud Deployments',
+          'ISO 25010 & OWASP ASVS Governance Assurances'
+        ]
+      }
+    ];
+
+    let currentCurrency = 'EGP';
+    let currentTiers = DEFAULT_TIERS;
+    let selectedTierId = 'd2c-commerce-sprint';
+    let selectedPayment = 'instapay';
+    let currentOrderId = null;
+    let currentOrderData = null;
+
+    const RAIL_INFO = {
+      instapay: {
+        icon: '⚡',
+        title: 'InstaPay Instant Payment Rail',
+        desc: 'Transfer 50% deposit with zero fees to handle office@instapay. Verified in seconds.'
+      },
+      paymob: {
+        icon: '💳',
+        title: 'Paymob Gateway (Cards & Wallets)',
+        desc: 'Pay with Egyptian Debit/Credit Cards (Visa, Mastercard, Meeza) or Mobile Wallets.'
+      },
+      xpay: {
+        icon: '💳',
+        title: 'XPay Community Invoicing',
+        desc: 'CBE-compliant direct community payment link for recurring retainers and invoices.'
+      },
+      vodafone_cash: {
+        icon: '📱',
+        title: 'Vodafone Cash & Mobile Wallets',
+        desc: 'Direct mobile wallet transfer to 01029384756 with instant automated SMS verification.'
+      }
+    };
+
+    async function init() {
+      renderTiers();
+      updatePaymentPreview();
+      validateFormLive();
+      await Promise.allSettled([fetchMetrics(), fetchTiers()]);
+    }
+
+    async function fetchMetrics() {
+      try {
+        const res = await fetch(`${OFFICE_API_BASE}/api/commercial/metrics`);
+        const d = await res.json();
+        if (d.success && d.metrics) {
+          const rev = currentCurrency === 'EGP' ? `${d.metrics.totalRevenueEgp.toLocaleString()} EGP` : `$${d.metrics.totalRevenueUsd.toLocaleString()}`;
+          document.getElementById('metric-revenue').textContent = rev;
+          document.getElementById('metric-active').textContent = d.metrics.activeOrdersCount;
+        }
+      } catch (e) {
+        console.warn('Metrics fetch error:', e);
+      }
+    }
+
+    async function fetchTiers() {
+      try {
+        const res = await fetch(`${OFFICE_API_BASE}/api/commercial/tiers`);
+        const d = await res.json();
+        if (d.success && d.tiers) {
+          currentTiers = d.tiers;
+          renderTiers();
+        }
+      } catch (e) {
+        console.warn('Tiers fetch error:', e);
+      }
+    }
+
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      document.getElementById('btn-egp').classList.toggle('active', curr === 'EGP');
+      document.getElementById('btn-usd').classList.toggle('active', curr === 'USD');
+      renderTiers();
+      fetchMetrics();
+    }
+
+    function setPayment(method) {
+      selectedPayment = method;
+      document.querySelectorAll('.pay-btn').forEach(b => b.classList.remove('selected'));
+      const btn = document.getElementById(`pay-${method === 'vodafone_cash' ? 'voda' : method}`);
+      if (btn) btn.classList.add('selected');
+      updatePaymentPreview();
+      if (currentOrderData) {
+        renderSettlementBox(currentOrderData);
+      }
+    }
+
+    function updatePaymentPreview() {
+      const info = RAIL_INFO[selectedPayment] || RAIL_INFO.instapay;
+      document.getElementById('rail-icon').textContent = info.icon;
+      document.getElementById('rail-title').textContent = info.title;
+      document.getElementById('rail-desc').textContent = info.desc;
+    }
+
+    function selectTier(tierId) {
+      selectedTierId = tierId;
+      document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+      const card = document.getElementById(`card-${tierId}`);
+      if (card) card.classList.add('selected');
+    }
+
+    function renderTiers() {
+      const container = document.getElementById('tiers-container');
+      container.innerHTML = currentTiers.map(t => {
+        const price = currentCurrency === 'EGP' ? `${t.priceEgp.toLocaleString()} EGP` : `$${t.priceUsd.toLocaleString()}`;
+        const deposit = currentCurrency === 'EGP' ? `${t.depositEgp.toLocaleString()} EGP` : `$${t.depositUsd.toLocaleString()}`;
+        const isSelected = t.id === selectedTierId ? 'selected' : '';
+        const isPopular = t.id === 'd2c-commerce-sprint' ? 'popular' : '';
+
+        return `
+          <div class="tier-card ${isSelected} ${isPopular}" id="card-${t.id}" onclick="selectTier('${t.id}')">
+            <span class="tier-badge">⚡ SLA: ${t.sla}</span>
+            <h3 class="tier-name">${t.name}</h3>
+            <p class="tier-sub">${t.subtitle}</p>
+            <div class="tier-price-box">
+              <div class="tier-price">${price}</div>
+              <div class="tier-deposit">50% Deposit: ${deposit}</div>
+            </div>
+            <ul class="tier-features">
+              ${t.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+            <button class="select-btn">${t.id === selectedTierId ? '✓ Selected Tier' : 'Select Tier'}</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* Live Input Checkers & Sanitization */
+    function validateFormLive() {
+      const name = document.getElementById('inp-name').value.trim();
+      const phone = document.getElementById('inp-phone').value.trim().replace(/[\s-]/g, '');
+      const company = document.getElementById('inp-company').value.trim();
+      const title = document.getElementById('inp-title').value.trim();
+      const brief = document.getElementById('inp-brief').value.trim();
+
+      const genericSpam = ['test', 'asdf', 'some project', 'some description', 'some user', 'some company', 'project', 'app', 'my app', 'hello'];
+
+      let isValid = true;
+
+      // 1. Name Check
+      const fbName = document.getElementById('feedback-name');
+      if (name.length > 0 && (name.length < 3 || genericSpam.includes(name.toLowerCase()))) {
+        showFeedback(fbName, 'Please enter your actual founder or contact name.', 'error');
+        isValid = false;
+      } else if (name.length >= 3) {
+        showFeedback(fbName, '✓ Valid', 'success');
+      } else {
+        hideFeedback(fbName);
+        isValid = false;
+      }
+
+      // 2. Phone Check (Egyptian & international E.164)
+      const fbPhone = document.getElementById('feedback-phone');
+      const phoneRegex = /^(\+?20|0)?1[0125]\d{8}$|^\+?[1-9]\d{7,14}$/;
+      if (phone.length > 0 && !phoneRegex.test(phone)) {
+        showFeedback(fbPhone, 'Enter a valid Egyptian mobile (e.g. 01012345678 or +20 10...) or international WhatsApp.', 'error');
+        isValid = false;
+      } else if (phone.length > 0 && phoneRegex.test(phone)) {
+        showFeedback(fbPhone, '✓ Valid WhatsApp number', 'success');
+      } else {
+        hideFeedback(fbPhone);
+        isValid = false;
+      }
+
+      // 3. Title Check
+      const fbTitle = document.getElementById('feedback-title');
+      if (title.length > 0 && (title.length < 6 || genericSpam.includes(title.toLowerCase()))) {
+        showFeedback(fbTitle, '⚠️ Enter a descriptive title (e.g. "B2B Coffee Supplies Marketplace" or "Modest Fashion WhatsApp Store").', 'error');
+        isValid = false;
+      } else if (title.length >= 6) {
+        showFeedback(fbTitle, '✓ Specific and descriptive', 'success');
+      } else {
+        hideFeedback(fbTitle);
+        isValid = false;
+      }
+
+      // 4. Brief Depth & Quality Meter
+      document.getElementById('char-counter').textContent = `${brief.length} / 30 chars min`;
+      const seg1 = document.getElementById('seg-1');
+      const seg2 = document.getElementById('seg-2');
+      const seg3 = document.getElementById('seg-3');
+      const meterLbl = document.getElementById('meter-label');
+      const meterHint = document.getElementById('meter-hint');
+
+      if (brief.length === 0) {
+        seg1.style.background = 'transparent';
+        seg2.style.background = 'transparent';
+        seg3.style.background = 'transparent';
+        meterLbl.textContent = 'Brief Quality: Incomplete';
+        meterHint.textContent = 'Explain target audience & core features';
+        isValid = false;
+      } else if (brief.length < 25 || genericSpam.includes(brief.toLowerCase())) {
+        seg1.style.background = 'var(--rose)';
+        seg2.style.background = 'transparent';
+        seg3.style.background = 'transparent';
+        meterLbl.textContent = 'Brief Quality: Needs More Detail';
+        meterLbl.style.color = 'var(--rose)';
+        meterHint.textContent = 'Mention what your app does and who uses it';
+        isValid = false;
+      } else if (brief.length < 60) {
+        seg1.style.background = 'var(--gold)';
+        seg2.style.background = 'var(--gold)';
+        seg3.style.background = 'transparent';
+        meterLbl.textContent = 'Brief Quality: Good';
+        meterLbl.style.color = 'var(--gold)';
+        meterHint.textContent = 'Consider adding required payment/shipping integrations';
+      } else {
+        seg1.style.background = 'var(--emerald)';
+        seg2.style.background = 'var(--emerald)';
+        seg3.style.background = 'var(--emerald)';
+        meterLbl.textContent = 'Brief Quality: High-Fidelity';
+        meterLbl.style.color = 'var(--emerald)';
+        meterHint.textContent = '⚡ Autonomous Pods can directly architect this!';
+      }
+
+      const submitBtn = document.getElementById('btn-submit');
+      if (isValid) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Launch Autonomous Sprint 🚀';
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Please complete required brief fields';
+      }
+
+      return isValid;
+    }
+
+    function showFeedback(el, msg, type) {
+      el.textContent = msg;
+      el.className = `field-feedback active ${type}`;
+    }
+    function hideFeedback(el) {
+      el.className = 'field-feedback';
+      el.textContent = '';
+    }
+
+    /* Submit Order */
+    async function submitOrder(e) {
+      e.preventDefault();
+      if (!validateFormLive()) return;
+
+      const btn = document.getElementById('btn-submit');
+      btn.disabled = true;
+      btn.textContent = 'Dispatching Autonomous Pods...';
+
+      const payload = {
+        clientName: document.getElementById('inp-name').value.trim(),
+        phone: document.getElementById('inp-phone').value.trim(),
+        company: document.getElementById('inp-company').value.trim(),
+        title: document.getElementById('inp-title').value.trim(),
+        brief: document.getElementById('inp-brief').value.trim(),
+        tierId: selectedTierId,
+        currency: currentCurrency,
+        paymentMethod: selectedPayment
+      };
+
+      try {
+        const res = await fetch(`${OFFICE_API_BASE}/api/commercial/orders`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const d = await res.json();
+        if (d.success) {
+          currentOrderId = d.orderId;
+          currentOrderData = { ...d, payload };
+          displayOrderTracker(d, payload);
+          return;
+        } else {
+          alert('Submission Notice: ' + (d.error || 'Validation error'));
+        }
+      } catch (err) {
+        console.warn('Direct office API unreachable, activating autonomous offline fallback:', err);
+        // Fallback: Generate valid order and render settlement with direct WhatsApp dispatch
+        const selectedTier = currentTiers.find(t => t.id === selectedTierId) || currentTiers[0];
+        const depositAmount = currentCurrency === 'USD' ? selectedTier.depositUsd : selectedTier.depositEgp;
+        const fallbackOrderId = 'ORD-' + Math.floor(1000 + Math.random() * 9000);
+        const fallbackData = {
+          success: true,
+          orderId: fallbackOrderId,
+          depositAmount: depositAmount,
+          currency: currentCurrency
+        };
+        currentOrderId = fallbackOrderId;
+        currentOrderData = { ...fallbackData, payload };
+        displayOrderTracker(fallbackData, payload);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Launch Autonomous Sprint 🚀';
+      }
+    }
+
+    function displayOrderTracker(orderData, payload) {
+      document.getElementById('tracker-idle').style.display = 'none';
+      const activeBox = document.getElementById('tracker-active');
+      activeBox.classList.add('active');
+
+      document.getElementById('track-order-id').textContent = orderData.orderId;
+      document.getElementById('track-order-title').textContent = payload.title;
+      document.getElementById('track-order-client').textContent = `${payload.clientName} • ${payload.company}`;
+
+      // Update WhatsApp link with order ID
+      document.getElementById('hub-wa-link').href = `https://wa.me/201029384756?text=Hello%20Agents%20Office%2C%20regarding%20Order%20${orderData.orderId}%20(${encodeURIComponent(payload.title)})`;
+
+      renderSettlementBox(orderData);
+      fetchMetrics();
+    }
+
+    /* Renders exact settlement instructions reflecting the selected payment method */
+    function renderSettlementBox(orderData) {
+      const box = document.getElementById('dynamic-settlement-box');
+      const depositStr = `${orderData.depositAmount.toLocaleString()} ${orderData.currency}`;
+      const ref = orderData.orderId;
+
+      if (selectedPayment === 'instapay') {
+        box.innerHTML = `
+          <div class="settlement-card settlement-instapay">
+            <div style="font-weight: 700; color: var(--gold); margin-bottom: 6px;">⚡ InstaPay Instant Settlement Details:</div>
+            <div>Transfer 50% Deposit (<strong>${depositStr}</strong>) to InstaPay handle:</div>
+            <div class="settlement-code" style="color: var(--gold); margin: 4px 0;">office@instapay</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Reference Code: <strong style="color:#fff;">${ref}</strong></div>
+            <button onclick="simulateDepositPayment('instapay')" style="margin-top: 10px; background: var(--gold); border: none; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; color: #000;">
+              ✓ Confirm InstaPay Transfer
+            </button>
+          </div>
+        `;
+      } else if (selectedPayment === 'paymob') {
+        box.innerHTML = `
+          <div class="settlement-card settlement-paymob">
+            <div style="font-weight: 700; color: var(--cyan); margin-bottom: 6px;">💳 Paymob Secure Gateway Settlement:</div>
+            <div>Authorized Merchant: <strong>Agents Office Cairo (ID: EGP-AO-8842)</strong></div>
+            <div style="margin: 4px 0;">Deposit Amount: <strong>${depositStr}</strong> (Visa, Mastercard, Meeza)</div>
+            <button onclick="simulateDepositPayment('paymob')" style="margin-top: 10px; background: var(--cyan); border: none; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; color: #000;">
+              💳 Pay via Paymob Gateway →
+            </button>
+          </div>
+        `;
+      } else if (selectedPayment === 'xpay') {
+        box.innerHTML = `
+          <div class="settlement-card settlement-xpay">
+            <div style="font-weight: 700; color: var(--emerald); margin-bottom: 6px;">💳 XPay Community Invoicing:</div>
+            <div>CBE-Compliant Invoicing Engine • Order: <strong>${ref}</strong></div>
+            <div style="margin: 4px 0;">Invoice Amount: <strong>${depositStr}</strong></div>
+            <button onclick="simulateDepositPayment('xpay')" style="margin-top: 10px; background: var(--emerald); border: none; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; color: #000;">
+              💳 Open XPay Invoicing Portal →
+            </button>
+          </div>
+        `;
+      } else if (selectedPayment === 'vodafone_cash') {
+        box.innerHTML = `
+          <div class="settlement-card settlement-voda">
+            <div style="font-weight: 700; color: var(--rose); margin-bottom: 6px;">📱 Vodafone Cash Mobile Wallet:</div>
+            <div>Transfer 50% Deposit (<strong>${depositStr}</strong>) to wallet:</div>
+            <div class="settlement-code" style="color: var(--rose); margin: 4px 0;">010 2938 4756</div>
+            <div style="font-size: 0.74rem; color: var(--text-muted);">Dial <code>*9*7*01029384756*${orderData.depositAmount}#</code> on your phone.</div>
+            <button onclick="simulateDepositPayment('vodafone_cash')" style="margin-top: 10px; background: var(--rose); border: none; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; color: #fff;">
+              ✓ Confirm Wallet Transfer
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    async function simulateDepositPayment(gateway) {
+      if (!currentOrderId) return;
+      try {
+        const res = await fetch(`${OFFICE_API_BASE}/api/commercial/orders/${currentOrderId}/deposit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            paymentMethod: gateway || selectedPayment,
+            paymentReference: (gateway || selectedPayment).toUpperCase() + '-' + Math.floor(100000 + Math.random() * 900000)
+          })
+        });
+        const d = await res.json();
+        if (d.success) {
+          document.getElementById('track-status-badge').textContent = 'Deposit Verified & Active';
+          document.getElementById('track-status-badge').style.background = 'rgba(16, 185, 129, 0.15)';
+          document.getElementById('dynamic-settlement-box').innerHTML = `
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--emerald); border-radius: 8px; padding: 1rem;">
+              <div style="color: var(--emerald); font-weight: bold; font-size: 0.95rem;">
+                ✓ Deposit Verified via ${(gateway || selectedPayment).toUpperCase()} (Ref: ${d.paymentReference})!
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+                Autonomous multi-agent sprint dispatched into Cloudflare sandboxes. Pipeline ID: <code>${d.pipelineId}</code>
+              </div>
+            </div>
+          `;
+          document.getElementById('stage-0').className = 'stage-item done';
+          document.getElementById('stage-1').className = 'stage-item done';
+          document.getElementById('stage-2').className = 'stage-item current';
+          document.getElementById('hub-staging-status').innerHTML = `<span>📦</span><span>Staging Preview: <code>https://${currentOrderId}.cloudflare-preview.net</code></span>`;
+          fetchMetrics();
+        }
+      } catch (e) {
+        alert('Payment verification failed: ' + e.message);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
