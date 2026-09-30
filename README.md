@@ -7,7 +7,7 @@
 [![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/WCAG%202.2-AA%20Compliant-purple.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
 [![Security: OWASP LLM Hardened](https://img.shields.io/badge/OWASP%20LLM-Hardened-amber.svg?style=flat-square)](https://sniperadmin.github.io/nasr-portfolio/)
 
-> **High-performance AI systems and engineering studio led by CTO & Systems Architect Nasr Galal (Nash).** We design and deploy production-grade AI & business automation workflows, scalable full-stack applications, and high-converting headless digital storefronts in strict 30-day engineering sprints.
+> **High-performance AI systems and engineering studio led by CTO & Systems Architect Nasr Galal (Nash).** We design and deploy production-grade AI & business automation workflows, scalable full-stack applications, and high-converting headless digital storefronts in deterministic engineering sprints (72-hour social commerce, 5-day rapid MVP, and dedicated monthly agency overflow pods).
 
 ---
 
@@ -33,7 +33,7 @@ Synthesized and calibrated via **Google Stitch MCP** (Project: `nasr-portfolio`,
 
 ## 📐 Systems Architecture & Capabilities
 1. **Sub-100ms Edge Orchestration**: Global distributed routing with predictive caching and pre-warmed transactional agents.
-2. **Dual-Rail Billing**: Native integration for Egyptian domestic payments (**Paymob**: InstaPay, Meeza, Vodafone Cash, Aman) and global SaaS (**Stripe / Lemon Squeezy MoR**).
+2. **CBE-Compliant Multi-Rail Billing**: Native integration for Egyptian domestic payments (**InstaPay** `office@instapay`, **Paymob**: Meeza, cards, Vodafone Cash) and regional B2B invoicing (**XPay**). (Note: Stripe does not support Egyptian-domiciled entities).
 3. **Conversational Commerce**: Zero-storefront conversational checkouts embedded directly within WhatsApp Business and Instagram DMs.
 4. **Autonomous Logistics**: Real-time webhook integration with local courier fleets (**Bosta, Aramex**) for automated waybills and cash-on-delivery reconciliation.
 5. **Hermetic Agent Boundaries**: Strict zero-data-retention pipelines scrub PII prior to model inference.

@@ -32,14 +32,14 @@
 ### 3.2 Hero Section
 - **Headline**: "Your Sales Loop is Bleeding Profit. Automate It in 30 Days." with vivid cyan-to-emerald gradient.
 - **Telemetry Console**: Interactive micro-simulation with dynamically updating edge latencies (p99 ~11–14ms) and throughput telemetry (4,200+ req/s).
-- **Verification Strip**: Pass indicators for intent ingestion, agentic pricing, Paymob/Stripe settlement consensus, and Bosta logistics.
+- **Verification Strip**: Pass indicators for intent ingestion, agentic pricing, InstaPay/Paymob/XPay settlement consensus, and Bosta logistics.
 
 ### 3.3 Live Metrics Bar
 - 4-column metric strip: 99.99% Uptime, $142M+ GMV Processed, 30-Day Deployment, Zero Vendor Lock-in.
 
 ### 3.4 Bento Capabilities Grid
 - Sub-100ms Edge Orchestration
-- Self-Reconciling Billing (Paymob, InstaPay, Stripe)
+- Self-Reconciling Billing (InstaPay, Paymob, XPay, Vodafone Cash)
 - Hermetic Agent Boundaries (SOC 2, ISO 27001)
 - Conversational Funnel Engine (WhatsApp & Instagram DM)
 - Autonomous Logistics Dispatch (Bosta, Aramex)
