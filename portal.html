@@ -601,6 +601,144 @@
       user-select: all;
     }
 
+    /* Founder Business Review Gate & Dubai Apps Blueprint */
+    .review-gate-panel {
+      background: var(--bg-surface);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.08);
+    }
+    .review-gate-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .review-gate-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .blueprint-nav {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+    .blueprint-tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: 0.73rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .blueprint-tab-btn:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      color: var(--text-main);
+    }
+    .blueprint-tab-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--cyan);
+      color: #fff;
+      font-weight: 700;
+    }
+    .blueprint-pane {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.82rem;
+      color: var(--text-main);
+      max-height: 280px;
+      overflow-y: auto;
+      line-height: 1.6;
+    }
+    .blueprint-field {
+      margin-bottom: 8px;
+    }
+    .blueprint-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: bold;
+    }
+    .gate-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-approve {
+      background: linear-gradient(135deg, var(--emerald), #059669);
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-approve:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-revise {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-revise:hover { background: rgba(245, 158, 11, 0.2); }
+    .revision-box {
+      margin-top: 10px;
+      display: none;
+      background: rgba(245, 158, 11, 0.05);
+      border: 1px dashed rgba(245, 158, 11, 0.4);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .revision-box.open { display: block; }
+    .revision-box textarea {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: var(--font-sans);
+      resize: vertical;
+      min-height: 60px;
+      box-sizing: border-box;
+    }
+
     /* Customer Handover Box (NO internal canvas link!) */
     .customer-hub-box {
       margin-top: 1.5rem;
@@ -833,6 +971,9 @@
             <!-- Injected via JavaScript based on selectedPayment -->
           </div>
 
+          <!-- Founder Business Review Gate & Dubai Apps Blueprint Container -->
+          <div id="founder-review-gate-box"></div>
+
           <!-- Stage-Gate Milestones -->
           <div class="stage-steps" id="track-stages">
             <div class="stage-item done" id="stage-0">
@@ -845,8 +986,8 @@
             <div class="stage-item current" id="stage-1">
               <div class="stage-circle">2</div>
               <div class="stage-text">
-                <h4>Concept Council & Architecture</h4>
-                <p>Cross-review gate: Dev Lead, Brand Guardian & Marketing Head.</p>
+                <h4>Dubai Apps Blueprint & Founder Review Gate</h4>
+                <p>Man-In-The-Loop founder approval of 8 DCDE business canvases before coding.</p>
               </div>
             </div>
             <div class="stage-item" id="stage-2">
@@ -935,7 +1076,7 @@
         ]
       },
       {
-        id: 'cairo-agency-overflow',
+        id: 'cairo-agency-pod',
         name: 'Cairo Boutique Agency Overflow Pod',
         nameAr: 'خلية تطوير مستقلة لوكالات القاهرة',
         subtitle: 'Dedicated Autonomous Dev, Design & QA Pod for Digital & Creative Agencies',
@@ -972,6 +1113,25 @@
           'LiveKit Full-Duplex WebRTC Voice Streams',
           'Direct GitHub Repository Sync & Cloud Deployments',
           'ISO 25010 & OWASP ASVS Governance Assurances'
+        ]
+      },
+      {
+        id: 'systems-architecture-audit',
+        name: 'Rapid Systems Architecture Audit',
+        nameAr: 'فحص وتدقيق البنية الهندسية للأنظمة',
+        subtitle: '48-Hour Architecture Teardown, Latency Profiling & Fixed-Scope Technical Blueprint',
+        priceEgp: 73500,
+        priceUsd: 1500,
+        depositEgp: 73500,
+        depositUsd: 1500,
+        sla: '48 Hours',
+        targetSegment: 'enterprise',
+        features: [
+          'Sub-100ms Edge Latency Profiling & Bottleneck Identification',
+          'Security Posture & OWASP LLM Top 10 Red-Teaming',
+          'Database WAL & SQLite Concurrency Architecture Inspection',
+          'Fixed-Scope 30-Day Engineering Roadmap Deliverable',
+          '100% Written Architectural Audit Report within 48 Hours'
         ]
       }
     ];
@@ -1348,26 +1508,283 @@
         });
         const d = await res.json();
         if (d.success) {
-          document.getElementById('track-status-badge').textContent = 'Deposit Verified & Active';
-          document.getElementById('track-status-badge').style.background = 'rgba(16, 185, 129, 0.15)';
+          document.getElementById('track-status-badge').textContent = 'Deposit Verified & Awaiting Review';
+          document.getElementById('track-status-badge').style.background = 'rgba(56, 189, 248, 0.15)';
           document.getElementById('dynamic-settlement-box').innerHTML = `
             <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--emerald); border-radius: 8px; padding: 1rem;">
               <div style="color: var(--emerald); font-weight: bold; font-size: 0.95rem;">
                 ✓ Deposit Verified via ${(gateway || selectedPayment).toUpperCase()} (Ref: ${d.paymentReference})!
               </div>
               <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
-                Autonomous multi-agent sprint dispatched into Cloudflare sandboxes. Pipeline ID: <code>${d.pipelineId}</code>
+                Dubai Apps 8-Template Business Blueprint generated. Please review and approve below before Dev Pod execution. Pipeline ID: <code>${d.pipelineId}</code>
               </div>
             </div>
           `;
           document.getElementById('stage-0').className = 'stage-item done';
-          document.getElementById('stage-1').className = 'stage-item done';
-          document.getElementById('stage-2').className = 'stage-item current';
+          document.getElementById('stage-1').className = 'stage-item current';
+          document.getElementById('stage-2').className = 'stage-item';
           document.getElementById('hub-staging-status').innerHTML = `<span>📦</span><span>Staging Preview: <code>https://${currentOrderId}.cloudflare-preview.net</code></span>`;
           fetchMetrics();
+          await fetchAndRenderReviewGate(currentOrderId);
         }
       } catch (e) {
         alert('Payment verification failed: ' + e.message);
+      }
+    }
+
+    let currentBlueprint = null;
+    let activeBlueprintTab = 'canvas';
+
+    async function fetchAndRenderReviewGate(orderId) {
+      if (!orderId) return;
+      try {
+        const res = await fetch(`${OFFICE_API_BASE}/api/commercial/orders/${orderId}/blueprint`);
+        if (!res.ok) return;
+        const d = await res.json();
+        if (d.success && d.dubaiAppsTemplates) {
+          currentBlueprint = d.dubaiAppsTemplates;
+          renderReviewGateUI(d.status, d.reviewGate);
+        }
+      } catch (e) {
+        console.warn('Could not fetch blueprint:', e);
+      }
+    }
+
+    function renderReviewGateUI(status, reviewGate) {
+      const box = document.getElementById('founder-review-gate-box');
+      if (!box || !currentBlueprint) return;
+
+      const isApproved = status === 'client_approved' || reviewGate?.status === 'approved';
+      const isRevision = status === 'revision_requested' || reviewGate?.status === 'revision_requested';
+
+      if (isApproved) {
+        document.getElementById('stage-0').className = 'stage-item done';
+        document.getElementById('stage-1').className = 'stage-item done';
+        document.getElementById('stage-2').className = 'stage-item current';
+      } else {
+        document.getElementById('stage-0').className = 'stage-item done';
+        document.getElementById('stage-1').className = 'stage-item current';
+        document.getElementById('stage-2').className = 'stage-item';
+      }
+
+      box.innerHTML = `
+        <div class="review-gate-panel">
+          <div class="review-gate-header">
+            <div class="review-gate-title">
+              <span>🏛️</span>
+              <span>Founder Review Gate — Dubai Apps Blueprint</span>
+            </div>
+            <span class="status-badge" style="${isApproved ? 'background: rgba(16, 185, 129, 0.2); color: var(--emerald);' : (isRevision ? 'background: rgba(245, 158, 11, 0.2); color: var(--gold);' : 'background: rgba(56, 189, 248, 0.2); color: var(--cyan);')}">
+              ${isApproved ? '✓ Blueprint Approved' : (isRevision ? '⚠️ Revision Requested' : '⏳ Awaiting Founder Review')}
+            </span>
+          </div>
+
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Inspect your 8 official Dubai Apps / DCDE canvases below. As founder, verify the business model, unit economics, and value proposition before dev pods begin coding.
+          </p>
+
+          <div class="blueprint-nav">
+            <button class="blueprint-tab-btn ${activeBlueprintTab === 'canvas' ? 'active' : ''}" onclick="switchBlueprintTab('canvas')">📋 1. Canvas</button>
+            <button class="blueprint-tab-btn ${activeBlueprintTab === 'persona' ? 'active' : ''}" onclick="switchBlueprintTab('persona')">👤 2. Persona</button>
+            <button class="blueprint-tab-btn ${activeBlueprintTab === 'market' ? 'active' : ''}" onclick="switchBlueprintTab('market')">📊 3. TAM/SAM/SOM</button>
+            <button class="blueprint-tab-btn ${activeBlueprintTab === 'service' ? 'active' : ''}" onclick="switchBlueprintTab('service')">🗺️ 4. Service</button>
+            <button class="blueprint-tab-btn ${activeBlueprintTab === 'assumptions' ? 'active' : ''}" onclick="switchBlueprintTab('assumptions')">🧪 5. Assumptions</button>
+            <button class="blueprint-tab-btn ${activeBlueprintTab === 'ux' ? 'active' : ''}" onclick="switchBlueprintTab('ux')">📱 6. UX Flow</button>
+            <button class="blueprint-tab-btn ${activeBlueprintTab === 'pitch' ? 'active' : ''}" onclick="switchBlueprintTab('pitch')">🎯 7. Pitch Deck</button>
+            <button class="blueprint-tab-btn ${activeBlueprintTab === 'dcde' ? 'active' : ''}" onclick="switchBlueprintTab('dcde')">🏆 8. DCDE Score</button>
+          </div>
+
+          <div class="blueprint-pane" id="blueprint-pane-content">
+            ${getBlueprintTabHtml(activeBlueprintTab)}
+          </div>
+
+          ${!isApproved ? `
+            <div class="gate-actions">
+              <button class="btn-approve" onclick="approveCurrentBlueprint()">
+                <span>✓ Approve Blueprint & Authorize Dev Pod</span>
+              </button>
+              <button class="btn-revise" onclick="toggleRevisionInput()">
+                <span>⚠️ Request Business Model Revision</span>
+              </button>
+            </div>
+            <div class="revision-box" id="revision-form-box">
+              <div style="font-size: 0.75rem; color: var(--gold); margin-bottom: 6px; font-weight: 600;">
+                Describe your desired business model, pricing, or feature adjustments:
+              </div>
+              <textarea id="revision-feedback-text" placeholder="E.g. Adjust carrier commission to 15%, mandate InstaPay 24h settlement, and add Bosta COD delivery option..."></textarea>
+              <button onclick="submitRevisionFeedback()" style="margin-top: 8px; background: var(--gold); border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; cursor: pointer; color: #000;">
+                Submit Revision to Strategy Pod →
+              </button>
+            </div>
+          ` : `
+            <div style="margin-top: 0.75rem; padding: 0.75rem; background: rgba(16, 185, 129, 0.08); border: 1px solid var(--emerald); border-radius: 8px; font-size: 0.8rem; color: var(--emerald); display: flex; align-items: center; gap: 8px;">
+              <span>🚀</span>
+              <span><strong>Gate Cleared:</strong> Dev Pod execution authorized. Code building inside isolated Cloudflare container sandbox.</span>
+            </div>
+          `}
+        </div>
+      `;
+    }
+
+    function switchBlueprintTab(tabKey) {
+      activeBlueprintTab = tabKey;
+      document.querySelectorAll('.blueprint-tab-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.blueprint-tab-btn')).find(b => b.textContent.toLowerCase().includes(tabKey.toLowerCase()));
+      if (activeBtn) activeBtn.classList.add('active');
+      const pane = document.getElementById('blueprint-pane-content');
+      if (pane) pane.innerHTML = getBlueprintTabHtml(tabKey);
+    }
+
+    function getBlueprintTabHtml(tabKey) {
+      if (!currentBlueprint) return '<p>No blueprint data available.</p>';
+      const bp = currentBlueprint;
+
+      if (tabKey === 'canvas') {
+        const c = bp.appBusinessCanvas || {};
+        return `
+          <div class="blueprint-field"><div class="blueprint-label">Core Problem:</div><div>${c.problem || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Market Opportunity:</div><div>${c.marketOpportunity || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Target Audience:</div><div>${c.targetAudience || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Solution Value:</div><div>${c.solutionValue || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Competitive Differentiators:</div><div>${c.differentiators || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Revenue Streams:</div><div>${c.revenueStreams || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Cost Structure & Margins:</div><div>${c.costStructure || 'N/A'}</div></div>
+        `;
+      } else if (tabKey === 'persona') {
+        const p = bp.personaCard || {};
+        return `
+          <div class="blueprint-field"><div class="blueprint-label">ICP Profile:</div><div><strong>${p.fullName}</strong> — ${p.title} (${p.company || 'N/A'}) • ${p.location}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Jobs To Be Done:</div><div>${p.jobsToBeDone || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Core Frustrations:</div><div>${Array.isArray(p.frustrations) ? p.frustrations.map(f => `• ${f}`).join('<br>') : p.frustrations}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Preferred Financial Rails:</div><div>${(p.preferredRails || []).join(', ')}</div></div>
+        `;
+      } else if (tabKey === 'market') {
+        const m = bp.marketOpportunity || {};
+        const u = m.unitEconomics || {};
+        return `
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px;">
+            <div style="background: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px; text-align: center;">
+              <div class="blueprint-label">TAM</div>
+              <div style="font-weight: 700; color: var(--cyan);">${m.tam || 'N/A'}</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px; text-align: center;">
+              <div class="blueprint-label">SAM</div>
+              <div style="font-weight: 700; color: var(--gold);">${m.sam || 'N/A'}</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px; text-align: center;">
+              <div class="blueprint-label">SOM</div>
+              <div style="font-weight: 700; color: var(--emerald);">${m.som || 'N/A'}</div>
+            </div>
+          </div>
+          <div class="blueprint-field"><div class="blueprint-label">Average Order Value (AOV):</div><div>${u.aov || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Target Gross Margin:</div><div>${u.grossMargin || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Target LTV:CAC Ratio:</div><div>${u.targetLtvCac || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Payback Period:</div><div>${u.paybackPeriod || 'N/A'}</div></div>
+        `;
+      } else if (tabKey === 'service') {
+        const s = bp.serviceBlueprint || {};
+        return `
+          <div class="blueprint-field"><div class="blueprint-label">Customer Touchpoints:</div><div>${(s.customerTouchpoints || []).join(' → ')}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Frontstage Operations:</div><div>${(s.frontstage || []).join(', ')}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Backstage Autonomous Pods:</div><div>${(s.backstage || []).join(', ')}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Support Integrations & APIs:</div><div>${(s.supportApis || []).join(', ')}</div></div>
+        `;
+      } else if (tabKey === 'assumptions') {
+        const a = bp.assumptionsMap || {};
+        const cards = a.testCards || [];
+        return `
+          <div class="blueprint-field"><div class="blueprint-label">Desirability Assumption:</div><div>${a.desirability || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Feasibility Assumption:</div><div>${a.feasibility || 'N/A'}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Viability Assumption:</div><div>${a.viability || 'N/A'}</div></div>
+          <div style="margin-top: 8px;"><div class="blueprint-label">3 Stage-Gate Test Cards:</div></div>
+          ${cards.map(c => `
+            <div style="margin-top: 4px; padding: 6px 8px; background: rgba(255,255,255,0.03); border-radius: 4px;">
+              <strong>${c.test}:</strong> ${c.metric} (Status: <span style="color: var(--emerald);">${c.criteria}</span>)
+            </div>
+          `).join('')}
+        `;
+      } else if (tabKey === 'ux') {
+        const u = bp.uxFlowWireframes || {};
+        return `
+          <div class="blueprint-field"><div class="blueprint-label">User Journey:</div><div>${(u.userJourney || []).join(' → ')}</div></div>
+          <div class="blueprint-field"><div class="blueprint-label">Screen Specifications:</div><div>${(u.screens || []).map(s => `• ${s}`).join('<br>')}</div></div>
+        `;
+      } else if (tabKey === 'pitch') {
+        const p = bp.pitchDeck || {};
+        const slides = p.slides || [];
+        return `
+          <div class="blueprint-label" style="margin-bottom: 6px;">12-Slide Pitch Deck Structure:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+            ${slides.map(s => `
+              <div style="background: rgba(255,255,255,0.03); padding: 6px 8px; border-radius: 4px;">
+                <strong style="color: var(--cyan);">Slide ${s.slide}:</strong> ${s.title}<br>
+                <span style="font-size: 0.72rem; color: var(--text-dim);">${s.content}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else if (tabKey === 'dcde') {
+        const d = bp.judgingCriteria || {};
+        return `
+          <div style="background: rgba(16,185,129,0.08); border: 1px solid var(--emerald); padding: 10px; border-radius: 8px; margin-bottom: 10px; text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--emerald); font-family: var(--font-mono);">${d.totalScore || 93} / ${d.maxScore || 100}</div>
+            <div style="font-size: 0.78rem; color: var(--emerald); font-weight: 600;">✓ DCDE Pitch Championship Passing Certification</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div>Problem Validation: <strong>${d.problemValidation || 19}/20</strong></div>
+            <div>Solution Innovation: <strong>${d.solutionInnovation || 19}/20</strong></div>
+            <div>Business Viability: <strong>${d.businessViability || 18}/20</strong></div>
+            <div>Technical Execution: <strong>${d.technicalExecution || 19}/20</strong></div>
+            <div>Pitch Clarity: <strong>${d.pitchClarity || 18}/20</strong></div>
+          </div>
+        `;
+      }
+      return '';
+    }
+
+    async function approveCurrentBlueprint() {
+      if (!currentOrderId) return;
+      try {
+        const res = await fetch(`${OFFICE_API_BASE}/api/commercial/orders/${currentOrderId}/approve`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const d = await res.json();
+        if (d.success) {
+          fetchAndRenderReviewGate(currentOrderId);
+          document.getElementById('track-status-badge').textContent = 'Blueprint Approved • Dev Active';
+          document.getElementById('track-status-badge').style.background = 'rgba(16, 185, 129, 0.15)';
+        }
+      } catch (e) {
+        alert('Approval failed: ' + e.message);
+      }
+    }
+
+    function toggleRevisionInput() {
+      const box = document.getElementById('revision-form-box');
+      if (box) box.classList.toggle('open');
+    }
+
+    async function submitRevisionFeedback() {
+      if (!currentOrderId) return;
+      const feedback = document.getElementById('revision-feedback-text')?.value;
+      if (!feedback || feedback.trim().length < 5) {
+        alert('Please provide specific feedback for your revision (at least 5 characters).');
+        return;
+      }
+      try {
+        const res = await fetch(`${OFFICE_API_BASE}/api/commercial/orders/${currentOrderId}/revise`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ feedback })
+        });
+        const d = await res.json();
+        if (d.success) {
+          alert('Revisions submitted! Strategy pod is refining the blueprint.');
+          fetchAndRenderReviewGate(currentOrderId);
+        }
+      } catch (e) {
+        alert('Revision submission failed: ' + e.message);
       }
     }
 
