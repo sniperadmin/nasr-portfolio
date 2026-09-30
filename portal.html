@@ -932,6 +932,10 @@
         <span>←</span>
         <span>Back to Main Studio</span>
       </a>
+      <button type="button" onclick="openPortalBookingModal()" style="background: rgba(56, 189, 248, 0.12); border: 1px solid var(--cyan); color: var(--cyan); font-size: 0.78rem; font-weight: 700; font-family: var(--font-mono); padding: 5px 12px; border-radius: 6px; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 5px;" onmouseover="this.style.background='var(--cyan)'; this.style.color='#000';" onmouseout="this.style.background='rgba(56, 189, 248, 0.12)'; this.style.color='var(--cyan)';">
+        <span>📅</span>
+        <span>Book Discovery Call</span>
+      </button>
       <div class="currency-switch">
         <button class="curr-btn active" id="btn-egp" onclick="setCurrency('EGP')">EGP</button>
         <button class="curr-btn" id="btn-usd" onclick="setCurrency('USD')">USD</button>
@@ -983,9 +987,25 @@
       <!-- Left: Intake Form with Live Input Checkers -->
       <div class="card-panel">
         <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 700;">2. Online Brief Intake & Instant Dispatch</h3>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.25rem;">
           Provide your project requirements. Our live analyzer verifies quality before dispatching autonomous pods.
         </p>
+
+        <!-- Live Meeting / Scoping Call Bar -->
+        <div style="background: rgba(56, 189, 248, 0.05); border: 1px dashed rgba(56, 189, 248, 0.3); border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+          <div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 6px;">
+              <span>📅</span>
+              <span>Prefer a Live Discovery & Scoping Session First?</span>
+            </div>
+            <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">
+              30-Min live systems architecture walkthrough with Nasr Galal on Google Meet (Mutual NDA).
+            </div>
+          </div>
+          <button type="button" onclick="openPortalBookingModal()" style="background: var(--cyan); color: #000; border: none; font-size: 0.76rem; font-weight: 700; font-family: var(--font-mono); padding: 6px 14px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s;" onmouseover="this.style.filter='brightness(1.15)';" onmouseout="this.style.filter='none';">
+            <span>📅 Book Time Slot</span>
+          </button>
+        </div>
 
         <form id="order-form" onsubmit="submitOrder(event)">
           <div class="form-group">
@@ -1160,10 +1180,26 @@
     </div>
   </main>
 
-  <footer>
-    <p>Agents Office v3.6 — Executive Cyber-Luxury AI Workstation • Operating 100% Online from Cairo, Egypt</p>
-    <p style="margin-top: 4px;">InstaPay Verified: <code>office@instapay</code> • Paymob Merchant ID: <code>EGP-AO-8842</code> • XPay Gateway CBE Compliant</p>
   </footer>
+
+  <!-- Live Calendar Booking Modal (Calendly / Google Meet) -->
+  <div id="portalBookingModal" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 1.5rem;">
+    <div style="position: relative; width: 100%; max-width: 820px; max-height: 92vh; background: var(--bg-surface); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px; padding: 1.5rem; box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); display: flex; flex-direction: column; overflow: hidden;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="font-size: 1.5rem;">📅</div>
+          <div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: #fff; margin: 0;">Schedule Technical Scoping Call</h3>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 2px 0 0 0; font-family: var(--font-mono);">30-Min Live Diagnostic • Mutual NDA • Google Meet Auto-Issued</p>
+          </div>
+        </div>
+        <button onclick="closePortalBookingModal()" style="background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: 1.2rem; cursor: pointer; padding: 4px 10px; border-radius: 6px; line-height: 1;" onmouseover="this.style.color='#fff';" onmouseout="this.style.color='var(--text-muted)';">✕</button>
+      </div>
+      <div style="flex: 1; min-height: 520px; border-radius: 8px; overflow: hidden; background: #0c1222;">
+        <iframe id="portalCalendlyFrame" src="about:blank" style="width: 100%; height: 520px; border: none;" title="Calendly Booking"></iframe>
+      </div>
+    </div>
+  </div>
 
   <script>
     const OFFICE_API_BASE = window.OFFICE_API_URL || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:4520' : 'https://api.agentsoffice.com');
@@ -1326,8 +1362,34 @@
         handleOrderLookup(orderParam);
       }
 
+      // Check if meeting / discovery booking requested in query (?booking=true or ?meeting=true)
+      if (urlParams.get('booking') === 'true' || urlParams.get('meeting') === 'true') {
+        openPortalBookingModal();
+      }
+
       await Promise.allSettled([fetchMetrics(), fetchTiers()]);
     }
+
+    /* Live Calendar Booking Modal Controls (Calendly & Google Meet) */
+    function openPortalBookingModal() {
+      const modal = document.getElementById('portalBookingModal');
+      const frame = document.getElementById('portalCalendlyFrame');
+      if (frame && (frame.src === 'about:blank' || !frame.src.includes('calendly'))) {
+        frame.src = 'https://calendly.com/nasr_galal?hide_gdpr_banner=1&background_color=0c1222&text_color=ffffff&primary_color=38bdf8';
+      }
+      if (modal) {
+        modal.style.display = 'flex';
+      }
+    }
+
+    function closePortalBookingModal() {
+      const modal = document.getElementById('portalBookingModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePortalBookingModal();
+    });
 
     async function fetchMetrics() {
       try {
@@ -1467,9 +1529,12 @@
             </div>
           </div>
 
-          <div style="margin-top: 1rem; text-align: center;">
-            <a href="https://wa.me/201029384756?text=Hello%20Agents%20Office%2C%20inquiry%20regarding%20${encodeURIComponent(t.name)}" target="_blank" style="color: var(--cyan); text-decoration: none; font-size: 0.78rem; font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px;">
-              <span>💬 Direct Consultation? WhatsApp Sprint Lead (+20 10 2938 4756) →</span>
+          <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 8px; text-align: center;">
+            <a href="javascript:void(0)" onclick="openPortalBookingModal()" style="color: var(--cyan); text-decoration: none; font-size: 0.78rem; font-family: var(--font-mono); display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 12px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(56, 189, 248, 0.18)';" onmouseout="this.style.background='rgba(56, 189, 248, 0.08)';">
+              <span>📅 Schedule 30-Min Discovery Meeting on Nasr's Calendar →</span>
+            </a>
+            <a href="https://wa.me/201029384756?text=Hello%20Agents%20Office%2C%20inquiry%20regarding%20${encodeURIComponent(t.name)}" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 0.75rem; font-family: var(--font-mono); display: inline-flex; align-items: center; justify-content: center; gap: 4px;">
+              <span>💬 Quick Chat with Sprint Lead on WhatsApp (+20 10 2938 4756) →</span>
             </a>
           </div>
         </div>
