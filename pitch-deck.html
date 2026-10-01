@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agents Office — Autonomous AI Studio Pitch Deck | Competitor Audit & Strategic Advantage</title>
+  
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    /* ===========================================
+       CSS CUSTOM PROPERTIES (CYBER-LUXURY THEME)
+       =========================================== */
+    :root {
+      --stage-bg: #05070e;
+      --slide-bg: radial-gradient(135% 120% at 50% 0%, #0d1527 0%, #060913 100%);
+      --bg-card: rgba(15, 23, 42, 0.7);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.35);
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --cyan: #38bdf8;
+      --cyan-glow: rgba(56, 189, 248, 0.18);
+      --blue: #2563eb;
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.15);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.15);
+      --rose: #f43f5e;
+      --rose-glow: rgba(244, 63, 94, 0.15);
+
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration-normal: 0.5s;
+    }
+
+    /* Base Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ===========================================
+       FIXED 16:9 STAGE MANDATORY BASE STYLES
+       =========================================== */
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--stage-bg);
+      font-family: var(--font-body);
+      color: var(--text-main);
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .deck-viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: var(--stage-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deck-stage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      transform-origin: 0 0;
+      background: var(--slide-bg);
+      box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 70px 90px;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: var(--slide-bg);
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .slide.active, .slide.visible {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    /* Ambient Background Grid Pattern */
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Radial Accent Glow */
+    .slide::after {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Slide Header & Footer Meta */
+    .slide-header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 16px;
+      color: #fff;
+      box-shadow: 0 0 15px var(--cyan-glow);
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .brand-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--cyan);
+      background: var(--cyan-glow);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      letter-spacing: 0.05em;
+    }
+
+    .slide-meta-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .slide-body {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 30px 0;
+    }
+
+    .slide-footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* Headings & Typography */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cyan);
+      background: var(--cyan-glow);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 5px 14px;
+      border-radius: 20px;
+      width: fit-content;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .slide-title {
+      font-family: var(--font-display);
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 18px;
+      max-width: 1400px;
+    }
+
+    .slide-title span.accent-cyan {
+      background: linear-gradient(135deg, #fff 0%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .slide-title span.accent-gold {
+      background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .slide-title span.accent-emerald {
+      background: linear-gradient(135deg, #fff 0%, var(--emerald) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-subtitle {
+      font-size: 22px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 1200px;
+      margin-bottom: 30px;
+    }
+
+    /* Animated Reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+    }
+    .slide.visible .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide.visible .reveal:nth-child(1) { transition-delay: 0.1s; }
+    .slide.visible .reveal:nth-child(2) { transition-delay: 0.2s; }
+    .slide.visible .reveal:nth-child(3) { transition-delay: 0.3s; }
+    .slide.visible .reveal:nth-child(4) { transition-delay: 0.4s; }
+    .slide.visible .reveal:nth-child(5) { transition-delay: 0.5s; }
+
+    /* Component Grids */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      width: 100%;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      width: 100%;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      width: 100%;
+    }
+
+    .deck-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .deck-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+    .deck-card.highlight {
+      border-color: var(--cyan);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
+      box-shadow: 0 0 35px var(--cyan-glow);
+    }
+    .deck-card.danger {
+      border-color: rgba(244, 63, 94, 0.4);
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.05) 0%, rgba(15, 23, 42, 0.8) 100%);
+    }
+
+    .card-icon {
+      font-size: 34px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .card-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--cyan);
+      margin-top: 14px;
+      display: inline-block;
+    }
+
+    /* Comparison Table Styling */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+    }
+    .compare-table th {
+      background: rgba(13, 19, 35, 0.9);
+      padding: 16px 20px;
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .compare-table th.col-highlight {
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.12);
+      border-left: 1px solid var(--cyan);
+      border-right: 1px solid var(--cyan);
+    }
+    .compare-table td {
+      padding: 15px 20px;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+    }
+    .compare-table td.col-highlight {
+      background: rgba(56, 189, 248, 0.06);
+      border-left: 1px solid rgba(56, 189, 248, 0.25);
+      border-right: 1px solid rgba(56, 189, 248, 0.25);
+      font-weight: 600;
+      color: #fff;
+    }
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+    .compare-table .badge-red {
+      color: var(--rose);
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+    .compare-table .badge-green {
+      color: var(--emerald);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Metric / Stat Boxes */
+    .stat-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+    .stat-val {
+      font-family: var(--font-mono);
+      font-size: 46px;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Interactive Presentation Navigation Chrome (Fixed Outside Stage) */
+    .deck-controls {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(13, 19, 35, 0.85);
+      border: 1px solid var(--border-accent);
+      padding: 8px 18px;
+      border-radius: 30px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .nav-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: var(--cyan);
+      color: #000;
+      border-color: var(--cyan);
+    }
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cyan);
+      min-width: 65px;
+      text-align: center;
+    }
+    .deck-action-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .deck-action-link:hover {
+      color: #fff;
+      border-color: var(--cyan);
+    }
+
+    /* Inline Editor Hotzone & Toggle */
+    .edit-hotzone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 80px;
+      z-index: 10000;
+      cursor: pointer;
+    }
+    .edit-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10001;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+    }
+    .edit-toggle.show, .edit-toggle.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Print / PDF Export Styles */
+    @media print {
+      html, body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #000;
+      }
+      .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #000;
+      }
+      .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+      }
+      .slide {
+        position: relative;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        page-break-after: always;
+        break-after: page;
+      }
+      .deck-controls, .edit-hotzone, .edit-toggle {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hotzone for Inline Editing -->
+  <div class="edit-hotzone" title="Hover or press 'E' to edit slide copy"></div>
+  <button class="edit-toggle" id="editToggle">
+    <span>✏️</span>
+    <span>Edit Copy (E)</span>
+  </button>
+
+  <div class="deck-viewport">
+    <main class="deck-stage" id="deckStage">
+
+      <!-- ==========================================
+           SLIDE 1: TITLE & POSITIONING HOOK
+           ========================================== -->
+      <section class="slide active" id="slide-1">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+            <div class="brand-tag">Cyber-Luxury Studio</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Cairo, Egypt • Operating 100% Online</span>
+            <span>•</span>
+            <span style="color: var(--emerald);">● Autonomous Pods Online</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>⚡ THE AUTONOMOUS ENGINEERING REVOLUTION</span>
+          </div>
+          <h1 class="slide-title reveal">
+            Software Development at the <span class="accent-cyan">Speed of Thought.</span>
+          </h1>
+          <p class="slide-subtitle reveal">
+            Deploying a dedicated autonomous workforce of 132+ specialized AI agents across 14 pods. 
+            Guaranteed productized turnarounds in <strong>72 Hours to 5 Days</strong> with 100% unencumbered IP ownership and verified Stage-Gate quality.
+          </p>
+
+          <div class="grid-4 reveal" style="margin-top: 10px;">
+            <div class="deck-card">
+              <div class="card-icon">⚡</div>
+              <div class="card-title">72h - 5d Turnaround</div>
+              <div class="card-text">From approved specification to production build without developer delays.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-icon">🛡️</div>
+              <div class="card-title">ISO 25010 Quality</div>
+              <div class="card-text">Mandatory 4-department Stage-Gate review council. Zero AI slop guarantee.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-icon">🇪🇬</div>
+              <div class="card-title">Native Financial Rails</div>
+              <div class="card-text">InstaPay instant QR verification, Paymob CBE-compliant cards, and Bosta logistics.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-icon">🔒</div>
+              <div class="card-title">100% IP Transfer</div>
+              <div class="card-text">Complete source code, W3C design tokens, and git repository ownership on Day 30.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Founder &amp; Chief Architect: <strong>Nasr Galal</strong></div>
+          <div>CONFIDENTIAL &amp; PROPRIETARY • AGENTS OFFICE V3.6</div>
+          <div>01 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 2: THE INDUSTRY CRISIS
+           ========================================== -->
+      <section class="slide" id="slide-2">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Market Diagnostic</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal" style="color: var(--rose); background: var(--rose-glow); border-color: rgba(244,63,94,0.3);">
+            <span>⚠️ THE SOFTWARE AGENCY CRISIS</span>
+          </div>
+          <h2 class="slide-title reveal">
+            Traditional Software Outsourcing is <span class="accent-cyan">Fundamentally Broken.</span>
+          </h2>
+          <p class="slide-subtitle reveal">
+            Startups, D2C brands, and boutique agencies in Egypt and the GCC waste months and millions navigating high friction, vendor lock-in, and unpredictable quality.
+          </p>
+
+          <div class="grid-3 reveal">
+            <div class="deck-card danger">
+              <div class="card-icon">⏳</div>
+              <div class="card-title">The 3–6 Month Black Hole</div>
+              <div class="card-text">
+                Traditional dev shops drag simple MVPs across 120+ days of meetings, scope disputes, and developer churn. Over 68% of outsourced projects fail to launch on schedule.
+              </div>
+              <div class="card-tag" style="color: var(--rose);">Market avg: 16 to 24 weeks</div>
+            </div>
+
+            <div class="deck-card danger">
+              <div class="card-icon">💸</div>
+              <div class="card-title">Predatory GCC &amp; Agency Pricing</div>
+              <div class="card-text">
+                GCC dev agencies charge $25,000–$60,000+ ($60–$95/hr) with hidden hosting, PM surcharges, and ongoing royalty retainers. Egyptian agencies quote non-standard hourly rates with 10x variance.
+              </div>
+              <div class="card-tag" style="color: var(--rose);">Budget overruns: 2.4x avg</div>
+            </div>
+
+            <div class="deck-card danger">
+              <div class="card-icon">🤖</div>
+              <div class="card-title">The "AI Slop" Wrapper Hazard</div>
+              <div class="card-text">
+                Generic "AI agencies" copy-paste raw LLM outputs into brittle React templates with zero architectural governance, failing mobile Lighthouse scores (<50), and prompt injection vulnerabilities.
+              </div>
+              <div class="card-tag" style="color: var(--rose);">84% lack OWASP red-teaming</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Verified Egyptian &amp; GCC Market Data (2026)</div>
+          <div>PROBLEM DEFINITION</div>
+          <div>02 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 3: COMPETITOR LANDSCAPE
+           ========================================== -->
+      <section class="slide" id="slide-3">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Competitive Intelligence</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>🔍 COMPETITOR AUDIT</span>
+          </div>
+          <h2 class="slide-title reveal">
+            Four Outdated Alternatives <span class="accent-cyan">Failing Modern Founders.</span>
+          </h2>
+          <p class="slide-subtitle reveal">
+            Every founder currently compromises between speed, cost, quality, and control. None of the four legacy models solve all four simultaneously.
+          </p>
+
+          <div class="grid-4 reveal">
+            <div class="deck-card">
+              <div class="card-icon">🏢</div>
+              <div class="card-title">1. Traditional Agencies</div>
+              <div class="card-text">
+                High overhead, bloated account management, 3–6 month timelines, high dev turnover, and IP retention clauses.
+              </div>
+              <div class="card-tag" style="color: var(--gold);">Cost: $25k–$60k • High Friction</div>
+            </div>
+
+            <div class="deck-card">
+              <div class="card-icon">👤</div>
+              <div class="card-title">2. Upwork / Freelancers</div>
+              <div class="card-text">
+                Extreme variance in code quality, sudden ghosting, zero architectural review gates, and no multi-disciplinary resonance.
+              </div>
+              <div class="card-tag" style="color: var(--gold);">Cost: $3k–$10k • Unpredictable</div>
+            </div>
+
+            <div class="deck-card">
+              <div class="card-icon">🧱</div>
+              <div class="card-title">3. No-Code / Bubble Shops</div>
+              <div class="card-text">
+                Severe vendor lock-in, recurring database surcharges, sluggish mobile performance (<50 score), impossible to export clean code.
+              </div>
+              <div class="card-tag" style="color: var(--gold);">Cost: $5k–$15k • Zero Code Ownership</div>
+            </div>
+
+            <div class="deck-card">
+              <div class="card-icon">⚡</div>
+              <div class="card-title">4. Generic AI Wrappers</div>
+              <div class="card-text">
+                Single prompt engineers running ChatGPT without Stage-Gate QA, zero native payment rails (no InstaPay), hallucinated logic.
+              </div>
+              <div class="card-tag" style="color: var(--gold);">Cost: $1k–$5k • AI Slop Risk</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Competitive Quadrant Analysis</div>
+          <div>LANDSCAPE AUDIT</div>
+          <div>03 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 4: HEAD-TO-HEAD BATTLECARD
+           ========================================== -->
+      <section class="slide" id="slide-4">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Direct Comparison Matrix</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>⚔️ HEAD-TO-HEAD BATTLECARD</span>
+          </div>
+          <h2 class="slide-title reveal" style="font-size: 46px; margin-bottom: 12px;">
+            How We Radically Outperform <span class="accent-cyan">Every Existing Model.</span>
+          </h2>
+
+          <table class="compare-table reveal">
+            <thead>
+              <tr>
+                <th>Operational Metric</th>
+                <th>Traditional Dev Agency</th>
+                <th>Freelance / Marketplaces</th>
+                <th class="col-highlight">Agents Office (Autonomous Studio)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Delivery SLA</strong></td>
+                <td><span class="badge-red">3 to 6 months</span> (frequent delays)</td>
+                <td><span class="badge-red">4 to 10 weeks</span> (unpredictable)</td>
+                <td class="col-highlight"><span class="badge-green">Strict 72 Hours to 5 Days (Fixed Turnaround)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Investment (MVP Tier)</strong></td>
+                <td>$25,000 – $60,000+ (plus retainers)</td>
+                <td>$4,000 – $12,000 (hidden hours)</td>
+                <td class="col-highlight"><span class="badge-green">65,000 EGP (~$1,320) Flat Fixed Scope</span></td>
+              </tr>
+              <tr>
+                <td><strong>Workforce Composition</strong></td>
+                <td>1 junior dev + 1 overbooked PM</td>
+                <td>1 isolated solo generalist</td>
+                <td class="col-highlight"><span class="badge-green">132+ Autonomous Agents across 14 Specialized Pods</span></td>
+              </tr>
+              <tr>
+                <td><strong>Quality Gate System</strong></td>
+                <td>Ad-hoc testing before deployment</td>
+                <td>Client acts as QA tester</td>
+                <td class="col-highlight"><span class="badge-green">Stage-Gate Council (Dev, UI, Mktg, QA) • 100% Lighthouse</span></td>
+              </tr>
+              <tr>
+                <td><strong>Native Financial Rails</strong></td>
+                <td>Generic Stripe / manual wires</td>
+                <td>Manual screenshots &amp; cash</td>
+                <td class="col-highlight"><span class="badge-green">Instant InstaPay QR, Paymob CBE, Meeza &amp; XPay</span></td>
+              </tr>
+              <tr>
+                <td><strong>Logistics Automation</strong></td>
+                <td>Manual CSV uploads</td>
+                <td>None (out of scope)</td>
+                <td class="col-highlight"><span class="badge-green">Automated Bosta / Aramex Airway Bill Webhooks</span></td>
+              </tr>
+              <tr>
+                <td><strong>Source Code &amp; IP Rights</strong></td>
+                <td>Vendor lock-in or licensing fees</td>
+                <td>Disorganized zip file</td>
+                <td class="col-highlight"><span class="badge-green">100% Unencumbered Git Transfer on Handover</span></td>
+              </tr>
+              <tr>
+                <td><strong>Execution Sandbox</strong></td>
+                <td>Unsecured local environments</td>
+                <td>Personal laptops</td>
+                <td class="col-highlight"><span class="badge-green">Cloudflare Isolated Containers (Zero Host Pollution)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="slide-footer">
+          <div>Standardized Evaluation Benchmark (ISO 25010 &amp; CBE Standards)</div>
+          <div>BATTLECARD MATRIX</div>
+          <div>04 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 5: THE CORE ENGINE - 132+ SPECIALIZED AGENTS
+           ========================================== -->
+      <section class="slide" id="slide-5">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Studio Architecture</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>⚙️ THE AUTONOMOUS ENGINE</span>
+          </div>
+          <h2 class="slide-title reveal">
+            Not One Dev with an AI Tool. <span class="accent-cyan">A 132-Agent Workforce.</span>
+          </h2>
+          <p class="slide-subtitle reveal">
+            Single engineers with Copilot still suffer from blindspots. Agents Office orchestrates 14 specialized, cross-functional pods where no department operates in a silo.
+          </p>
+
+          <div class="grid-3 reveal">
+            <div class="deck-card highlight">
+              <div class="card-icon">🧠</div>
+              <div class="card-title">1. Strategy &amp; Recon Pod</div>
+              <div class="card-text">
+                Deploys <strong>Jina AI MCP</strong> deep research to audit competitors, extract customer complaint patterns, and construct 8 Dubai Apps DCDE business canvases before writing a line of code.
+              </div>
+              <div class="card-tag">Specialists: Growth CEO, Niche Architect, Researcher</div>
+            </div>
+
+            <div class="deck-card highlight">
+              <div class="card-icon">🎨</div>
+              <div class="card-title">2. UI/UX &amp; Whimsy Design Pod</div>
+              <div class="card-text">
+                Enforces <strong>W3C Design Tokens</strong>, Google Stitch system, and the 61-rule Impeccable CSS design standard. Produces custom vector SVG assets and micro-interactions, never generic templates.
+              </div>
+              <div class="card-tag">Specialists: Brand Guardian, Whimsy Injector, UX Architect</div>
+            </div>
+
+            <div class="deck-card highlight">
+              <div class="card-icon">⚡</div>
+              <div class="card-title">3. Engineering &amp; Sandbox Pod</div>
+              <div class="card-text">
+                Builds high-performance full-stack web and mobile apps inside isolated <strong>Cloudflare Computer sandboxes</strong> with zero host pollution, SQLite WAL persistence, and clean git history.
+              </div>
+              <div class="card-tag">Specialists: Backend Architect, Frontend Dev, SecOps</div>
+            </div>
+
+            <div class="deck-card highlight">
+              <div class="card-icon">🛡️</div>
+              <div class="card-title">4. EvidenceQA &amp; Reality Check</div>
+              <div class="card-text">
+                Screenshot-obsessed verification. Rejects fantasy approvals. Automates 100% Mobile Lighthouse audits, OWASP ASVS checks, and tests across real screen viewports.
+              </div>
+              <div class="card-tag">Specialists: Reality Checker, Evidence Collector, API Tester</div>
+            </div>
+
+            <div class="deck-card highlight">
+              <div class="card-icon">📣</div>
+              <div class="card-title">5. Growth &amp; Content Engine</div>
+              <div class="card-text">
+                Generates 20 localized high-converting ad hooks, WhatsApp conversational scripts, and Meta CAPI pixel conditioning. De-slops all copy via strict Humanizer guidelines.
+              </div>
+              <div class="card-tag">Specialists: Marketing Head, VSL Builder, Short-Form Lead</div>
+            </div>
+
+            <div class="deck-card highlight">
+              <div class="card-icon">💳</div>
+              <div class="card-title">6. Commerce &amp; Logistics Rails</div>
+              <div class="card-text">
+                Natively integrates Egyptian and GCC payment infrastructure (InstaPay QR, Paymob, Meeza, XPay) and direct webhook dispatch for Bosta and Aramex logistics.
+              </div>
+              <div class="card-tag">Specialists: Financial Modeler, Operations Lead, SOP Builder</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Multi-Agent Cognitive Architecture (FailproofAI &amp; GitNexus Protected)</div>
+          <div>WORKFORCE ARCHITECTURE</div>
+          <div>05 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 6: THE STAGE-GATE QUALITY COUNCIL
+           ========================================== -->
+      <section class="slide" id="slide-6">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Governance Protocol</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>🛡️ THE QUALITY ASSURANCE ENGINE</span>
+          </div>
+          <h2 class="slide-title reveal">
+            Stage-Gate Review Gate: <span class="accent-cyan">Zero AI Slop Shipped.</span>
+          </h2>
+          <p class="slide-subtitle reveal">
+            How do we prevent AI bugs, hallucinated code, and broken UI? Every product feature passes through a mandatory 4-department consensus gate.
+          </p>
+
+          <div class="grid-4 reveal">
+            <div class="deck-card">
+              <div style="font-family: var(--font-mono); font-size: 14px; color: var(--cyan); margin-bottom: 8px;">STAGE 1</div>
+              <div class="card-title">Design Council</div>
+              <div class="card-text">
+                UI designer drafts mockups. Mandatory cross-review by Dev Lead (feasibility), Marketing Head (conversion psychology), and Chief Architect.
+              </div>
+              <div class="card-tag" style="color: var(--emerald);">✓ 3 Department Sign-Off</div>
+            </div>
+
+            <div class="deck-card">
+              <div style="font-family: var(--font-mono); font-size: 14px; color: var(--cyan); margin-bottom: 8px;">STAGE 2</div>
+              <div class="card-title">Data Contracts &amp; PRD</div>
+              <div class="card-text">
+                Coding is the LAST step. Mockups must first be transformed into INVEST user stories with Gherkin acceptance criteria (Given/When/Then).
+              </div>
+              <div class="card-tag" style="color: var(--emerald);">✓ Zero Blind Assumptions</div>
+            </div>
+
+            <div class="deck-card">
+              <div style="font-family: var(--font-mono); font-size: 14px; color: var(--cyan); margin-bottom: 8px;">STAGE 3</div>
+              <div class="card-title">Sandbox Build &amp; QA</div>
+              <div class="card-text">
+                Executed in Cloudflare Computer containers. EvidenceQA captures screenshot proof for every task. Defects loop back to dev (max 3 retries).
+              </div>
+              <div class="card-tag" style="color: var(--emerald);">✓ Zero Host Pollution</div>
+            </div>
+
+            <div class="deck-card">
+              <div style="font-family: var(--font-mono); font-size: 14px; color: var(--cyan); margin-bottom: 8px;">STAGE 4</div>
+              <div class="card-title">Lighthouse Gate</div>
+              <div class="card-text">
+                Automated audit gate runs before delivery: 100% SEO, 100% Best Practices, 100% Accessibility, and >=95% Performance with 0ms blocking time.
+              </div>
+              <div class="card-tag" style="color: var(--emerald);">✓ 100% Certified Delivery</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 25px; padding: 18px 24px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; display: flex; align-items: center; justify-content: space-between;" class="reveal">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span style="font-size: 28px;">🏆</span>
+              <div style="font-size: 16px; color: #d1fae5;">
+                <strong>Founder Business Review Gate:</strong> Clients inspect and approve 8 DCDE business canvases (Value Prop, ICP Persona, Unit Economics, Assumptions Map) directly in the Client Portal before code execution.
+              </div>
+            </div>
+            <span class="brand-tag">MAN-IN-THE-LOOP CONTROL</span>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Cross-Department Coordination SOP (ISO 25010 Verified)</div>
+          <div>QUALITY ASSURANCE</div>
+          <div>06 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 7: REGIONAL & NATIVE SOVEREIGNTY
+           ========================================== -->
+      <section class="slide" id="slide-7">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Regional Infrastructure</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>🌍 CULTURAL &amp; FINANCIAL SOVEREIGNTY</span>
+          </div>
+          <h2 class="slide-title reveal">
+            Built for Cairo &amp; the Gulf: <span class="accent-cyan">Native Rails from Day 1.</span>
+          </h2>
+          <p class="slide-subtitle reveal">
+            Foreign AI tools and offshore agencies fail because they don't understand the realities of North Africa and GCC commerce. We build directly on native rails.
+          </p>
+
+          <div class="grid-3 reveal">
+            <div class="deck-card">
+              <div class="card-icon">⚡</div>
+              <div class="card-title">InstaPay Native Flow</div>
+              <div class="card-text">
+                Real-time instant bank-to-bank settlement via <code>office@instapay</code>. Automated reference number extraction eliminates manual screenshot verification and unlocks zero-fee domestic payments.
+              </div>
+              <div class="card-tag" style="color: var(--cyan);">National Egyptian Financial Rail</div>
+            </div>
+
+            <div class="deck-card">
+              <div class="card-icon">💳</div>
+              <div class="card-title">Paymob &amp; CBE Gateways</div>
+              <div class="card-text">
+                Full compliance with Central Bank of Egypt regulations. Native checkout support for Visa, Mastercard, Meeza cards, and mobile wallets (Vodafone Cash, Orange, Etisalat).
+              </div>
+              <div class="card-tag" style="color: var(--cyan);">Omnichannel Card Settlement</div>
+            </div>
+
+            <div class="deck-card">
+              <div class="card-icon">📦</div>
+              <div class="card-title">Bosta Courier Webhooks</div>
+              <div class="card-text">
+                Direct API integration with Bosta and Aramex. Order placement automatically triggers airway bill creation, dispatch requests, and sends tracking links via WhatsApp.
+              </div>
+              <div class="card-tag" style="color: var(--cyan);">Automated Last-Mile Delivery</div>
+            </div>
+          </div>
+
+          <div class="grid-2 reveal" style="margin-top: 24px;">
+            <div class="deck-card" style="padding: 22px 28px;">
+              <h4 style="color: #fff; font-size: 18px; margin-bottom: 6px;">💬 WhatsApp Conversational Commerce</h4>
+              <p style="font-size: 15px; color: var(--text-muted); line-height: 1.45;">
+                In Egypt and the GCC, customers don't want clunky 5-step web carts. We turn Instagram/FB traffic into automated WhatsApp conversations that close orders natively with InstaPay QR codes.
+              </p>
+            </div>
+            <div class="deck-card" style="padding: 22px 28px;">
+              <h4 style="color: #fff; font-size: 18px; margin-bottom: 6px;">🇸🇦 GCC Currency &amp; Mada Settlement</h4>
+              <p style="font-size: 15px; color: var(--text-muted); line-height: 1.45;">
+                Seamless regional expansion to Saudi Arabia and the UAE with Mada, Apple Pay, and dual EGP/USD pricing toggled in real time across the studio client portal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>MENA Financial &amp; Logistics Architecture</div>
+          <div>REGIONAL SOVEREIGNTY</div>
+          <div>07 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 8: THE PRODUCTIZED SPRINT CATALOG
+           ========================================== -->
+      <section class="slide" id="slide-8">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Productized Sprint Pricing</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>💎 PRODUCTIZED SPRINT ARCHITECTURE</span>
+          </div>
+          <h2 class="slide-title reveal">
+            Transparent Fixed Scope. <span class="accent-cyan">Zero Hourly Surprises.</span>
+          </h2>
+          <p class="slide-subtitle reveal">
+            No open-ended hourly billing, no surprise invoices. Choose the productized sprint tier calibrated for your stage.
+          </p>
+
+          <div class="grid-4 reveal">
+            <div class="deck-card">
+              <span class="brand-tag">⚡ 72-HOUR SLA</span>
+              <div class="card-title" style="margin-top: 10px; font-size: 21px;">Cairo D2C Commerce</div>
+              <div style="font-family: var(--font-mono); font-size: 28px; font-weight: 800; color: #fff; margin: 12px 0 4px;">38,000 EGP</div>
+              <div style="font-family: var(--font-mono); font-size: 13px; color: var(--gold); margin-bottom: 14px;">50% Deposit: 19,000 EGP</div>
+              <div class="card-text" style="font-size: 14px;">
+                • WhatsApp Storefront &amp; Chatbot<br>
+                • Native InstaPay QR Clearance<br>
+                • Bosta API Courier Dispatch<br>
+                • 20 Localized Ad Hooks
+              </div>
+            </div>
+
+            <div class="deck-card highlight">
+              <span class="brand-tag" style="background: rgba(245,158,11,0.2); color: var(--gold); border-color: rgba(245,158,11,0.4);">⭐ MOST POPULAR • 5 DAYS</span>
+              <div class="card-title" style="margin-top: 10px; font-size: 21px;">Founder Rapid MVP</div>
+              <div style="font-family: var(--font-mono); font-size: 28px; font-weight: 800; color: #fff; margin: 12px 0 4px;">65,000 EGP</div>
+              <div style="font-family: var(--font-mono); font-size: 13px; color: var(--cyan); margin-bottom: 14px;">50% Deposit: 32,500 EGP</div>
+              <div class="card-text" style="font-size: 14px;">
+                • Full-Stack App (Vite/React/Node)<br>
+                • W3C Design Tokens &amp; Stitch<br>
+                • Cloudflare Sandbox Execution<br>
+                • 12-Slide Gamma Pitch Deck
+              </div>
+            </div>
+
+            <div class="deck-card">
+              <span class="brand-tag">MONTHLY RETAINER</span>
+              <div class="card-title" style="margin-top: 10px; font-size: 21px;">Agency Overflow Pod</div>
+              <div style="font-family: var(--font-mono); font-size: 28px; font-weight: 800; color: #fff; margin: 12px 0 4px;">28,000 EGP<span style="font-size: 14px; color: var(--text-dim);">/mo</span></div>
+              <div style="font-family: var(--font-mono); font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Dedicated Agency Resource</div>
+              <div class="card-text" style="font-size: 14px;">
+                • 132+ Agents across 14 Pods<br>
+                • Up to 4 Modules per Month<br>
+                • Zero Dev Turnover Risk<br>
+                • White-Labeled Proof Bundles
+              </div>
+            </div>
+
+            <div class="deck-card">
+              <span class="brand-tag">GCC ENTERPRISE</span>
+              <div class="card-title" style="margin-top: 10px; font-size: 21px;">Regional GCC Pod</div>
+              <div style="font-family: var(--font-mono); font-size: 28px; font-weight: 800; color: #fff; margin: 12px 0 4px;">$1,499<span style="font-size: 14px; color: var(--text-dim);">/mo</span></div>
+              <div style="font-family: var(--font-mono); font-size: 13px; color: var(--emerald); margin-bottom: 14px;">73,500 EGP /mo</div>
+              <div class="card-text" style="font-size: 14px;">
+                • Multi-Model Executive Studio<br>
+                • Dubai &amp; Riyadh SLA Handover<br>
+                • Paymob, XPay &amp; Mada Rails<br>
+                • LiveKit WebRTC Voice Streams
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Productized Commercial Specifications</div>
+          <div>OFFER CATALOG</div>
+          <div>08 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 9: SECURITY & ENTERPRISE GOVERNANCE
+           ========================================== -->
+      <section class="slide" id="slide-9">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Security Architecture</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>🔒 ENTERPRISE SECURITY &amp; ISOLATION</span>
+          </div>
+          <h2 class="slide-title reveal">
+            Zero Host Pollution. <span class="accent-cyan">Container Isolation by Design.</span>
+          </h2>
+          <p class="slide-subtitle reveal">
+            How enterprise clients trust autonomous execution: complete containerization, private data nodes, and automated red-teaming.
+          </p>
+
+          <div class="grid-3 reveal">
+            <div class="deck-card">
+              <div class="card-icon">📦</div>
+              <div class="card-title">Cloudflare Computer Sandboxes</div>
+              <div class="card-text">
+                All client builds and tests run inside isolated Cloudflare containers (<code>computerd:95119ec8</code> / Debian Linux). Never executed on the host system, guaranteeing zero cross-client contamination.
+              </div>
+              <div class="card-tag" style="color: var(--cyan);">Invariant 11 Verified</div>
+            </div>
+
+            <div class="deck-card">
+              <div class="card-icon">🛡️</div>
+              <div class="card-title">OWASP LLM Red-Teaming</div>
+              <div class="card-text">
+                Every AI prompt, agent workflow, and user-facing chatbot is proactively red-teamed against the OWASP LLM Top 10 vulnerabilities (prompt injection, data leakage, insecure output handling).
+              </div>
+              <div class="card-tag" style="color: var(--cyan);">Continuous Security Audit</div>
+            </div>
+
+            <div class="deck-card">
+              <div class="card-icon">🗄️</div>
+              <div class="card-title">Private SQLite WAL Storage</div>
+              <div class="card-text">
+                Client order briefs, telemetry, and business canvases reside on a private local SQLite WAL node. No client intellectual property or telemetry is ever shared with external models.
+              </div>
+              <div class="card-tag" style="color: var(--cyan);">Air-Gapped Client Privacy</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 30px; display: flex; gap: 20px; align-items: center;" class="reveal">
+            <div class="stat-box" style="flex: 1;">
+              <div class="stat-val">100%</div>
+              <div class="stat-lbl">Mobile Lighthouse Performance Gate</div>
+            </div>
+            <div class="stat-box" style="flex: 1;">
+              <div class="stat-val">0ms</div>
+              <div class="stat-lbl">Total Blocking Time (TBT)</div>
+            </div>
+            <div class="stat-box" style="flex: 1;">
+              <div class="stat-val">100%</div>
+              <div class="stat-lbl">Unencumbered Source Code Ownership</div>
+            </div>
+            <div class="stat-box" style="flex: 1;">
+              <div class="stat-val">0%</div>
+              <div class="stat-lbl">Developer Turnover Friction</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Enterprise Security &amp; Compliance Protocol</div>
+          <div>SECURITY &amp; COMPLIANCE</div>
+          <div>09 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 10: THE FOUNDER ROI & FINANCIAL MATH
+           ========================================== -->
+      <section class="slide" id="slide-10">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Unit Economics &amp; ROI</span>
+          </div>
+        </div>
+
+        <div class="slide-body">
+          <div class="eyebrow reveal">
+            <span>📈 UNIT ECONOMICS &amp; FOUNDER IMPACT</span>
+          </div>
+          <h2 class="slide-title reveal">
+            60% to 80% Cost Reduction. <span class="accent-cyan">10x Faster Revenue.</span>
+          </h2>
+          <p class="slide-subtitle reveal">
+            The mathematical reality of replacing fragmented human outsourcing with a unified autonomous multi-agent studio.
+          </p>
+
+          <div class="grid-2 reveal">
+            <div class="deck-card danger">
+              <h3 style="color: var(--rose); font-size: 22px; margin-bottom: 16px; font-family: var(--font-display);">Traditional Agency Route</h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px; color: var(--text-muted);">
+                <li>❌ <strong>Timeline:</strong> 120 to 180 days to launch MVP</li>
+                <li>❌ <strong>Cash Outlay:</strong> 250,000 to 500,000+ EGP ($25k–$60k GCC)</li>
+                <li>❌ <strong>Team Overhead:</strong> 40+ hours of wasted weekly sync meetings</li>
+                <li>❌ <strong>Dev Turnover:</strong> Key engineers leave mid-project, losing tribal memory</li>
+                <li>❌ <strong>Opportunity Cost:</strong> 4 months of zero customer revenue or market feedback</li>
+              </ul>
+            </div>
+
+            <div class="deck-card highlight">
+              <h3 style="color: var(--cyan); font-size: 22px; margin-bottom: 16px; font-family: var(--font-display);">Agents Office Autonomous Pod</h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px; color: #fff;">
+                <li>⚡ <strong>Timeline:</strong> 72 Hours to 5 Calendar Days guaranteed</li>
+                <li>⚡ <strong>Cash Outlay:</strong> 38,000 to 65,000 EGP flat fixed investment</li>
+                <li>⚡ <strong>Meeting Overhead:</strong> Zero bloat. 30-min scoping call + async portal</li>
+                <li>⚡ <strong>Zero Turnover:</strong> Autonomous pods are persistent, documented &amp; failproof</li>
+                <li>⚡ <strong>Instant Traction:</strong> Live in market generating orders in week one</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top: 30px; text-align: center;" class="reveal">
+            <div style="font-family: var(--font-display); font-size: 28px; color: #fff; font-weight: 700;">
+              "The competitive moat is no longer who can hire 10 developers.<br>It is who can orchestrate 132 specialized agents with zero loss in fidelity."
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Comparative Financial &amp; Speed Analysis</div>
+          <div>FOUNDER ROI</div>
+          <div>10 / 11</div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 11: CALL TO ACTION & DISPATCH
+           ========================================== -->
+      <section class="slide" id="slide-11">
+        <div class="slide-header">
+          <div class="brand-mark">
+            <div class="brand-icon">AO</div>
+            <div class="brand-title">Agents Office</div>
+          </div>
+          <div class="slide-meta-right">
+            <span>Next Steps</span>
+          </div>
+        </div>
+
+        <div class="slide-body" style="text-align: center; align-items: center;">
+          <div class="eyebrow reveal" style="margin: 0 auto 20px;">
+            <span>🚀 READY TO SHIP IN 72 HOURS?</span>
+          </div>
+          <h2 class="slide-title reveal" style="max-width: 1000px; margin: 0 auto 20px;">
+            Two Seamless Pathways to <span class="accent-cyan">Deploy Autonomous Pods.</span>
+          </h2>
+          <p class="slide-subtitle reveal" style="max-width: 800px; margin: 0 auto 40px;">
+            Whether you need immediate dispatch or a strategic diagnostic call, the studio is fully online and ready.
+          </p>
+
+          <div class="grid-2 reveal" style="max-width: 1100px; text-align: left;">
+            <div class="deck-card highlight" style="padding: 36px;">
+              <div style="font-size: 32px; margin-bottom: 12px;">🛰️</div>
+              <h3 class="card-title">Option A: Self-Serve Sprint Launch</h3>
+              <p class="card-text" style="margin-bottom: 20px;">
+                Visit our Executive Client Portal, configure your sprint scope, submit your brief with live quality analysis, and settle the 50% deposit via InstaPay or Paymob.
+              </p>
+              <a href="./portal.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: var(--cyan); color: #000; font-family: var(--font-mono); font-size: 14px; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s;">
+                <span>Open Executive Client Terminal</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            <div class="deck-card" style="padding: 36px;">
+              <div style="font-size: 32px; margin-bottom: 12px;">📅</div>
+              <h3 class="card-title">Option B: 30-Min Diagnostic Call</h3>
+              <p class="card-text" style="margin-bottom: 20px;">
+                Schedule a 30-minute deep systems architecture walkthrough with Nasr Galal on Google Meet. Mutual NDA included. Instant Cairo (UTC+3) calendar sync.
+              </p>
+              <a href="https://calendly.com/nasr_galal" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--cyan); color: var(--cyan); font-family: var(--font-mono); font-size: 14px; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; transition: all 0.2s;">
+                <span>Pick Slot on Live Calendly</span>
+                <span>📅</span>
+              </a>
+            </div>
+          </div>
+
+          <div style="margin-top: 40px; display: flex; align-items: center; justify-content: center; gap: 30px; font-family: var(--font-mono); font-size: 14px; color: var(--text-dim);" class="reveal">
+            <span>💬 WhatsApp Sprint Lead: <strong>+20 10 2938 4756</strong></span>
+            <span>•</span>
+            <span>InstaPay Verified: <code>office@instapay</code></span>
+            <span>•</span>
+            <span>Studio: <strong>https://sniperadmin.github.io/</strong></span>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <div>Agents Office v3.6 — Executive Cyber-Luxury AI Workstation</div>
+          <div>COMMERCIAL DISPATCH</div>
+          <div>11 / 11</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Interactive Controls Bar (Sticky Navigation Outside the Stage) -->
+  <div class="deck-controls">
+    <button class="nav-btn" id="btnPrev" title="Previous Slide (← or Page Up)">
+      <span class="material-symbols-outlined" style="font-size: 20px;">arrow_back</span>
+    </button>
+    
+    <div class="slide-counter" id="slideCounter">01 / 11</div>
+    
+    <button class="nav-btn" id="btnNext" title="Next Slide (→, Space, or Page Down)">
+      <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+    </button>
+
+    <button class="nav-btn" id="btnFullscreen" title="Toggle Fullscreen (F)">
+      <span class="material-symbols-outlined" style="font-size: 18px;">fullscreen</span>
+    </button>
+
+    <a href="./index.html" class="deck-action-link" title="Return to Main Studio Site">
+      <span>Studio Home</span>
+    </a>
+
+    <a href="./portal.html" class="deck-action-link" style="color: var(--cyan); border-color: rgba(56,189,248,0.4);" title="Open Client Portal">
+      <span>Client Terminal</span>
+      <span>⚡</span>
+    </a>
+  </div>
+
+  <!-- Slide Presentation Controller Script -->
+  <script>
+    class SlidePresentation {
+      constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.currentSlide = 0;
+        this.stage = document.getElementById('deckStage');
+        this.counter = document.getElementById('slideCounter');
+        this.btnPrev = document.getElementById('btnPrev');
+        this.btnNext = document.getElementById('btnNext');
+        this.btnFullscreen = document.getElementById('btnFullscreen');
+        this.isEditing = false;
+
+        this.setupStageScale();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupControls();
+        this.setupInlineEditor();
+        this.showSlide(0);
+      }
+
+      setupStageScale() {
+        const scale = () => {
+          const factor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+          const x = (window.innerWidth - 1920 * factor) / 2;
+          const y = (window.innerHeight - 1080 * factor) / 2;
+          this.stage.style.transform = `translate(${x}px, ${y}px) scale(${factor})`;
+        };
+        scale();
+        window.addEventListener('resize', scale);
+      }
+
+      setupControls() {
+        this.btnPrev.addEventListener('click', () => this.prevSlide());
+        this.btnNext.addEventListener('click', () => this.nextSlide());
+        this.btnFullscreen.addEventListener('click', () => this.toggleFullscreen());
+      }
+
+      setupKeyboardNav() {
+        window.addEventListener('keydown', (e) => {
+          if (this.isEditing) return;
+
+          switch(e.key) {
+            case 'ArrowRight':
+            case 'ArrowDown':
+            case ' ':
+            case 'PageDown':
+              e.preventDefault();
+              this.nextSlide();
+              break;
+            case 'ArrowLeft':
+            case 'ArrowUp':
+            case 'PageUp':
+              e.preventDefault();
+              this.prevSlide();
+              break;
+            case 'Home':
+              e.preventDefault();
+              this.showSlide(0);
+              break;
+            case 'End':
+              e.preventDefault();
+              this.showSlide(this.slides.length - 1);
+              break;
+            case 'f':
+            case 'F':
+              this.toggleFullscreen();
+              break;
+          }
+        });
+      }
+
+      setupTouchNav() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        window.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        window.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) this.nextSlide();
+            else this.prevSlide();
+          }
+        }, { passive: true });
+      }
+
+      showSlide(index) {
+        this.currentSlide = Math.max(0, Math.min(index, this.slides.length - 1));
+        this.slides.forEach((slide, i) => {
+          const isActive = i === this.currentSlide;
+          slide.classList.toggle('active', isActive);
+          slide.classList.toggle('visible', isActive);
+        });
+
+        const curNum = (this.currentSlide + 1).toString().padStart(2, '0');
+        const totNum = this.slides.length.toString().padStart(2, '0');
+        this.counter.textContent = `${curNum} / ${totNum}`;
+
+        // Update URL hash without scroll
+        history.replaceState(null, null, `#slide-${this.currentSlide + 1}`);
+      }
+
+      nextSlide() {
+        this.showSlide(this.currentSlide + 1);
+      }
+
+      prevSlide() {
+        this.showSlide(this.currentSlide - 1);
+      }
+
+      toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => {
+            console.warn('Fullscreen request failed:', err);
+          });
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      setupInlineEditor() {
+        const hotzone = document.querySelector('.edit-hotzone');
+        const editToggle = document.getElementById('editToggle');
+        let hideTimeout = null;
+
+        hotzone.addEventListener('mouseenter', () => {
+          clearTimeout(hideTimeout);
+          editToggle.classList.add('show');
+        });
+        hotzone.addEventListener('mouseleave', () => {
+          hideTimeout = setTimeout(() => {
+            if (!this.isEditing) editToggle.classList.remove('show');
+          }, 400);
+        });
+        editToggle.addEventListener('mouseenter', () => {
+          clearTimeout(hideTimeout);
+        });
+        editToggle.addEventListener('mouseleave', () => {
+          hideTimeout = setTimeout(() => {
+            if (!this.isEditing) editToggle.classList.remove('show');
+          }, 400);
+        });
+
+        const toggleEdit = () => {
+          this.isEditing = !this.isEditing;
+          editToggle.classList.toggle('active', this.isEditing);
+          editToggle.innerHTML = this.isEditing ? '<span>💾</span><span>Editing Active</span>' : '<span>✏️</span><span>Edit Copy (E)</span>';
+          
+          document.querySelectorAll('.slide-title, .slide-subtitle, .card-title, .card-text, .eyebrow').forEach(el => {
+            el.contentEditable = this.isEditing ? 'true' : 'false';
+            if (this.isEditing) {
+              el.style.outline = '1px dashed rgba(56, 189, 248, 0.4)';
+              el.style.borderRadius = '4px';
+            } else {
+              el.style.outline = 'none';
+            }
+          });
+        };
+
+        editToggle.addEventListener('click', toggleEdit);
+        hotzone.addEventListener('click', toggleEdit);
+
+        window.addEventListener('keydown', (e) => {
+          if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+            toggleEdit();
+          }
+        });
+      }
+    }
+
+    // Initialize Presentation on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      const presentation = new SlidePresentation();
+      
+      // Hash routing support (e.g. #slide-4)
+      if (window.location.hash) {
+        const slideNum = parseInt(window.location.hash.replace('#slide-', ''), 10);
+        if (!isNaN(slideNum) && slideNum >= 1) {
+          presentation.showSlide(slideNum - 1);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
