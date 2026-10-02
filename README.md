@@ -1,4 +1,4 @@
-# Nasr Galal Studio — Enterprise Autonomous Architecture
+# Radix AI Workstation — Enterprise Autonomous Architecture
 
 [![Standards: SOC 2 Type II](https://img.shields.io/badge/SOC%202%20Type%20II-Audited-blue.svg?style=flat-square)](https://sniperadmin.github.io/)
 [![Standards: ISO/IEC 27001](https://img.shields.io/badge/ISO%2FIEC%2027001-Certified%20ISMS-indigo.svg?style=flat-square)](https://sniperadmin.github.io/)
@@ -7,7 +7,7 @@
 [![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/WCAG%202.2-AA%20Compliant-purple.svg?style=flat-square)](https://sniperadmin.github.io/)
 [![Security: OWASP LLM Hardened](https://img.shields.io/badge/OWASP%20LLM-Hardened-amber.svg?style=flat-square)](https://sniperadmin.github.io/)
 
-> **High-performance AI systems and engineering studio led by CTO & Systems Architect Nasr Galal (Nash).** We design and deploy production-grade AI & business automation workflows, scalable full-stack applications, and high-converting headless digital storefronts in deterministic engineering sprints (72-hour social commerce, 5-day rapid MVP, and dedicated monthly agency overflow pods).
+> **High-performance sovereign AI workstation & autonomous engineering practice founded by CTO & Systems Architect Nasr Galal (Nash).** Powered by the **Radix AI Workstation** engine, we design and deploy production-grade AI & business automation workflows, scalable full-stack applications, and high-converting headless digital storefronts in deterministic engineering sprints (72-hour social commerce, 5-day rapid MVP, and dedicated monthly agency overflow pods).
 
 ---
 
@@ -34,7 +34,7 @@ Synthesized and calibrated via **Google Stitch MCP** (Project: `nasr-portfolio`,
 
 ## 📐 Systems Architecture & Capabilities
 1. **Sub-100ms Edge Orchestration**: Global distributed routing with predictive caching and pre-warmed transactional agents.
-2. **CBE-Compliant Multi-Rail Billing**: Native integration for Egyptian domestic payments (**InstaPay** `office@instapay`, **Paymob**: Meeza, cards, Vodafone Cash) and regional B2B invoicing (**XPay**). (Note: Stripe does not support Egyptian-domiciled entities).
+2. **CBE-Compliant Multi-Rail Billing**: Native integration for Egyptian domestic payments (**InstaPay** `radix@instapay` / `office@instapay`, **Paymob**: Meeza, cards, Vodafone Cash) and regional B2B invoicing (**XPay**). (Note: Stripe does not support Egyptian-domiciled entities).
 3. **Conversational Commerce**: Zero-storefront conversational checkouts embedded directly within WhatsApp Business and Instagram DMs.
 4. **Autonomous Logistics**: Real-time webhook integration with local courier fleets (**Bosta, Aramex**) for automated waybills and cash-on-delivery reconciliation.
 5. **Hermetic Agent Boundaries**: Strict zero-data-retention pipelines scrub PII prior to model inference.
