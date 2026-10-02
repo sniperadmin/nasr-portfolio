@@ -1,7 +1,7 @@
-# Nasr Galal Studio — UI Design Handoff & Architecture PRD
+# Radix AI Workstation — UI Design Handoff & Architecture PRD
 
 ## 1. Project Overview
-- **Project**: Nasr Galal Studio (Portfolio / Enterprise Studio Landing Page)
+- **Project**: Radix AI Workstation (Portfolio & Enterprise Workstation Landing Page)
 - **Objective**: Full Glassmorphic landing page deployment, combining Stitch visual design with enterprise telemetry and standards badges.
 - **Stitch Project ID**: `15896261511656016072` (Project title: `nasr-portfolio`)
 - **Applied Stitch Screen**: `projects/15896261511656016072/screens/f3f0af02aa594ccabc2daaa0cc685148` (`Enterprise Studio — Glassmorphism`)
