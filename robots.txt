@@ -1,4 +1,4 @@
-# robots.txt for Radix AI Workstation (GEO & AI Crawler Optimized)
+# robots.txt for Unagency Studio (GEO & AI Crawler Optimized)
 # Standards: Generative Engine Optimization (GEO) Protocol
 
 User-agent: *

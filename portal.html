@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Radix AI Workstation — Executive Client Portal | Cairo Online Studio</title>
+  <title>Unagency Studio — Async Founder Portal | The Anti-Agency for Fast Founders</title>
   <meta name="description" content="Ship enterprise-grade apps and D2C social commerce engines in 72 hours with an autonomous 132-agent workforce. Operating 100% online from Cairo, Egypt.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -740,7 +740,7 @@
       user-select: all;
     }
 
-    /* Founder Business Review Gate & Dubai Apps Blueprint */
+    /* Founder Business Review Gate & Sovereign Venture Blueprint */
     .review-gate-panel {
       background: var(--bg-surface);
       border: 1px solid rgba(56, 189, 248, 0.4);
@@ -923,7 +923,7 @@
     <a href="./index.html" class="brand">
       <div class="brand-logo">RX</div>
       <div>
-        <div class="brand-title">Radix AI Workstation</div>
+        <div class="brand-title">Unagency Studio</div>
         <div class="brand-tag">Cairo Online Studio • Executive Client Portal</div>
       </div>
     </a>
@@ -1129,7 +1129,7 @@
             <!-- Injected via JavaScript based on selectedPayment -->
           </div>
 
-          <!-- Founder Business Review Gate & Dubai Apps Blueprint Container -->
+          <!-- Founder Business Review Gate & Sovereign Venture Blueprint Container -->
           <div id="founder-review-gate-box"></div>
 
           <!-- Stage-Gate Milestones -->
@@ -1144,7 +1144,7 @@
             <div class="stage-item current" id="stage-1">
               <div class="stage-circle">2</div>
               <div class="stage-text">
-                <h4>Dubai Apps Blueprint & Founder Review Gate</h4>
+                <h4>Sovereign Venture Blueprint & Founder Review Gate</h4>
                 <p>Man-In-The-Loop founder approval of 8 DCDE business canvases before coding.</p>
               </div>
             </div>
@@ -1273,7 +1273,7 @@
         id: 'gcc-remote-pod',
         name: 'Regional GCC Remote Agency Pod',
         nameAr: 'خلية هندسية عن بعد لأسواق الخليج',
-        subtitle: 'Elite Autonomous Engineering & Growth for Dubai & Riyadh Clients',
+        subtitle: 'Global Autonomous Engineering Subscription & Continuous PR Delivery',
         priceEgp: 73500,
         priceUsd: 1499,
         depositEgp: 36750,
@@ -1797,7 +1797,7 @@
         box.innerHTML = `
           <div class="settlement-card settlement-paymob">
             <div style="font-weight: 700; color: var(--cyan); margin-bottom: 6px;">💳 Paymob Secure Gateway Settlement:</div>
-            <div>Authorized Merchant: <strong>Radix AI Workstation Cairo (ID: EGP-RADIX-8842)</strong></div>
+            <div>Authorized Merchant: <strong>Unagency Studio (ID: UNAGENCY-EG-01)</strong></div>
             <div style="margin: 4px 0;">Deposit Amount: <strong>${depositStr}</strong> (Visa, Mastercard, Meeza)</div>
             <button onclick="simulateDepositPayment('paymob')" style="margin-top: 10px; background: var(--cyan); border: none; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; color: #000;">
               💳 Pay via Paymob Gateway →
@@ -1851,7 +1851,7 @@
                 ✓ Deposit Verified via ${(gateway || selectedPayment).toUpperCase()} (Ref: ${d.paymentReference})!
               </div>
               <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
-                Dubai Apps 8-Template Business Blueprint generated. Please review and approve below before Dev Pod execution. Pipeline ID: <code>${d.pipelineId}</code>
+                8-Canvas Sovereign Venture Blueprint generated. Please review and approve below before Dev Pod execution. Pipeline ID: <code>${d.pipelineId}</code>
               </div>
             </div>
           `;
@@ -1876,8 +1876,8 @@
         const res = await fetch(`${OFFICE_API_BASE}/api/commercial/orders/${orderId}/blueprint`);
         if (!res.ok) return;
         const d = await res.json();
-        if (d.success && d.dubaiAppsTemplates) {
-          currentBlueprint = d.dubaiAppsTemplates;
+        if (d.success && d.sovereignTemplates) {
+          currentBlueprint = d.sovereignTemplates;
           renderReviewGateUI(d.status, d.reviewGate);
         }
       } catch (e) {
@@ -1907,7 +1907,7 @@
           <div class="review-gate-header">
             <div class="review-gate-title">
               <span>🏛️</span>
-              <span>Founder Review Gate — Dubai Apps Blueprint</span>
+              <span>Founder Review Gate — Sovereign Venture Blueprint</span>
             </div>
             <span class="status-badge" style="${isApproved ? 'background: rgba(16, 185, 129, 0.2); color: var(--emerald);' : (isRevision ? 'background: rgba(245, 158, 11, 0.2); color: var(--gold);' : 'background: rgba(56, 189, 248, 0.2); color: var(--cyan);')}">
               ${isApproved ? '✓ Blueprint Approved' : (isRevision ? '⚠️ Revision Requested' : '⏳ Awaiting Founder Review')}
@@ -1915,7 +1915,7 @@
           </div>
 
           <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-            Inspect your 8 official Dubai Apps / DCDE canvases below. As founder, verify the business model, unit economics, and value proposition before dev pods begin coding.
+            Inspect your 8 official Sovereign Venture canvases below. As founder, verify the business model, unit economics, and value proposition before dev pods begin coding.
           </p>
 
           <div class="blueprint-nav">
