@@ -941,8 +941,9 @@
         <span>Pitch Deck</span>
       </a>
       <div class="currency-switch">
-        <button class="curr-btn active" id="btn-egp" onclick="setCurrency('EGP')">EGP</button>
-        <button class="curr-btn" id="btn-usd" onclick="setCurrency('USD')">USD</button>
+        <button class="curr-btn active" id="btn-usd" onclick="setCurrency('USD')">USD ($)</button>
+        <button class="curr-btn" id="btn-eur" onclick="setCurrency('EUR')">EUR (€)</button>
+        <button class="curr-btn" id="btn-egp" onclick="setCurrency('EGP')">EGP (ج.م)</button>
       </div>
       <div class="status-badge">
         <span class="pulse-dot"></span>
@@ -961,7 +962,7 @@
         </div>
         <h1 class="terminal-title">Autonomous Sprint Intake & Milestone Hub</h1>
         <p class="terminal-sub">
-          Instant scope configuration, live brief quality analyzer, native Egyptian & GCC financial rails, and real-time Stage-Gate delivery telemetry.
+          Instant scope configuration, live brief quality analyzer, global &amp; native financial rails (Stripe, Paymob, InstaPay), and real-time Stage-Gate delivery telemetry.
         </p>
       </div>
 
@@ -1214,10 +1215,12 @@
         name: 'Cairo D2C Social Commerce Sprint',
         nameAr: 'دورة إطلاق التجارة الاجتماعية المباشرة (القاهرة)',
         subtitle: 'Turn Instagram/FB DMs into an Automated WhatsApp Store with InstaPay & Bosta COD',
-        priceEgp: 38000,
         priceUsd: 775,
-        depositEgp: 19000,
+        priceEur: 715,
+        priceEgp: 38000,
         depositUsd: 387,
+        depositEur: 357,
+        depositEgp: 19000,
         sla: '72 Hours',
         targetSegment: 'd2c',
         features: [
@@ -1234,10 +1237,12 @@
         name: 'Founder 5-Day Rapid MVP Sprint',
         nameAr: 'دورة تطوير النموذج الأولي السريع للمؤسسين',
         subtitle: 'Production Web/Mobile App + Pitch Deck Ready for DCDE & Regional Accelerators',
-        priceEgp: 65000,
         priceUsd: 1320,
-        depositEgp: 32500,
+        priceEur: 1215,
+        priceEgp: 65000,
         depositUsd: 660,
+        depositEur: 608,
+        depositEgp: 32500,
         sla: '5 Days',
         targetSegment: 'startup',
         features: [
@@ -1254,10 +1259,12 @@
         name: 'Cairo Boutique Agency Overflow Pod',
         nameAr: 'خلية تطوير مستقلة لوكالات القاهرة',
         subtitle: 'Dedicated Autonomous Dev, Design & QA Pod for Digital & Creative Agencies',
-        priceEgp: 28000,
         priceUsd: 570,
-        depositEgp: 14000,
+        priceEur: 525,
+        priceEgp: 28000,
         depositUsd: 285,
+        depositEur: 262,
+        depositEgp: 14000,
         sla: 'Ongoing Monthly Retainer',
         targetSegment: 'agency',
         features: [
@@ -1270,22 +1277,24 @@
         ]
       },
       {
-        id: 'gcc-remote-pod',
-        name: 'Regional GCC Remote Agency Pod',
-        nameAr: 'خلية هندسية عن بعد لأسواق الخليج',
-        subtitle: 'Global Autonomous Engineering Subscription & Continuous PR Delivery',
-        priceEgp: 73500,
+        id: 'global-dev-subscription',
+        name: 'Global Autonomous Dev Subscription',
+        nameAr: 'اشتراك التطوير المستقل للشركات والمنصات',
+        subtitle: 'Continuous Autonomous Engineering Subscription & 24–48h PR Delivery',
         priceUsd: 1499,
-        depositEgp: 36750,
+        priceEur: 1380,
+        priceEgp: 73500,
         depositUsd: 750,
-        sla: 'Ongoing Monthly Retainer',
+        depositEur: 690,
+        depositEgp: 36750,
+        sla: 'Monthly Retainer',
         targetSegment: 'enterprise',
         features: [
-          'Full Executive Multi-Model Studio Access',
-          'Dedicated Regional GCC SLA Handover',
-          'Paymob, XPay & Mada Regional Payments',
-          'LiveKit Full-Duplex WebRTC Voice Streams',
-          'Direct GitHub Repository Sync & Cloud Deployments',
+          'Continuous 24–48h Pull Request Delivery',
+          '132+ Autonomous Agents across 14 Specialized Pods',
+          'Cloudflare Container Sandbox Isolation (Computerd)',
+          'Stripe Global & Paymob Multi-Rail Checkout',
+          'Direct GitHub Repository Sync & 100% Unencumbered IP',
           'ISO 25010 & OWASP ASVS Governance Assurances'
         ]
       },
@@ -1294,10 +1303,12 @@
         name: 'Rapid Systems Architecture Audit',
         nameAr: 'فحص وتدقيق البنية الهندسية للأنظمة',
         subtitle: '48-Hour Architecture Teardown, Latency Profiling & Fixed-Scope Technical Blueprint',
-        priceEgp: 73500,
         priceUsd: 1500,
-        depositEgp: 73500,
+        priceEur: 1380,
+        priceEgp: 73500,
         depositUsd: 1500,
+        depositEur: 1380,
+        depositEgp: 73500,
         sla: '48 Hours',
         targetSegment: 'enterprise',
         features: [
@@ -1310,7 +1321,7 @@
       }
     ];
 
-    let currentCurrency = 'EGP';
+    let currentCurrency = 'USD';
     let currentTiers = DEFAULT_TIERS;
     let selectedTierId = 'd2c-commerce-sprint';
     let selectedPayment = 'instapay';
@@ -1343,14 +1354,16 @@
     async function init() {
       // 1. Query Params Reader (?tier=... & ?curr=... & ?orderId=...)
       const urlParams = new URLSearchParams(window.location.search);
-      const tierParam = urlParams.get('tier');
+      let tierParam = urlParams.get('tier');
+      if (tierParam === 'gcc-remote-pod') tierParam = 'global-dev-subscription';
       if (tierParam && currentTiers.some(t => t.id === tierParam)) {
         selectedTierId = tierParam;
       }
       const currParam = urlParams.get('curr') || urlParams.get('currency');
-      if (currParam && (currParam.toUpperCase() === 'USD' || currParam.toUpperCase() === 'EGP')) {
+      if (currParam && ['USD', 'EUR', 'EGP'].includes(currParam.toUpperCase())) {
         currentCurrency = currParam.toUpperCase();
         document.getElementById('btn-egp').classList.toggle('active', currentCurrency === 'EGP');
+        document.getElementById('btn-eur').classList.toggle('active', currentCurrency === 'EUR');
         document.getElementById('btn-usd').classList.toggle('active', currentCurrency === 'USD');
       }
 
@@ -1400,7 +1413,12 @@
         const res = await fetch(`${OFFICE_API_BASE}/api/commercial/metrics`);
         const d = await res.json();
         if (d.success && d.metrics) {
-          const rev = currentCurrency === 'EGP' ? `${d.metrics.totalRevenueEgp.toLocaleString()} EGP` : `$${d.metrics.totalRevenueUsd.toLocaleString()}`;
+          let rev = `$${d.metrics.totalRevenueUsd.toLocaleString()}`;
+          if (currentCurrency === 'EUR') {
+            rev = `€${Math.round(d.metrics.totalRevenueUsd * 0.92).toLocaleString()}`;
+          } else if (currentCurrency === 'EGP') {
+            rev = `${d.metrics.totalRevenueEgp.toLocaleString()} EGP`;
+          }
           const revEl = document.getElementById('metric-revenue');
           if (revEl) revEl.textContent = rev;
           const actEl = document.getElementById('metric-active');
@@ -1427,6 +1445,7 @@
     function setCurrency(curr) {
       currentCurrency = curr;
       document.getElementById('btn-egp').classList.toggle('active', curr === 'EGP');
+      document.getElementById('btn-eur').classList.toggle('active', curr === 'EUR');
       document.getElementById('btn-usd').classList.toggle('active', curr === 'USD');
       renderTiers();
       fetchMetrics();
@@ -1462,9 +1481,17 @@
       const pillsContainer = document.getElementById('tier-pills-container');
       if (pillsContainer) {
         pillsContainer.innerHTML = currentTiers.map(t => {
-          const price = currentCurrency === 'EGP' ? `${(t.priceEgp / 1000).toFixed(0)}k EGP` : `$${t.priceUsd.toLocaleString()}`;
+          let mainPrice = `${t.priceUsd.toLocaleString()}`;
+          let variations = `€${t.priceEur.toLocaleString()} • ${(t.priceEgp / 1000).toFixed(0)}k EGP`;
+          if (currentCurrency === 'EUR') {
+            mainPrice = `€${t.priceEur.toLocaleString()}`;
+            variations = `${t.priceUsd.toLocaleString()} • ${(t.priceEgp / 1000).toFixed(0)}k EGP`;
+          } else if (currentCurrency === 'EGP') {
+            mainPrice = `${(t.priceEgp / 1000).toFixed(0)}k EGP`;
+            variations = `${t.priceUsd.toLocaleString()} • €${t.priceEur.toLocaleString()}`;
+          }
           const isSelected = t.id === selectedTierId ? 'selected' : '';
-          const isPopular = t.id === 'rapid-mvp-sprint' || t.id === 'd2c-commerce-sprint' ? 'popular' : '';
+          const isPopular = t.id === 'rapid-mvp-sprint' || t.id === 'global-dev-subscription' ? 'popular' : '';
 
           return `
             <div class="tier-pill ${isSelected} ${isPopular}" id="pill-${t.id}" onclick="selectTier('${t.id}')">
@@ -1473,7 +1500,8 @@
                 <div class="tier-pill-radio"></div>
               </div>
               <div class="tier-pill-name">${t.name}</div>
-              <div class="tier-pill-price">${price}</div>
+              <div class="tier-pill-price">${mainPrice}</div>
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-dim); margin-top: 3px;">${variations}</div>
             </div>
           `;
         }).join('');
@@ -1487,8 +1515,17 @@
       if (!specCard) return;
 
       const t = currentTiers.find(x => x.id === selectedTierId) || currentTiers[0];
-      const price = currentCurrency === 'EGP' ? `${t.priceEgp.toLocaleString()} EGP` : `$${t.priceUsd.toLocaleString()}`;
-      const deposit = currentCurrency === 'EGP' ? `${t.depositEgp.toLocaleString()} EGP` : `$${t.depositUsd.toLocaleString()}`;
+      let price = `${t.priceUsd.toLocaleString()}`;
+      let deposit = `${t.depositUsd.toLocaleString()}`;
+      let allVariations = `All Variations: ${t.priceUsd.toLocaleString()} USD • €${t.priceEur.toLocaleString()} EUR • ${t.priceEgp.toLocaleString()} EGP`;
+
+      if (currentCurrency === 'EUR') {
+        price = `€${t.priceEur.toLocaleString()}`;
+        deposit = `€${t.depositEur.toLocaleString()}`;
+      } else if (currentCurrency === 'EGP') {
+        price = `${t.priceEgp.toLocaleString()} EGP`;
+        deposit = `${t.depositEgp.toLocaleString()} EGP`;
+      }
 
       specCard.innerHTML = `
         <div class="spec-summary-card">
@@ -1509,6 +1546,11 @@
               <div class="spec-price-label">50% Milestone Deposit</div>
               <div class="spec-deposit-val">${deposit}</div>
             </div>
+          </div>
+
+          <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 10px 14px; margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.74rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            <span style="color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">All Variations:</span>
+            <span style="color: #fff;"><strong>$${t.priceUsd.toLocaleString()} USD</strong> &bull; €${t.priceEur.toLocaleString()} EUR &bull; ${t.priceEgp.toLocaleString()} EGP</span>
           </div>
 
           <div style="font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">
@@ -1742,7 +1784,7 @@
         console.warn('Direct office API unreachable, activating autonomous offline fallback:', err);
         // Fallback: Generate valid order and render settlement with direct WhatsApp dispatch
         const selectedTier = currentTiers.find(t => t.id === selectedTierId) || currentTiers[0];
-        const depositAmount = currentCurrency === 'USD' ? selectedTier.depositUsd : selectedTier.depositEgp;
+        const depositAmount = currentCurrency === 'USD' ? selectedTier.depositUsd : (currentCurrency === 'EUR' ? selectedTier.depositEur : selectedTier.depositEgp);
         const fallbackOrderId = 'ORD-' + Math.floor(1000 + Math.random() * 9000);
         const fallbackData = {
           success: true,

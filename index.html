@@ -474,7 +474,7 @@
           <span class="font-mono text-xs text-blue-300 uppercase tracking-wider font-semibold">Direct Answer • Architecture Executive Summary</span>
         </div>
         <p class="font-body text-sm sm:text-base text-slate-200 leading-relaxed">
-          <strong class="text-white">Unagency Studio</strong> is an autonomous software engineering practice led by CTO Nasr Galal (Nash) delivering deterministic, production-grade digital architectures across 5 productized sprint tiers: <strong class="text-white">Cairo D2C Social Commerce</strong> (72 Hours • 38,000 EGP / $775), <strong class="text-white">Founder 5-Day Rapid MVP</strong> with Sovereign Venture Canvases and founder-in-the-loop review (65,000 EGP / $1,320), <strong class="text-white">Cairo Agency Overflow Pods</strong> (28,000 EGP / $570/mo), <strong class="text-white">Global Autonomous Dev Subscription</strong> (73,500 EGP / $1,499/mo), and <strong class="text-white">48-Hour Systems Architecture Audits</strong> (73,500 EGP / $1,500). Architectures feature sub-100ms Cloudflare edge routing, multi-rail payments (native InstaPay QR, Paymob for cards/wallets, and CBE-compliant XPay invoicing), automated courier dispatch (Bosta), and 100% intellectual property transfer with a 30-day technical warranty.
+          <strong class="text-white">Unagency Studio</strong> is an autonomous software engineering practice led by CTO Nasr Galal (Nash) delivering deterministic, production-grade digital architectures across 5 productized sprint tiers: <strong class="text-white">Cairo D2C Social Commerce</strong> (72 Hours • $775 USD / €715 EUR / 38,000 EGP), <strong class="text-white">Founder 5-Day Rapid MVP</strong> (5 Days • $1,320 USD / €1,215 EUR / 65,000 EGP), <strong class="text-white">Cairo Agency Overflow Pods</strong> ($570 USD / €525 EUR / 28,000 EGP/mo), <strong class="text-white">Global Autonomous Dev Subscription</strong> ($1,499 USD / €1,380 EUR / 73,500 EGP/mo), and <strong class="text-white">48-Hour Systems Architecture Audits</strong> ($1,500 USD / €1,380 EUR / 73,500 EGP). Architectures feature sub-100ms Cloudflare edge routing, multi-rail payments (native InstaPay QR, Paymob for cards/wallets, and CBE-compliant XPay invoicing), automated courier dispatch (Bosta), and 100% intellectual property transfer with a 30-day technical warranty.
         </p>
       </div>
 
@@ -629,11 +629,14 @@
 
         <!-- Currency Switcher -->
         <div class="inline-flex items-center gap-2 p-1.5 rounded-xl glass-panel mt-6 border border-white/15">
-          <button type="button" id="btnCurrEgp" onclick="setPortfolioCurrency('EGP')" class="px-4 py-1.5 rounded-lg text-xs font-mono font-bold transition-all bg-blue-600 text-white shadow-[0_0_12px_rgba(59,130,246,0.5)]">
-            EGP (مصر)
+          <button type="button" id="btnCurrUsd" onclick="setPortfolioCurrency('USD')" class="px-4 py-1.5 rounded-lg text-xs font-mono font-bold transition-all bg-blue-600 text-white shadow-[0_0_12px_rgba(59,130,246,0.5)]">
+            USD ($)
           </button>
-          <button type="button" id="btnCurrUsd" onclick="setPortfolioCurrency('USD')" class="px-4 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-white transition-all">
-            USD (GCC &amp; Global)
+          <button type="button" id="btnCurrEur" onclick="setPortfolioCurrency('EUR')" class="px-4 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-white transition-all">
+            EUR (€)
+          </button>
+          <button type="button" id="btnCurrEgp" onclick="setPortfolioCurrency('EGP')" class="px-4 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-white transition-all">
+            EGP (ج.م)
           </button>
         </div>
       </div>
@@ -661,8 +664,9 @@
             </p>
 
             <div class="mb-5 p-3 rounded-lg bg-black/35 border border-white/5">
-              <div class="text-2xl font-mono font-extrabold text-white price-d2c">38,000 EGP</div>
-              <div class="text-[11px] font-mono text-slate-400 mt-0.5 deposit-d2c">50% Deposit: 19,000 EGP</div>
+              <div class="text-2xl font-mono font-extrabold text-white price-d2c">$775</div>
+              <div class="text-[11px] font-mono text-slate-400 mt-0.5 deposit-d2c">50% Deposit: $387</div>
+              <div class="text-[10px] font-mono text-cyan-300 mt-1 pt-1 border-t border-white/10 variations-d2c">Variations: €715 EUR • 38,000 EGP</div>
             </div>
 
             <ul class="space-y-2.5 text-xs text-slate-200">
@@ -723,8 +727,9 @@
             </p>
 
             <div class="mb-5 p-3 rounded-lg bg-black/35 border border-blue-500/20">
-              <div class="text-2xl font-mono font-extrabold text-white price-mvp">65,000 EGP</div>
-              <div class="text-[11px] font-mono text-cyan-300 mt-0.5 deposit-mvp">50% Deposit: 32,500 EGP</div>
+              <div class="text-2xl font-mono font-extrabold text-white price-mvp">$1,320</div>
+              <div class="text-[11px] font-mono text-cyan-300 mt-0.5 deposit-mvp">50% Deposit: $660</div>
+              <div class="text-[10px] font-mono text-cyan-300 mt-1 pt-1 border-t border-white/10 variations-mvp">Variations: €1,215 EUR • 65,000 EGP</div>
             </div>
 
             <ul class="space-y-2.5 text-xs text-slate-200">
@@ -782,8 +787,9 @@
             </p>
 
             <div class="mb-5 p-3 rounded-lg bg-black/35 border border-white/5">
-              <div class="text-2xl font-mono font-extrabold text-white price-agency">28,000 EGP<span class="text-xs font-mono text-slate-400 font-normal">/mo</span></div>
+              <div class="text-2xl font-mono font-extrabold text-white price-agency">$570<span class="text-xs font-mono text-slate-400 font-normal">/mo</span></div>
               <div class="text-[11px] font-mono text-slate-400 mt-0.5 deposit-agency">Monthly Retainer Allocation</div>
+              <div class="text-[10px] font-mono text-cyan-300 mt-1 pt-1 border-t border-white/10 variations-agency">Variations: €525/mo EUR • 28,000 EGP/mo</div>
             </div>
 
             <ul class="space-y-2.5 text-xs text-slate-200">
@@ -821,46 +827,47 @@
           </div>
         </div>
 
-        <!-- Sprint 4: Regional GCC Remote Pod -->
+        <!-- Sprint 4: Global Autonomous Dev Subscription -->
         <div class="rounded-xl glass-panel p-6 flex flex-col justify-between relative group hover:border-white/20 transition-all duration-300">
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-white/10">
                 Monthly Retainer
               </span>
-              <span class="text-[10px] font-mono text-slate-400 uppercase">GCC REGIONAL</span>
+              <span class="text-[10px] font-mono text-emerald-400 uppercase">GLOBAL DEV</span>
             </div>
             <h3 class="font-headline text-lg font-bold text-white">
-              Regional GCC Remote Pod
+              Global Autonomous Dev Subscription
             </h3>
             <p class="text-xs text-blue-300 mt-1 font-semibold" dir="rtl">
-              خلية هندسية عن بعد لأسواق الخليج
+              اشتراك التطوير المستقل للشركات والمنصات
             </p>
             <p class="text-xs text-slate-400 mt-2 mb-4 leading-relaxed">
               Continuous 24–48h PR delivery and autonomous multi-agent engineering for global founders.
             </p>
 
             <div class="mb-5 p-3 rounded-lg bg-black/35 border border-white/5">
-              <div class="text-2xl font-mono font-extrabold text-white price-gcc">73,500 EGP<span class="text-xs font-mono text-slate-400 font-normal">/mo</span></div>
-              <div class="text-[11px] font-mono text-slate-400 mt-0.5 deposit-gcc">GCC Retainer Allocation</div>
+              <div class="text-2xl font-mono font-extrabold text-white price-global">$1,499<span class="text-xs font-mono text-slate-400 font-normal">/mo</span></div>
+              <div class="text-[11px] font-mono text-slate-400 mt-0.5 deposit-global">Global Subscription Lane</div>
+              <div class="text-[10px] font-mono text-cyan-300 mt-1 pt-1 border-t border-white/10 variations-global">Variations: €1,380/mo EUR • 73,500 EGP/mo</div>
             </div>
 
             <ul class="space-y-2.5 text-xs text-slate-200">
               <li class="flex items-start gap-2">
                 <span class="material-symbols-outlined text-blue-400 text-sm mt-0.5">check_circle</span>
-                <span>Multi-Model AI Executive Studio</span>
+                <span>Continuous 24–48h Pull Request Delivery</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="material-symbols-outlined text-blue-400 text-sm mt-0.5">check_circle</span>
-                <span>Dedicated Regional GCC Handover SLA</span>
+                <span>132+ Autonomous Agents across 14 Specialized Pods</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="material-symbols-outlined text-blue-400 text-sm mt-0.5">check_circle</span>
-                <span>Paymob, XPay &amp; Mada Settlement</span>
+                <span>Cloudflare Sandbox Isolation (Computerd)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="material-symbols-outlined text-blue-400 text-sm mt-0.5">check_circle</span>
-                <span>LiveKit Full-Duplex WebRTC Streams</span>
+                <span>Stripe Global &amp; Paymob Multi-Rail Checkout</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="material-symbols-outlined text-blue-400 text-sm mt-0.5">check_circle</span>
@@ -870,11 +877,11 @@
           </div>
 
           <div class="mt-6 pt-4 border-t border-white/10 flex flex-col gap-2">
-            <a href="./portal.html?tier=gcc-remote-pod" class="w-full py-2.5 rounded-lg glass-panel hover:bg-white/10 border border-white/15 text-white font-headline text-xs font-bold tracking-tight transition-all active:scale-95 group-hover:border-blue-400/50 flex items-center justify-center gap-1.5 no-underline">
-              <span>Engage GCC Pod</span>
+            <a href="./portal.html?tier=global-dev-subscription" class="w-full py-2.5 rounded-lg glass-panel hover:bg-white/10 border border-white/15 text-white font-headline text-xs font-bold tracking-tight transition-all active:scale-95 group-hover:border-blue-400/50 flex items-center justify-center gap-1.5 no-underline">
+              <span>Subscribe to Dev Lane</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
-            <button type="button" onclick="openBookingModal('GCC Remote Pod')" class="text-[11px] text-slate-400 hover:text-blue-300 transition-colors text-center py-1">
+            <button type="button" onclick="openBookingModal('Global Dev Subscription')" class="text-[11px] text-slate-400 hover:text-blue-300 transition-colors text-center py-1">
               or Request Enterprise SLA →
             </button>
           </div>
@@ -1455,11 +1462,11 @@
           <div>
             <label class="block text-xs font-mono text-slate-300 mb-1">PRIMARY ARCHITECTURE GOAL / SPRINT TIER</label>
             <select id="clientGoal" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0C1222] border border-white/10 text-white text-sm focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all">
-              <option value="Rapid MVP Sprint">Founder 5-Day Rapid MVP Sprint (65,000 EGP / $1,320 USD) - Most Popular</option>
-              <option value="Cairo D2C Sprint">Cairo D2C Social Commerce Sprint - 72h (38,000 EGP / $775 USD)</option>
-              <option value="Cairo Agency Overflow">Cairo Boutique Agency Overflow Pod (28,000 EGP / $570 USD/mo)</option>
-              <option value="GCC Remote Pod">Regional GCC Remote Agency Pod (73,500 EGP / $1,499 USD/mo)</option>
-              <option value="Rapid Architecture Audit">Rapid Systems Architecture Audit - 48h (73,500 EGP / $1,500 USD)</option>
+              <option value="Rapid MVP Sprint">Founder 5-Day Rapid MVP Sprint ($1,320 USD / €1,215 EUR / 65,000 EGP) - Most Popular</option>
+              <option value="Cairo D2C Sprint">Cairo D2C Social Commerce Sprint - 72h ($775 USD / €715 EUR / 38,000 EGP)</option>
+              <option value="Cairo Agency Overflow">Cairo Boutique Agency Overflow Pod ($570 USD / €525 EUR / 28,000 EGP/mo)</option>
+              <option value="Global Dev Subscription">Global Autonomous Dev Subscription ($1,499 USD / €1,380 EUR / 73,500 EGP/mo)</option>
+              <option value="Rapid Architecture Audit">Rapid Systems Architecture Audit - 48h ($1,500 USD / €1,380 EUR / 73,500 EGP)</option>
               <option value="Billing & Fulfillment Automation">Billing &amp; Paymob / XPay / InstaPay Logistics Automation</option>
             </select>
           </div>
@@ -1884,48 +1891,82 @@
     }
 
     
-    let portfolioCurrency = 'EGP';
+    let portfolioCurrency = 'USD';
     function setPortfolioCurrency(curr) {
       portfolioCurrency = curr;
-      const btnEgp = document.getElementById('btnCurrEgp');
       const btnUsd = document.getElementById('btnCurrUsd');
-      if (btnEgp && btnUsd) {
-        if (curr === 'EGP') {
-          btnEgp.className = 'px-4 py-1.5 rounded-lg text-xs font-mono font-bold transition-all bg-blue-600 text-white shadow-[0_0_12px_rgba(59,130,246,0.5)]';
-          btnUsd.className = 'px-4 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-white transition-all';
-        } else {
-          btnUsd.className = 'px-4 py-1.5 rounded-lg text-xs font-mono font-bold transition-all bg-blue-600 text-white shadow-[0_0_12px_rgba(59,130,246,0.5)]';
-          btnEgp.className = 'px-4 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-white transition-all';
-        }
-      }
+      const btnEur = document.getElementById('btnCurrEur');
+      const btnEgp = document.getElementById('btnCurrEgp');
+      const activeClass = 'px-4 py-1.5 rounded-lg text-xs font-mono font-bold transition-all bg-blue-600 text-white shadow-[0_0_12px_rgba(59,130,246,0.5)]';
+      const inactiveClass = 'px-4 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-400 hover:text-white transition-all';
+      if (btnUsd) btnUsd.className = curr === 'USD' ? activeClass : inactiveClass;
+      if (btnEur) btnEur.className = curr === 'EUR' ? activeClass : inactiveClass;
+      if (btnEgp) btnEgp.className = curr === 'EGP' ? activeClass : inactiveClass;
 
       const pD2c = document.querySelector('.price-d2c');
       const dD2c = document.querySelector('.deposit-d2c');
+      const vD2c = document.querySelector('.variations-d2c');
+
       const pMvp = document.querySelector('.price-mvp');
       const dMvp = document.querySelector('.deposit-mvp');
+      const vMvp = document.querySelector('.variations-mvp');
+
       const pAge = document.querySelector('.price-agency');
       const dAge = document.querySelector('.deposit-agency');
-      const pGcc = document.querySelector('.price-gcc');
-      const dGcc = document.querySelector('.deposit-gcc');
+      const vAge = document.querySelector('.variations-agency');
 
-      if (curr === 'EGP') {
-        if (pD2c) pD2c.textContent = '38,000 EGP';
-        if (dD2c) dD2c.textContent = '50% Deposit: 19,000 EGP';
-        if (pMvp) pMvp.textContent = '65,000 EGP';
-        if (dMvp) dMvp.textContent = '50% Deposit: 32,500 EGP';
-        if (pAge) pAge.innerHTML = '28,000 EGP<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
-        if (dAge) dAge.textContent = 'Monthly Retainer Allocation';
-        if (pGcc) pGcc.innerHTML = '73,500 EGP<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
-        if (dGcc) dGcc.textContent = 'GCC Retainer Allocation';
-      } else {
+      const pGlobal = document.querySelector('.price-global');
+      const dGlobal = document.querySelector('.deposit-global');
+      const vGlobal = document.querySelector('.variations-global');
+
+      if (curr === 'USD') {
         if (pD2c) pD2c.textContent = '$775';
         if (dD2c) dD2c.textContent = '50% Deposit: $387';
+        if (vD2c) vD2c.textContent = 'Variations: €715 EUR • 38,000 EGP';
+
         if (pMvp) pMvp.textContent = '$1,320';
         if (dMvp) dMvp.textContent = '50% Deposit: $660';
+        if (vMvp) vMvp.textContent = 'Variations: €1,215 EUR • 65,000 EGP';
+
         if (pAge) pAge.innerHTML = '$570<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
         if (dAge) dAge.textContent = 'Monthly Retainer Allocation';
-        if (pGcc) pGcc.innerHTML = '$1,499<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
-        if (dGcc) dGcc.textContent = 'GCC Retainer Allocation';
+        if (vAge) vAge.textContent = 'Variations: €525/mo EUR • 28,000 EGP/mo';
+
+        if (pGlobal) pGlobal.innerHTML = '$1,499<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
+        if (dGlobal) dGlobal.textContent = 'Global Subscription Lane';
+        if (vGlobal) vGlobal.textContent = 'Variations: €1,380/mo EUR • 73,500 EGP/mo';
+      } else if (curr === 'EUR') {
+        if (pD2c) pD2c.textContent = '€715';
+        if (dD2c) dD2c.textContent = '50% Deposit: €357';
+        if (vD2c) vD2c.textContent = 'Variations: $775 USD • 38,000 EGP';
+
+        if (pMvp) pMvp.textContent = '€1,215';
+        if (dMvp) dMvp.textContent = '50% Deposit: €608';
+        if (vMvp) vMvp.textContent = 'Variations: $1,320 USD • 65,000 EGP';
+
+        if (pAge) pAge.innerHTML = '€525<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
+        if (dAge) dAge.textContent = 'Monthly Retainer Allocation';
+        if (vAge) vAge.textContent = 'Variations: $570/mo USD • 28,000 EGP/mo';
+
+        if (pGlobal) pGlobal.innerHTML = '€1,380<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
+        if (dGlobal) dGlobal.textContent = 'Global Subscription Lane';
+        if (vGlobal) vGlobal.textContent = 'Variations: $1,499/mo USD • 73,500 EGP/mo';
+      } else if (curr === 'EGP') {
+        if (pD2c) pD2c.textContent = '38,000 EGP';
+        if (dD2c) dD2c.textContent = '50% Deposit: 19,000 EGP';
+        if (vD2c) vD2c.textContent = 'Variations: $775 USD • €715 EUR';
+
+        if (pMvp) pMvp.textContent = '65,000 EGP';
+        if (dMvp) dMvp.textContent = '50% Deposit: 32,500 EGP';
+        if (vMvp) vMvp.textContent = 'Variations: $1,320 USD • €1,215 EUR';
+
+        if (pAge) pAge.innerHTML = '28,000 EGP<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
+        if (dAge) dAge.textContent = 'Monthly Retainer Allocation';
+        if (vAge) vAge.textContent = 'Variations: $570/mo USD • €525/mo EUR';
+
+        if (pGlobal) pGlobal.innerHTML = '73,500 EGP<span class="text-xs font-mono text-slate-400 font-normal">/mo</span>';
+        if (dGlobal) dGlobal.textContent = 'Global Subscription Lane';
+        if (vGlobal) vGlobal.textContent = 'Variations: $1,499/mo USD • €1,380/mo EUR';
       }
     }
 
