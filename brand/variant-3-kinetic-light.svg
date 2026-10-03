@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 260" width="880" height="260">
+  <defs>
+    <linearGradient id="v3ChevronLLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="v3ChevronRLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+    <linearGradient id="v3ApexSpeedLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="50%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#064E3B"/>
+    </linearGradient>
+    <linearGradient id="v3GoldBurstLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- VARIANT 3 MARK: THE KINETIC SPRINT VECTOR (LIGHT) -->
+  <g transform="translate(130, 130)">
+    <path d="M-72,-65 L-40,-65 L-12,32 C-7,48 -20,62 -36,62 L-54,62 C-70,62 -78,48 -82,32 Z" fill="url(#v3ChevronLLight)"/>
+    <path d="M72,-65 L40,-65 L12,32 C7,48 20,62 36,62 L54,62 C70,62 78,48 82,32 Z" fill="url(#v3ChevronRLight)"/>
+
+    <polygon points="0,-72 24,-16 10,-16 18,36 0,68 -18,36 -10,-16 -24,-16" fill="url(#v3ApexSpeedLight)"/>
+    <polygon points="0,-52 12,-16 0,22 -12,-16" fill="#F8FAFC" opacity="0.95"/>
+
+    <polygon points="-24,42 -4,64 -18,64" fill="url(#v3GoldBurstLight)"/>
+    <polygon points="24,42 4,64 18,64" fill="url(#v3GoldBurstLight)"/>
+  </g>
+
+  <!-- TYPOGRAPHY LOCKUP -->
+  <g transform="translate(255, 0)">
+    <text x="0" y="100" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" font-style="italic" fill="#0F172A" letter-spacing="1">UNAGENCY</text>
+    <text x="316" y="100" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="44" font-weight="400" font-style="italic" fill="#0284C7" letter-spacing="2">STUDIO</text>
+    
+    <text x="2" y="142" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#D97706" letter-spacing="5">HIGH-VELOCITY SPRINTS · 72H TO PRODUCTION</text>
+    
+    <g transform="translate(2, 166)">
+      <rect x="0" y="0" width="154" height="24" rx="4" fill="rgba(217, 119, 6, 0.08)" stroke="rgba(217, 119, 6, 0.25)" stroke-width="1"/>
+      <text x="12" y="16" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#B45309" letter-spacing="1">72-HOUR VELOCITY</text>
+
+      <rect x="164" y="0" width="144" height="24" rx="4" fill="rgba(2, 132, 199, 0.08)" stroke="rgba(2, 132, 199, 0.25)" stroke-width="1"/>
+      <text x="176" y="16" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#0369A1" letter-spacing="1">5-DAY RAPID MVP</text>
+
+      <rect x="318" y="0" width="152" height="24" rx="4" fill="rgba(4, 120, 87, 0.08)" stroke="rgba(4, 120, 87, 0.25)" stroke-width="1"/>
+      <text x="330" y="16" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#047857" letter-spacing="1">100% LIGHTHOUSE</text>
+    </g>
+  </g>
+</svg>
