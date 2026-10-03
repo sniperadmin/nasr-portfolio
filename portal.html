@@ -921,7 +921,7 @@
 
   <header>
     <a href="./index.html" class="brand">
-      <div class="brand-logo">RX</div>
+      <div class="brand-logo" style="font-family: var(--font-mono); font-weight: 800; letter-spacing: -0.05em;">[un]</div>
       <div>
         <div class="brand-title">Unagency Studio</div>
         <div class="brand-tag">Cairo Online Studio • Executive Client Portal</div>
@@ -1004,7 +1004,7 @@
               <span>Prefer a Live Discovery & Scoping Session First?</span>
             </div>
             <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">
-              30-Min live systems architecture walkthrough with Nasr Galal on Google Meet (Mutual NDA).
+              30-Min live systems architecture walkthrough with Unagency Lead Systems Architect on Google Meet (Mutual NDA).
             </div>
           </div>
           <button type="button" onclick="openPortalBookingModal()" style="background: var(--cyan); color: #000; border: none; font-size: 0.76rem; font-weight: 700; font-family: var(--font-mono); padding: 6px 14px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s;" onmouseover="this.style.filter='brightness(1.15)';" onmouseout="this.style.filter='none';">
@@ -1255,47 +1255,47 @@
         ]
       },
       {
-        id: 'dedicated-agency-pod',
-        name: 'Dedicated Agency Pod (White-Label)',
-        nameAr: 'خلية تطوير مستقلة للوكالات (العلامة البيضاء)',
-        subtitle: 'Dedicated 14-Pod Autonomous Dev & QA Department (Replaces $30k/mo Human Payroll)',
-        priceUsd: 4999,
+        id: 'specialized-department-pod',
+        name: 'Specialized Department Pod',
+        nameAr: 'خلية تخصصية مخصصة (تطوير MVP / تسويق ونمو / تجارة إلكترونية)',
+        subtitle: 'Deploy 1 Dedicated Specialist Team Pod tailored to your exact niche (MVP Dev, Growth Marketing, or Commerce Pod) - 9-12 Agents',
+        priceUsd: 5000,
         priceEur: 4600,
         priceEgp: 245000,
         depositUsd: 2500,
         depositEur: 2300,
         depositEgp: 122500,
         sla: 'Monthly Retainer',
-        targetSegment: 'agency',
+        targetSegment: 'specialized-pod',
         features: [
-          '132+ Autonomous Agents across 14 Specialized Pods',
-          'Up to 4 Complete Client Project Modules / Sprints per Month',
-          'Mandatory Cross-Review Gate (Dev, Design, Marketing, QA)',
-          'Zero Developer Turnover & Predictable High Margins (>85%)',
-          'Private SQLite WAL Node & Zero Data Leakage',
-          'White-Labeled Client Proof Bundles & Staging Environments'
+          'Choose 1 Dedicated Niche Pod (Founder MVP Dev, Growth Marketing, or D2C Commerce)',
+          '9 to 12 Autonomous Agents focused 100% on your specific objectives',
+          'Weekly High-Impact Production Deliverables & Milestone Stage-Gates',
+          'Automated QA Verification & Lighthouse Performance Certification',
+          'Direct Slack/Discord/WhatsApp Dedicated Communications Bridge',
+          'No Bloat, No Paying for Unneeded Departments ($5,000/mo Flat)'
         ]
       },
       {
         id: 'enterprise-studio-deployment',
-        name: 'Sovereign Enterprise Studio Deployment',
-        nameAr: 'نشر استوديو هندسي مستقل مخصص للمؤسسات',
-        subtitle: 'Private Autonomous Studio Infrastructure, Dedicated Cloudflare Nodes & 24/7 SLA',
-        priceUsd: 18500,
-        priceEur: 17000,
-        priceEgp: 910000,
-        depositUsd: 9250,
-        depositEur: 8500,
-        depositEgp: 455000,
-        sla: '24/7 Dedicated SLA',
+        name: 'Full Sovereign Enterprise Studio',
+        nameAr: 'الاستوديو الهندسي السيادي المتكامل (14 خلية عمل)',
+        subtitle: 'The Complete Sovereign Autonomous Studio: All 14 Pods, 132+ Agents, Dedicated Private Cluster & 24/7 SLA',
+        priceUsd: 20000,
+        priceEur: 18400,
+        priceEgp: 980000,
+        depositUsd: 10000,
+        depositEur: 9200,
+        depositEgp: 490000,
+        sla: '24/7 Enterprise SLA',
         targetSegment: 'enterprise',
         features: [
-          'Full Autonomous Studio Deployment & Private Container Cluster',
-          'Private SQLite WAL Multi-Node Replication & Failover',
-          'Custom MCP Toolchains & Internal ERP/Payment Integrations',
-          'Continuous OWASP LLM Red-Teaming & ISO 25010 Governance',
-          '100% Unencumbered Source Code & IP Handover',
-          'Dedicated 24/7 Lead Systems Architect Direct Channel'
+          'All 14 Autonomous Department Pods (All 132+ Agents Operating in Parallel)',
+          'Full-Stack: Strategy, Design, Dev, SecOps, QA, Marketing, Sales, Fulfillment & Finance',
+          'Dedicated Private Cloudflare Container Cluster (`computerd`) & Isolated SQLite WAL Replication',
+          'Custom MCP Toolchains & Enterprise API/ERP Integration Suite',
+          '100% Sovereign IP Ownership with Zero Human Payroll Overhead',
+          'Dedicated 24/7 Lead Systems Architect & Guaranteed 15-Minute Response SLA'
         ]
       }
     ];
@@ -1334,7 +1334,7 @@
       // 1. Query Params Reader (?tier=... & ?curr=... & ?orderId=...)
       const urlParams = new URLSearchParams(window.location.search);
       let tierParam = urlParams.get('tier');
-      if (tierParam === 'cairo-agency-pod' || tierParam === 'gcc-remote-pod' || tierParam === 'global-dev-subscription') tierParam = 'dedicated-agency-pod';
+      if (tierParam === 'cairo-agency-pod' || tierParam === 'gcc-remote-pod' || tierParam === 'global-dev-subscription' || tierParam === 'dedicated-agency-pod') tierParam = 'specialized-department-pod';
       if (tierParam && currentTiers.some(t => t.id === tierParam)) {
         selectedTierId = tierParam;
       }
@@ -1556,7 +1556,7 @@
 
           <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 8px; text-align: center;">
             <a href="javascript:void(0)" onclick="openPortalBookingModal()" style="color: var(--cyan); text-decoration: none; font-size: 0.78rem; font-family: var(--font-mono); display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 12px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(56, 189, 248, 0.18)';" onmouseout="this.style.background='rgba(56, 189, 248, 0.08)';">
-              <span>📅 Schedule 30-Min Discovery Meeting on Nasr's Calendar →</span>
+              <span>📅 Schedule 30-Min Discovery Meeting on Studio Calendar →</span>
             </a>
             <a href="https://wa.me/201029384756?text=Hello%20Agents%20Office%2C%20inquiry%20regarding%20${encodeURIComponent(t.name)}" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 0.75rem; font-family: var(--font-mono); display: inline-flex; align-items: center; justify-content: center; gap: 4px;">
               <span>💬 Quick Chat with Sprint Lead on WhatsApp (+20 10 2938 4756) →</span>

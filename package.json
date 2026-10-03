@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Unagency Studio — Autonomous Engineering & The Anti-Agency for Fast Founders",
   "homepage": "https://sniperadmin.github.io/",
-  "author": "Nasr Galal (Nash)",
+  "author": "Unagency Studio Systems",
   "license": "MIT",
   "scripts": {
     "dev": "npx serve .",

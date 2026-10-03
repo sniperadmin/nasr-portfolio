@@ -7,7 +7,7 @@
 [![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/WCAG%202.2-AA%20Compliant-purple.svg?style=flat-square)](https://sniperadmin.github.io/)
 [![Security: OWASP LLM Hardened](https://img.shields.io/badge/OWASP%20LLM-Hardened-amber.svg?style=flat-square)](https://sniperadmin.github.io/)
 
-> **High-performance sovereign AI software studio & autonomous engineering practice founded by CTO & Systems Architect Nasr Galal (Nash).** Powered by the **Unagency Studio** multi-agent engine, we design and deploy production-grade software, scalable full-stack applications, and high-converting headless digital storefronts in deterministic engineering sprints (72-hour social commerce, 5-day rapid MVP, and dedicated monthly subscriptions).
+> **High-performance sovereign AI software studio & autonomous engineering practice.** Powered by the **Unagency Studio** multi-agent engine, we design and deploy production-grade software, scalable full-stack applications, and high-converting headless digital storefronts in deterministic engineering sprints (72-hour social commerce, 5-day rapid MVP, and dedicated monthly subscriptions).
 
 ---
 
@@ -67,7 +67,7 @@ python3 -m http.server 8080
 ---
 
 ## 📬 Contact & Consultations
-- **CTO & Architect**: Nasr Galal (Nash)
-- **Live Scheduling**: [calendly.com/nasr_galal](https://calendly.com/nasr_galal)
-- **Email**: `nasrbue@gmail.com`
+- **Systems Architecture**: Unagency Lead Systems Architect
+- **Live Scheduling**: [Studio Calendar (Calendly)](https://calendly.com/nasr_galal)
+- **Direct WhatsApp**: `+20 10 2938 4756`
 - **GitHub**: [@sniperadmin](https://github.com/sniperadmin)

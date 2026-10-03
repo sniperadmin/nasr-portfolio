@@ -59,7 +59,7 @@
 
 ### 3.7 Interactive Systems Audit Modal
 - Form with quick input for company URL, volume, and target sprint.
-- Direct quick links for Email (`nasrbue@gmail.com`) and GitHub.
+- Direct quick links for WhatsApp (`+20 10 2938 4756`) and GitHub.
 
 ---
 
@@ -67,5 +67,5 @@
 - `index.html`: Fully self-contained, high-performance static landing page.
 - `brand/tokens.json`: Obsidian Flow design tokens.
 - `README.md`: Project documentation and standards badges.
-- **GitHub Target**: `https://github.com/sniperadmin/nasr-portfolio`
-- **GitHub Pages**: `https://sniperadmin.github.io/nasr-portfolio/`
+- **GitHub Target**: `https://github.com/sniperadmin/sniperadmin.github.io`
+- **GitHub Pages**: `https://sniperadmin.github.io/`
