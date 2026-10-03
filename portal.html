@@ -1255,25 +1255,25 @@
         ]
       },
       {
-        id: 'cairo-agency-pod',
-        name: 'Cairo Boutique Agency Overflow Pod',
-        nameAr: 'خلية تطوير مستقلة لوكالات القاهرة',
-        subtitle: 'Dedicated Autonomous Dev, Design & QA Pod for Digital & Creative Agencies',
-        priceUsd: 570,
-        priceEur: 525,
-        priceEgp: 28000,
-        depositUsd: 285,
-        depositEur: 262,
-        depositEgp: 14000,
-        sla: 'Ongoing Monthly Retainer',
+        id: 'dedicated-agency-pod',
+        name: 'Dedicated Agency Pod (White-Label)',
+        nameAr: 'خلية تطوير مستقلة للوكالات (العلامة البيضاء)',
+        subtitle: 'Dedicated 14-Pod Autonomous Dev & QA Department (Replaces $30k/mo Human Payroll)',
+        priceUsd: 4999,
+        priceEur: 4600,
+        priceEgp: 245000,
+        depositUsd: 2500,
+        depositEur: 2300,
+        depositEgp: 122500,
+        sla: 'Monthly Retainer',
         targetSegment: 'agency',
         features: [
           '132+ Autonomous Agents across 14 Specialized Pods',
           'Up to 4 Complete Client Project Modules / Sprints per Month',
           'Mandatory Cross-Review Gate (Dev, Design, Marketing, QA)',
-          'Zero Developer Turnover & Predictable High Margins',
+          'Zero Developer Turnover & Predictable High Margins (>85%)',
           'Private SQLite WAL Node & Zero Data Leakage',
-          'White-Labeled Client Proof Bundles'
+          'White-Labeled Client Proof Bundles & Staging Environments'
         ]
       },
       {
@@ -1299,24 +1299,25 @@
         ]
       },
       {
-        id: 'systems-architecture-audit',
-        name: 'Rapid Systems Architecture Audit',
-        nameAr: 'فحص وتدقيق البنية الهندسية للأنظمة',
-        subtitle: '48-Hour Architecture Teardown, Latency Profiling & Fixed-Scope Technical Blueprint',
-        priceUsd: 1500,
-        priceEur: 1380,
-        priceEgp: 73500,
-        depositUsd: 1500,
-        depositEur: 1380,
-        depositEgp: 73500,
-        sla: '48 Hours',
+        id: 'enterprise-studio-deployment',
+        name: 'Sovereign Enterprise Studio Deployment',
+        nameAr: 'نشر استوديو هندسي مستقل مخصص للمؤسسات',
+        subtitle: 'Private Autonomous Studio Infrastructure, Dedicated Cloudflare Nodes & 24/7 SLA',
+        priceUsd: 18500,
+        priceEur: 17000,
+        priceEgp: 910000,
+        depositUsd: 9250,
+        depositEur: 8500,
+        depositEgp: 455000,
+        sla: '24/7 Dedicated SLA',
         targetSegment: 'enterprise',
         features: [
-          'Sub-100ms Edge Latency Profiling & Bottleneck Identification',
-          'Security Posture & OWASP LLM Top 10 Red-Teaming',
-          'Database WAL & SQLite Concurrency Architecture Inspection',
-          'Fixed-Scope 30-Day Engineering Roadmap Deliverable',
-          '100% Written Architectural Audit Report within 48 Hours'
+          'Full Autonomous Studio Deployment & Private Container Cluster',
+          'Private SQLite WAL Multi-Node Replication & Failover',
+          'Custom MCP Toolchains & Internal ERP/Payment Integrations',
+          'Continuous OWASP LLM Red-Teaming & ISO 25010 Governance',
+          '100% Unencumbered Source Code & IP Handover',
+          'Dedicated 24/7 Lead Systems Architect Direct Channel'
         ]
       }
     ];
@@ -1355,6 +1356,7 @@
       // 1. Query Params Reader (?tier=... & ?curr=... & ?orderId=...)
       const urlParams = new URLSearchParams(window.location.search);
       let tierParam = urlParams.get('tier');
+      if (tierParam === 'cairo-agency-pod') tierParam = 'dedicated-agency-pod';
       if (tierParam === 'gcc-remote-pod') tierParam = 'global-dev-subscription';
       if (tierParam && currentTiers.some(t => t.id === tierParam)) {
         selectedTierId = tierParam;
