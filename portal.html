@@ -1277,28 +1277,6 @@
         ]
       },
       {
-        id: 'global-dev-subscription',
-        name: 'Global Autonomous Dev Subscription',
-        nameAr: 'اشتراك التطوير المستقل للشركات والمنصات',
-        subtitle: 'Continuous Autonomous Engineering Subscription & 24–48h PR Delivery',
-        priceUsd: 1499,
-        priceEur: 1380,
-        priceEgp: 73500,
-        depositUsd: 750,
-        depositEur: 690,
-        depositEgp: 36750,
-        sla: 'Monthly Retainer',
-        targetSegment: 'enterprise',
-        features: [
-          'Continuous 24–48h Pull Request Delivery',
-          '132+ Autonomous Agents across 14 Specialized Pods',
-          'Cloudflare Container Sandbox Isolation (Computerd)',
-          'Stripe Global & Paymob Multi-Rail Checkout',
-          'Direct GitHub Repository Sync & 100% Unencumbered IP',
-          'ISO 25010 & OWASP ASVS Governance Assurances'
-        ]
-      },
-      {
         id: 'enterprise-studio-deployment',
         name: 'Sovereign Enterprise Studio Deployment',
         nameAr: 'نشر استوديو هندسي مستقل مخصص للمؤسسات',
@@ -1356,8 +1334,7 @@
       // 1. Query Params Reader (?tier=... & ?curr=... & ?orderId=...)
       const urlParams = new URLSearchParams(window.location.search);
       let tierParam = urlParams.get('tier');
-      if (tierParam === 'cairo-agency-pod') tierParam = 'dedicated-agency-pod';
-      if (tierParam === 'gcc-remote-pod') tierParam = 'global-dev-subscription';
+      if (tierParam === 'cairo-agency-pod' || tierParam === 'gcc-remote-pod' || tierParam === 'global-dev-subscription') tierParam = 'dedicated-agency-pod';
       if (tierParam && currentTiers.some(t => t.id === tierParam)) {
         selectedTierId = tierParam;
       }
@@ -1493,7 +1470,7 @@
             variations = `${t.priceUsd.toLocaleString()} • €${t.priceEur.toLocaleString()}`;
           }
           const isSelected = t.id === selectedTierId ? 'selected' : '';
-          const isPopular = t.id === 'rapid-mvp-sprint' || t.id === 'global-dev-subscription' ? 'popular' : '';
+          const isPopular = t.id === 'rapid-mvp-sprint' ? 'popular' : '';
 
           return `
             <div class="tier-pill ${isSelected} ${isPopular}" id="pill-${t.id}" onclick="selectTier('${t.id}')">
